@@ -1,4 +1,5 @@
 <?php
+require "dbConnection.php";
 session_start();
 
 // Verifica se l'utente è autenticato
@@ -205,59 +206,7 @@ if(!isset($_SESSION['email'])) {
                         <h4>Richieste di Amicizia</h4>
                     </div>
 
-                    <div class="request-list row">
-                        <div class="col-md-2">
-                            <img src="images/unkwownPhoto.jpeg">
-                        </div>
-                        <div class="col-md-6">
-                            <h4>Franco Abbiati</h4>
-                        </div>
-                        <div class="col-md-1">
-                            <button class="request-btn accept-btn"><i class="fas fa-check"></i></button>
-                        </div>
-                        <div class="col-md-1"></div>
-                        <div class="col-md-1">
-                            <button class="request-btn reject-btn"><i class="fas fa-times"></i></button>
-                        </div>
-                        <div class="col-md-1"></div>
-                    </div>
-
-                    <div class="request-list row">
-                        <div class="col-md-2">
-                            <img src="images/unkwownPhoto.jpeg">
-                        </div>
-                        <div class="col-md-6">
-                            <h4>Marco Fra</h4>
-                        </div>
-                        <div class="col-md-1">
-                            <button class="request-btn accept-btn"><i class="fas fa-check"></i></button>
-                        </div>
-                        <div class="col-md-1"></div>
-                        <div class="col-md-1">
-                            <button class="request-btn reject-btn"><i class="fas fa-times"></i></button>
-                        </div>
-                        <div class="col-md-1"></div>
-                    </div>
-
-                    <div class="request-list row">
-                        <div class="col-md-2">
-                            <img src="images/unkwownPhoto.jpeg">
-                        </div>
-                        <div class="col-md-6">
-                            <h4>Yo Man</h4>
-                        </div>
-
-                        <div class="col-md-1">
-                            <button class="request-btn accept-btn"><i class="fas fa-check"></i></button>
-                        </div>
-                        <div class="col-md-1"></div>
-                        <div class="col-md-1">
-                            <button class="request-btn reject-btn"><i class="fas fa-times"></i></button>
-                        </div>
-                        <div class="col-md-1"></div>
-                    </div>
-
-
+                    <?php include "friendRequests.php"; ?>
                 </div>
             </div>
         </div>
