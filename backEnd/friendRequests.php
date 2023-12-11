@@ -2,7 +2,7 @@
 try {
     // Esegui la query per ottenere le richieste di amicizia
     $emailUtenteLoggato = $_SESSION['email'];
-    $sql = "SELECT utente.nome, utente.cognome
+    $sql = "SELECT utente.nome, utente.cognome, utente.email
         FROM amicizia
         INNER JOIN utente ON amicizia.emailRichiedente = utente.email
         WHERE amicizia.emailRicevitore = '$emailUtenteLoggato'
@@ -20,11 +20,11 @@ try {
             echo "      <h4>" . $row['nome'] . " " . $row['cognome'] . "</h4>";
             echo "  </div>";
             echo "  <div class='col-md-1'>";
-            echo "      <button class='request-btn accept-btn'><i class='fas fa-check'></i></button>";
+            echo "      <button class='request-btn accept-btn' onclick='friendshipAccepted(\"{$emailUtenteLoggato}\", \"{$row['email']}\")'><i class='fas fa-check'></i></button>";
             echo "  </div>";
             echo "  <div class='col-md-1'></div>";
             echo "  <div class='col-md-1'>";
-            echo "      <button class='request-btn reject-btn'><i class='fas fa-times'></i></button>";
+            echo "      <button class='request-btn reject-btn' onclick='friendshipDenied(\"{$emailUtenteLoggato}\", \"{$row['email']}\")'><i class='fas fa-times'></i></button>";
             echo "  </div>";
             echo "  <div class='col-md-1'></div>";
             echo "</div>";

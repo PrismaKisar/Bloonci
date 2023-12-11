@@ -25,7 +25,10 @@ if (!isset($_SESSION['email'])) {
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/797b14a0a3.js" crossorigin="anonymous"></script>
     <link rel="icon" href="images/logo_bloonci_380x380.png" type="image/icon type">
-    <script src="javaScript/autoResize.js"></script>
+    <script src="javaScript/util.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
 </head>
 
 <body style="background: #eeeeee;">
@@ -154,7 +157,7 @@ if (!isset($_SESSION['email'])) {
                         </div>
                         <div class="right-birthday">
                             <h4>Sofia Buda</h4>
-                            <p> <i class="fa-solid fa-cake-candles"></i> compie 16 anni</p>
+                            <p> <i class="fa-solid fa-cake-candles"></i> compie 22 anni</p>
                         </div>
                     </div>
 
@@ -165,7 +168,7 @@ if (!isset($_SESSION['email'])) {
                         </div>
                         <div class="right-birthday">
                             <h4>Gesù da Nazaret</h4>
-                            <p> <i class="fa-solid fa-cake-candles"></i> compie 16 anni</p>
+                            <p> <i class="fa-solid fa-cake-candles"></i> compie 2023 anni</p>
                         </div>
                     </div>
 
