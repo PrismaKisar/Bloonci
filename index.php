@@ -11,8 +11,6 @@ if (!isset($_SESSION['email'])) {
 ?>
 
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +31,7 @@ if (!isset($_SESSION['email'])) {
 
 <body style="background: #eeeeee;">
 
-    <!-- Utilizza container-fluid per rendere la navbar larga come lo schermo -->
+    <!-- Navbar -->
     <div class="container-fluid" style="margin-bottom: 40px;">
         <!-- Navbar -->
         <nav class="navbar row" style="padding: 5px 20px; margin-bottom: 10px;">
@@ -62,7 +60,7 @@ if (!isset($_SESSION['email'])) {
         </nav>
     </div>
 
-    <!-- Utilizza container-fluid per il resto della pagina -->
+    <!-- Sezione Centrale -->
     <div class="container-fluid">
         <div class="row">
 
@@ -76,6 +74,21 @@ if (!isset($_SESSION['email'])) {
                     </div>
 
                     <div class="stats">
+                        <p> <i class="fa-solid fa-user"></i> Numero di amici:
+                            <span>
+                                <?php
+                                $emailUtente = $_SESSION['email'];
+                                $sql = "SELECT COUNT(*) AS numAmici
+                                        FROM amicizia
+                                        WHERE emailRichiedente = '$emailUtente' 
+                                        OR emailRicevitore = '$emailUtente'";
+                                $result = $cid->query($sql);
+                                $row = $result->fetch_assoc();
+
+                                echo $row['numAmici'];
+                                ?>
+                            </span>
+                        </p>
                         <p> <i class="fa-solid fa-chart-line"></i> Indice di Rispettabilità:
                             <span>
                                 <?php echo $_SESSION['rispettabilità'] ?>
