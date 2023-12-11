@@ -9,7 +9,7 @@ try {
     $query->execute();
 
     // Se la registrazione va a buon fine
-    if($query->affected_rows > 0) {
+    if ($query->affected_rows > 0) {
         session_start();
 
         // Salva l'email, il nome e il cognome dell'utente nella sessione
@@ -21,7 +21,7 @@ try {
         $cid->close();
 
         // Esegui la ridirezione a index.php
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit();
     } else {
         // Se la registrazione non va a buon fine, gestisci di conseguenza
@@ -32,7 +32,8 @@ try {
 }
 
 // Funzione per ottenere la query preparata
-function getPreparedQuery($cid) {
+function getPreparedQuery($cid)
+{
     $email = $_POST["email"];
     $password = $_POST["password"];
     $first_name = $_POST["first_name"];
@@ -52,8 +53,9 @@ function getPreparedQuery($cid) {
 }
 
 // Funzione per impostare il valore o restituire null
-function setOrDefault($value) {
-    if(isset($_POST[$value]) && $_POST[$value] !== '') {
+function setOrDefault($value)
+{
+    if (isset($_POST[$value]) && $_POST[$value] !== '') {
         return $_POST[$value];
     } else {
         return null;

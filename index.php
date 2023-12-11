@@ -1,11 +1,11 @@
 <?php
-require "dbConnection.php";
+require "backEnd/dbConnection.php";
 session_start();
 
 // Verifica se l'utente è autenticato
-if(!isset($_SESSION['email'])) {
+if (!isset($_SESSION['email'])) {
     // L'utente non è autenticato, gestisci di conseguenza (ad esempio, reindirizzalo alla pagina di login)
-    header("Location: login.html");
+    header("Location: frontEnd/login.html");
     exit();
 }
 ?>
@@ -20,11 +20,12 @@ if(!isset($_SESSION['email'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bloonci</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/myStyle.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/797b14a0a3.js" crossorigin="anonymous"></script>
     <link rel="icon" href="images/logo_bloonci_380x380.png" type="image/icon type">
+    <script src="javaScript/autoResize.js"></script>
 </head>
 
 <body style="background: #eeeeee;">
@@ -46,8 +47,8 @@ if(!isset($_SESSION['email'])) {
                 <div class="nav-user-icon online">
                     <span>
                         <?php
-                        if(isset($_SESSION['email']) && isset($_SESSION['nome'])) {
-                            echo '<span class="nav-user-icon">'.$_SESSION['nome'].' '.$_SESSION['cognome'].'</span>';
+                        if (isset($_SESSION['email']) && isset($_SESSION['nome'])) {
+                            echo '<span class="nav-user-icon">' . $_SESSION['nome'] . ' ' . $_SESSION['cognome'] . '</span>';
                         }
                         ?>
                     </span>
@@ -96,7 +97,7 @@ if(!isset($_SESSION['email'])) {
                         <h4>Amici</h4>
                     </div>
 
-                    <?php include "friendList.php"; ?>
+                    <?php include "backEnd/friendList.php"; ?>
                 </div>
             </div>
 
@@ -117,16 +118,6 @@ if(!isset($_SESSION['email'])) {
                                 oninput="autoResize()"></textarea>
                         </div>
                     </div>
-
-                    <script>
-                        function autoResize() {
-                            const textarea = document.getElementById('autoHeightTextarea');
-                            const container = document.getElementById('dynamicContainer');
-                            textarea.style.height = 'auto';
-                            textarea.style.height = textarea.scrollHeight + 'px';
-                            container.style.height = textarea.scrollHeight + 'px';
-                        }
-                    </script>
 
                     <div class="post-container">
                         <div class="user-profile">
@@ -187,7 +178,7 @@ if(!isset($_SESSION['email'])) {
                         <h4>Richieste di Amicizia</h4>
                     </div>
 
-                    <?php include "friendRequests.php"; ?>
+                    <?php include "backEnd/friendRequests.php"; ?>
                 </div>
             </div>
         </div>

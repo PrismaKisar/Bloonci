@@ -11,11 +11,11 @@ try {
 
 
     // Visualizza dinamicamente le richieste di amicizia
-    if($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
             echo "<div class='request-list'>";
             echo "<img src='images/unkwownPhoto.jpeg'>";
-            echo "<h4>".$row['nome']." ".$row['cognome']."</h4>";
+            echo "<h4>" . $row['nome'] . " " . $row['cognome'] . "</h4>";
             echo "</div>";
         }
     } else {

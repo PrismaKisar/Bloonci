@@ -10,14 +10,14 @@ try {
     $query = getPreparedQuery($cid);
     $result = $cid->query($query);
 
-    if($result) {
+    if ($result) {
         // Controlla se ci sono righe restituite
-        if($result->num_rows > 0) {
+        if ($result->num_rows > 0) {
             // Estrai la riga risultato
             $row = $result->fetch_assoc();
 
             // Verifica la corrispondenza della password con quella fornita
-            if($password == $row['password']) {
+            if ($password == $row['password']) {
                 session_start();
 
                 // Salva l'email, il nome e il cognome dell'utente nella sessione
@@ -27,20 +27,20 @@ try {
                 $_SESSION['rispettabilità'] = $row['rispettabilità'];
 
                 // Esegui la ridirezione a index.html
-                header("Location: index.php");
+                header("Location: ../index.php");
                 exit();
             } else {
                 // Esegui la ridirezione a login.html
-                header("Location: login.html");
+                header("Location: ../frontEnd/login.html");
                 exit();
             }
         } else {
-            header("Location: login.html");
+            header("Location: ../frontEnd/login.html");
             exit();
         }
 
     } else {
-        die("Errore nella query: ".$cid->error);
+        die("Errore nella query: " . $cid->error);
     }
 } catch (Exception $error) {
     echo $error;
@@ -49,7 +49,8 @@ try {
 // Chiudi la connessione al database
 $cid->close();
 
-function getPreparedQuery($cid) {
+function getPreparedQuery($cid)
+{
     $email = $_POST["email"];
     $query = "SELECT email, password, nome, cognome, rispettabilità FROM utente WHERE email = '$email'";
     return $query;
