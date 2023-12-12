@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
             } else if (item.stato_amicizia === 'non amico') {
                 return `<li>
                             <div class="name">${item.nome_completo}</div>
-                            <button class="request-button">richiedi</button>
+                            <button class="request-button" onclick="sendRequest('${item.email}')">Richiedi</button>
                         </li>`;
             }
         });
@@ -49,5 +49,23 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             resultBox.innerHTML = '';
         }
-    }
+    } 
 });
+
+function sendRequest(emailRicevente) {
+    // Effettua una richiesta AJAX per inviare la richiesta di amicizia
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "backEnd/sendRequest.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            // Puoi gestire la risposta della richiesta qui se necessario
+            console.log(xhr.responseText);
+        }
+    };
+
+    // Invia i dati necessari
+    const data = `emailRicevente=${encodeURIComponent(emailRicevente)}`;
+    xhr.send(data);
+}
+
