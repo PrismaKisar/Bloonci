@@ -384,6 +384,9 @@ nav {
     list-style: none;
     border-radius: 15px;
     padding: 6px 10px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
 }
 
 .result-box ul li:hover {
@@ -395,7 +398,7 @@ nav {
     background: white;
     max-height: 300px;
     overflow-y: scroll;
-    border-radius: 25px;
+    border-radius: 20px;
 }
 
 .search-container {
@@ -405,4 +408,22 @@ nav {
 .z-1.position-absolute {
     position: absolute;
     width: 100%;
+}
+
+
+.result-box ul li .name {
+    flex: 1;
+}
+
+.result-box ul li .friend-status {
+    text-align: right;
+}
+
+/* Stili per lo stato di amicizia */
+.result-box ul li .amico {
+    color: green;  /* colore per gli amici */
+}
+
+.result-box ul li .non {
+    color: #737070;  /* colore per chi non è amico */
 }

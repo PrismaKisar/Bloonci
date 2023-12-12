@@ -1,24 +1,28 @@
 <?php
 require "dbConnection.php";
+session_start();
 
-// Recupera tutti i nomi dalla tabella utente
-$sqlNomi = "SELECT CONCAT(nome, ' ', cognome) AS nomeCompleto FROM utente";
-$resultNomi = $cid->query($sqlNomi);
+// Ottieni la lista di nomi con l'informazione sull'amicizia
+$loggedUserEmail = $_SESSION['email'];
+$sql = "SELECT u.email, CONCAT(u.nome, ' ', u.cognome) AS nome_completo,
+               CASE WHEN a.emailRichiedente = '$loggedUserEmail' OR a.emailRicevitore = '$loggedUserEmail' THEN 'amico' ELSE 'non amico' END AS stato_amicizia
+        FROM utente u
+        LEFT JOIN amicizia a ON (u.email = a.emailRichiedente OR u.email = a.emailRicevitore)
+                             AND (a.emailRichiedente = '$loggedUserEmail' OR a.emailRicevitore = '$loggedUserEmail')
+        WHERE u.email != '$loggedUserEmail'";
+$result = $cid->query($sql);
 
-// Verifica se ci sono risultati
-if ($resultNomi->num_rows > 0) {
-    // Inizializza l'array per gli availableKeywords
-    $availableKeywords = array();
+$names = array();
+while ($row = $result->fetch_assoc()) {
 
-    // Itera sui risultati e aggiungi i nomi all'array
-    while ($rowNome = $resultNomi->fetch_assoc()) {
-        $availableKeywords[] = $rowNome['nomeCompleto'];
-    }
-} else {
-    // Nessun risultato trovato, gestisci di conseguenza
-    $availableKeywords = array();
+    $names[] = array(
+        'nome_completo' => $row['nome_completo'],
+        'stato_amicizia' => $row['stato_amicizia']
+    );
 }
+//var_dump($names);
+// Restituisci la lista come JSON
+echo json_encode($names);
 
-// Restituisci l'array come JSON
-echo json_encode($availableKeywords);
+// ... Altri codici ...
 ?>

@@ -18,29 +18,29 @@ document.addEventListener("DOMContentLoaded", function() {
     inputBox.onkeyup = function(){
         let result = [];
         let input = inputBox.value;
-
-
+    
         if (input.length) {
-            result = availableKeywords.filter((keyword)=>{
-                return keyword.toLowerCase().includes(input.toLowerCase());
+            result = availableKeywords.filter((item) => {
+                return item.nome_completo.toLowerCase().includes(input.toLowerCase());
             });
-            console.log(result);
-            display(result)
+            display(result);
+        } else {
+            resultBox.innerHTML = '';
         }
-
-
     };
 
     function display(result) {
-        const content = result.map((list)=>{
-            return "<li>" + list + "</li>";
+        const content = result.map((item) => {
+            return `<li>
+                        <div class="name">${item.nome_completo}</div>
+                        <div class="friend-status ${item.stato_amicizia}">${item.stato_amicizia}</div>
+                    </li>`;
         });
-
-        if (content.length != 0) {
-            resultBox.innerHTML = "<ul>" + content.join('') + "</ul>";
+    
+        if (content.length !== 0) {
+            resultBox.innerHTML = `<ul>${content.join('')}</ul>`;
         } else {
-            resultBox.innerHTML = "";
+            resultBox.innerHTML = '';
         }
-
     }
 });
