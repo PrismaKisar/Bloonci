@@ -31,10 +31,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function display(result) {
         const content = result.map((item) => {
-            return `<li>
-                        <div class="name">${item.nome_completo}</div>
-                        <div class="friend-status ${item.stato_amicizia}">${item.stato_amicizia}</div>
-                    </li>`;
+            if (item.stato_amicizia === 'amico') {
+                return `<li>
+                            <div class="name">${item.nome_completo}</div>
+                            <div class="friend-status amico">${item.stato_amicizia}</div>
+                        </li>`;
+            } else if (item.stato_amicizia === 'non amico') {
+                return `<li>
+                            <div class="name">${item.nome_completo}</div>
+                            <button class="request-button">richiedi</button>
+                        </li>`;
+            }
         });
     
         if (content.length !== 0) {
