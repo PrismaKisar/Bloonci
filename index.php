@@ -84,18 +84,7 @@ if (!isset($_SESSION['email'])) {
                         <div class="stats">
                             <p> <i class="fa-solid fa-user"></i> Numero di amici:
                                 <span>
-                                    <?php
-                                    $emailUtente = $_SESSION['email'];
-                                    $sql = "SELECT COUNT(*) AS numAmici
-                                        FROM amicizia
-                                        WHERE (emailRichiedente = '$emailUtente'
-                                        OR emailRicevitore = '$emailUtente')
-                                        AND dataAccettazione IS NOT NULL";
-                                    $result = $cid->query($sql);
-                                    $row = $result->fetch_assoc();
-
-                                    echo $row['numAmici'];
-                                    ?>
+                                    <?php include "backEnd/friendsNumber.php"; ?>
                                 </span>
                             </p>
                             <p> <i class="fa-solid fa-chart-line"></i> Indice di Rispettabilità:
@@ -103,15 +92,6 @@ if (!isset($_SESSION['email'])) {
                                     <?php echo $_SESSION['rispettabilità'] ?>
                                 </span>
                             </p>
-
-                            <!-- 
-                        <p> <i class="fa-solid fa-square-plus"></i> Post nell'ultimo mese:
-                            <span>23</span>
-                        </p>
-                        <p> <i class="fa-regular fa-heart"></i> Like nell'ultimo mese:
-                            <span>234</span>
-                        </p>
-                        -->
                         </div>
 
                         <hr class="separator">
