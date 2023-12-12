@@ -229,13 +229,13 @@ nav {
 }
 
 .accept-btn {
-    background-color: #4CAF50; /* Colore verde per "Accetta" */
+    background-color: #4CAF50;
     color: white;
     margin-right: 10px;
 }
 
 .reject-btn {
-    background-color: #FF5733; /* Colore rosso per "Rifiuta" */
+    background-color: #FF5733; 
     color: white;
 }
 
@@ -419,13 +419,25 @@ nav {
     text-align: right;
 }
 
-/* Stili per lo stato di amicizia */
 .result-box ul li .amico {
-    color: rgb(170, 170, 170);  /* colore per gli amici */
+    color: rgb(118, 118, 118);
+}
+
+.result-box ul li .inviata {
+    color: rgb(170, 170, 170);
 }
 
 
+
 .request-button {
+    background-color: #004f8012;
+    color: rgba(0, 81, 128, 0.618);
+    border-radius: 10px;
+    padding: 4px;
+    border: none;
+}
+
+.accept-button {
     background-color: #2b800012;
     color: rgba(0, 128, 0, 0.618);
     border-radius: 10px;

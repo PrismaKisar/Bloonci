@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (item.stato_amicizia === 'amico') {
                 return `<li>
                             <div class="name">${item.nome_completo}</div>
-                            <div class="friend-status amico">${item.stato_amicizia}</div>
+                            <div class="friend-status amico">amico</div>
                         </li>`;
             } else if (item.stato_amicizia === 'non amico') {
                 return `<li>
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
             } else if (item.stato_amicizia === 'inviata') {
                 return `<li>
                             <div class="name">${item.nome_completo}</div>
-                            <div class="friend-status amico">${item.stato_amicizia}</div>
+                            <div class="friend-status inviata">inviata</div>
                         </li>`;
             } else {
                 return `<li>
@@ -77,5 +77,6 @@ function sendRequest(emailRicevente) {
     // Invia i dati necessari
     const data = `emailRicevente=${encodeURIComponent(emailRicevente)}`;
     xhr.send(data);
+    location.reload();
 }
 
