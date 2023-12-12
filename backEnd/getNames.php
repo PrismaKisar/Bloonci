@@ -24,7 +24,9 @@ while ($row = $result->fetch_assoc()) {
     $names[] = array(
         'nome_completo' => $row['nome_completo'],
         'stato_amicizia' => $row['stato_amicizia'],
-        'email' => $row['email']
+        'email' => $row['email'],
+        'email_sessione' => $loggedUserEmail // Aggiungi l'email della sessione
+
     );
 }
 //var_dump($names);

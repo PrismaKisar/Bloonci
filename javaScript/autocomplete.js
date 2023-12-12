@@ -39,7 +39,17 @@ document.addEventListener("DOMContentLoaded", function() {
             } else if (item.stato_amicizia === 'non amico') {
                 return `<li>
                             <div class="name">${item.nome_completo}</div>
-                            <button class="request-button" onclick="sendRequest('${item.email}')">Richiedi</button>
+                            <button class="request-button" onclick="sendRequest('${item.email}')">richiedi</button>
+                        </li>`;
+            } else if (item.stato_amicizia === 'inviata') {
+                return `<li>
+                            <div class="name">${item.nome_completo}</div>
+                            <div class="friend-status amico">${item.stato_amicizia}</div>
+                        </li>`;
+            } else {
+                return `<li>
+                            <div class="name">${item.nome_completo}</div>
+                            <button class="accept-button" onclick="friendshipAccepted('${item.email_sessione}','${item.email}')">accetta</button>
                         </li>`;
             }
         });
