@@ -376,13 +376,14 @@ nav {
 .result-box ul {
     border-top: 1px solid #b3b3b3;
     padding: 10px 10px;
+    margin-bottom: 0px;
 }
 
 .result-box ul li {
     color: #737070;
     list-style: none;
     border-radius: 15px;
-    padding: 10px 10px;
+    padding: 6px 10px;
 }
 
 .result-box ul li:hover {

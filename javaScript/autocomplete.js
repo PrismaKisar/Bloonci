@@ -26,8 +26,6 @@ document.addEventListener("DOMContentLoaded", function() {
             });
             console.log(result);
             display(result)
-        } else {
-            resultBox.innerHTML = '';
         }
 
 
@@ -38,6 +36,11 @@ document.addEventListener("DOMContentLoaded", function() {
             return "<li>" + list + "</li>";
         });
 
-        resultBox.innerHTML = "<ul>" + content.join('') + "</ul>";
+        if (content.length != 0) {
+            resultBox.innerHTML = "<ul>" + content.join('') + "</ul>";
+        } else {
+            resultBox.innerHTML = "";
+        }
+
     }
 });

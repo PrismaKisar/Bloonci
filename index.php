@@ -48,7 +48,7 @@ if (!isset($_SESSION['email'])) {
                         </div>
 
                         <div class="z-1 position-absolute">
-                            <div class="result-box">
+                            <div class="result-box" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); margin-top: 2px;">
                             </div>
                         </div>
                     </div>
