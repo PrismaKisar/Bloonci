@@ -12,34 +12,9 @@ body {
     background: linear-gradient(to right, #3498db, #2ecc71);
 }
 
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #1876f2;
-    padding: 5px 5%;
-    position: sticky;
-    z-index: 100;
-}
-
 .logo {
     width: 160px;
     margin-right: 45px;
-}
-
-.nav-left, .nav-right{
-    display: flex;
-    align-items: center;
-}
-
-.nav-left ul li {
-    list-style: none;
-    display: inline-block;
-}
-
-.nav-left ul li img {
-    width: 28px;
-    margin: 0 15px;
 }
 
 .nav-user-icon img {
@@ -419,6 +394,7 @@ nav {
 
 .search-container {
     position: relative;
+   
 }
 
 .z-1.position-absolute {

@@ -35,9 +35,9 @@ if (!isset($_SESSION['email'])) {
         <!-- Navbar -->
         <div class="container-fluid" style="margin-bottom: 20px;">
             <!-- Navbar -->
-            <nav class="navbar row" style="padding: 5px 20px; margin-bottom: 10px;">
+            <nav class="navbar row">
                 <div class="col-12 d-flex justify-content-between align-items-center">
-                    <div class="nav-left">
+                    <div class="nav-brand">
                         <img src="images/scritta_bloonci_bianca.png" class="logo">
                     </div>
 
@@ -53,13 +53,19 @@ if (!isset($_SESSION['email'])) {
                         </div>
                     </div>
 
-                    <div class="nav-user-icon online">
-                        <span>
-                            <?php echo '<span class="nav-user-icon">' . $_SESSION['nome'] . ' ' . $_SESSION['cognome'] . '</span>'; ?>
-                        </span>
-                        <img src="images/notification.png" alt="Notification Icon">
-                        <img src="images/unkwownPhoto.jpeg" alt="User Photo">
+
+                    <div style="display: flex; align-items: center;">
+                        <div class="nav-user-icon d-none d-lg-block">
+                            <span>
+                                <?php echo '<span class="nav-user-icon">' . $_SESSION['nome'] . ' ' . $_SESSION['cognome'] . '</span>'; ?>
+                            </span>
+                        </div>
+
+                        <div class="nav-user-icon d-none d-md-block">
+                            <img src="images/unkwownPhoto.jpeg" alt="User Photo">
+                        </div>
                     </div>
+
                 </div>
             </nav>
         </div>
