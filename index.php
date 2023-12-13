@@ -55,11 +55,7 @@ if (!isset($_SESSION['email'])) {
 
                     <div class="nav-user-icon online">
                         <span>
-                            <?php
-                            if (isset($_SESSION['email']) && isset($_SESSION['nome'])) {
-                                echo '<span class="nav-user-icon">' . $_SESSION['nome'] . ' ' . $_SESSION['cognome'] . '</span>';
-                            }
-                            ?>
+                            <?php echo '<span class="nav-user-icon">' . $_SESSION['nome'] . ' ' . $_SESSION['cognome'] . '</span>'; ?>
                         </span>
                         <img src="images/notification.png" alt="Notification Icon">
                         <img src="images/unkwownPhoto.jpeg" alt="User Photo">
@@ -73,7 +69,7 @@ if (!isset($_SESSION['email'])) {
             <div class="row">
 
                 <!-- Sidebar sinistra -->
-                <div class="col-md-3">
+                <div class="col-md-3 d-none d-md-block">
                     <div class="left-sidebar">
 
                         <!--   Statistiche    -->
@@ -118,8 +114,8 @@ if (!isset($_SESSION['email'])) {
                             </div>
 
                             <div class="post-input-container">
-                                <textarea rows="1" id="autoHeightTextarea"
-                                    placeholder="Cos'hai in mente in questo momento?" oninput="autoResize()"></textarea>
+                                <textarea rows="1" id="autoHeightTextarea" placeholder="Cos'hai in mente?"
+                                    oninput="autoResize()"></textarea>
                             </div>
                         </div>
 
@@ -145,45 +141,21 @@ if (!isset($_SESSION['email'])) {
                 </div>
 
                 <!-- Sidebar destra -->
-                <div class="col-md-3">
+                <div class="col-md-3 d-none d-md-block">
                     <div class="right-sidebar">
 
                         <!--   Compleanni    -->
                         <div class="sidebar-title">
                             <h4>Compleanni</h4>
                         </div>
-
-                        <div class="birthday">
-                            <div class="left-birthday">
-                                <h3>8</h3>
-                                <span>Dicembre</span>
-                            </div>
-                            <div class="right-birthday">
-                                <h4>Sofia Buda</h4>
-                                <p> <i class="fa-solid fa-cake-candles"></i> compie 22 anni</p>
-                            </div>
-                        </div>
-
-                        <div class="birthday">
-                            <div class="left-birthday">
-                                <h3>25</h3>
-                                <span>Dicembre</span>
-                            </div>
-                            <div class="right-birthday">
-                                <h4>Gesù da Nazaret</h4>
-                                <p> <i class="fa-solid fa-cake-candles"></i> compie 2023 anni</p>
-                            </div>
-                        </div>
+                        <?php include "backEnd/birthdays.php"; ?>
 
                         <hr class="separator">
 
-
                         <!--  Richieste di Amicizia  -->
-
                         <div class="sidebar-title">
                             <h4>Richieste di Amicizia</h4>
                         </div>
-
                         <?php include "backEnd/friendRequests.php"; ?>
                     </div>
                 </div>

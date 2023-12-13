@@ -12,21 +12,15 @@ try {
     // Visualizza dinamicamente le richieste di amicizia
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo "<div class='request-list row'>";
-            echo "  <div class='col-md-2'>";
-            echo "      <img src='images/unkwownPhoto.jpeg'>";
-            echo "  </div>";
-            echo "  <div class='col-md-6'>";
+            echo "<div class='request-list'>";
+            echo "  <img src='images/unkwownPhoto.jpeg' alt='User Photo'>";
+            echo "  <div class='request-info'>";
             echo "      <h4>" . $row['nome'] . " " . $row['cognome'] . "</h4>";
-            echo "  </div>";
-            echo "  <div class='col-md-1'>";
-            echo "      <button class='request-btn accept-btn' onclick='friendshipAccepted(\"{$emailUtenteLoggato}\", \"{$row['email']}\")'><i class='fas fa-check'></i></button>";
-            echo "  </div>";
-            echo "  <div class='col-md-1'></div>";
-            echo "  <div class='col-md-1'>";
-            echo "      <button class='request-btn reject-btn' onclick='friendshipDenied(\"{$emailUtenteLoggato}\", \"{$row['email']}\")'><i class='fas fa-times'></i></button>";
-            echo "  </div>";
-            echo "  <div class='col-md-1'></div>";
+            echo "      <div class='buttons-container'>";
+            echo "          <button class='accept-btn' onclick='friendshipAccepted(\"{$emailUtenteLoggato}\", \"{$row['email']}\")'><i class='fas fa-check'></i></button>";
+            echo "          <button class='reject-btn' onclick='friendshipDenied(\"{$emailUtenteLoggato}\", \"{$row['email']}\")'><i class='fas fa-times'></i></button>";
+            echo "      </div>";
+            echo "   </div>";
             echo "</div>";
         }
     } else {

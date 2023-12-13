@@ -8,12 +8,10 @@ try {
             OR (amicizia.emailRicevitore = utente.email AND amicizia.emailRichiedente = '$emailUtenteLoggato' AND amicizia.dataAccettazione IS NOT NULL);";
     $result = $cid->query($sql);
 
-
-
     // Visualizza dinamicamente le richieste di amicizia
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo "<div class='request-list'>";
+            echo "<div class='friend-list'>";
             echo "<img src='images/unkwownPhoto.jpeg'>";
             echo "<h4>" . $row['nome'] . " " . $row['cognome'] . "</h4>";
             echo "</div>";

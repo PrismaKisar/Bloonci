@@ -9,7 +9,7 @@ body {
 }
 
 .navbar {
-    background: linear-gradient(to right, #3498db, #2ecc71); /* Cambia i colori a tuo piacimento */
+    background: linear-gradient(to right, #3498db, #2ecc71);
 }
 
 nav {
@@ -195,13 +195,34 @@ nav {
     margin: 9px;
 }
 
+.friend-list {
+    display: flex;
+    margin: 9px;
+    align-items: center;
+}
+
+
 .request-list img {
     width: 38px;
     border-radius: 50%;
     margin-right: 10px;
 }
 
+.friend-list img {
+    width: 38px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
 .request-list h4 {
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.friend-list h4 {
     font-weight: 500;
     font-size: 16px;
     margin-top: 6px;
@@ -229,23 +250,18 @@ nav {
 }
 
 .accept-btn {
-    background-color: #4CAF50;
-    color: white;
-    margin-right: 10px;
+    background-color: #2b80002d;
+    color: rgba(0, 128, 0, 0.618);
 }
 
 .reject-btn {
-    background-color: #FF5733; 
-    color: white;
+    background-color: #ff2f0036; 
+    color: #e20000a1;
 }
 
 .buttons-column {
     display: flex;
     flex-direction: column;
-}
-
-.request-btn {
-    margin-top: 5px;
 }
 
 .write-post-container {
@@ -427,8 +443,6 @@ nav {
     color: rgb(170, 170, 170);
 }
 
-
-
 .request-button {
     background-color: #004f8012;
     color: rgba(0, 81, 128, 0.618);
@@ -438,9 +452,16 @@ nav {
 }
 
 .accept-button {
-    background-color: #2b800012;
+    background-color: #2b80000c;
     color: rgba(0, 128, 0, 0.618);
     border-radius: 10px;
     padding: 4px;
     border: none;
+}
+
+.request-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
 }
