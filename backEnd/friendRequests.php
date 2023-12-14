@@ -1,6 +1,5 @@
 <?php
 try {
-    // Esegui la query per ottenere le richieste di amicizia
     $emailUtenteLoggato = $_SESSION['email'];
     $sql = "SELECT utente.nome, utente.cognome, utente.email
         FROM amicizia
@@ -9,7 +8,6 @@ try {
         AND amicizia.dataAccettazione IS NULL";
     $result = $cid->query($sql);
 
-    // Visualizza dinamicamente le richieste di amicizia
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             echo "<div class='request-list'>";

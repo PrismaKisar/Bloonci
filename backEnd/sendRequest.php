@@ -1,6 +1,4 @@
 <?php
-// sendRequest.php
-
 require "dbConnection.php";
 session_start();
 
@@ -10,7 +8,6 @@ try {
         $emailRicevente = $_POST['emailRicevente'];
         $dataRichiesta = date("Y-m-d");
 
-        // Esegui l'inserimento nella tabella amicizia
         $sql = "INSERT INTO amicizia (emailRichiedente, emailRicevitore, dataRichiesta) VALUES ('$emailRichiedente', '$emailRicevente', '$dataRichiesta')";
         $result = $cid->query($sql);
 

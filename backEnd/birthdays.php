@@ -1,19 +1,19 @@
 <?php
 try {
-    // Esegui la query per ottenere le richieste di amicizia
     $emailUtenteLoggato = $_SESSION['email'];
     $sql = "SELECT 
-                DAY(u.dataNascita) AS giorno_compleanno,
-                MONTHNAME(u.dataNascita) AS mese_compleanno,
-                CONCAT(u.nome, ' ', u.cognome) AS nome_completo,
-                YEAR(CURDATE()) - YEAR(u.dataNascita) AS anni_compie
-            FROM 
-                utente u
-            JOIN 
-                amicizia a ON u.email = a.emailRichiedente OR u.email = a.emailRicevitore
-            WHERE 
-                (a.emailRichiedente = '$emailUtenteLoggato' OR a.emailRicevitore = '$emailUtenteLoggato')
-                AND (DATE_ADD(u.dataNascita, INTERVAL (YEAR(CURDATE()) - YEAR(u.dataNascita)) YEAR) BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 1 MONTH));";
+    DAY(u.dataNascita) AS giorno_compleanno,
+    MONTHNAME(u.dataNascita) AS mese_compleanno,
+    CONCAT(u.nome, ' ', u.cognome) AS nome_completo,
+    YEAR(CURDATE()) - YEAR(u.dataNascita) AS anni_compie
+FROM 
+    utente u
+JOIN 
+    amicizia a ON u.email = a.emailRichiedente OR u.email = a.emailRicevitore
+WHERE 
+    ((a.emailRichiedente = '$emailUtenteLoggato' OR a.emailRicevitore = '$emailUtenteLoggato') AND a.dataAccettazione IS NOT NULL)
+    AND (DATE_ADD(u.dataNascita, INTERVAL (YEAR(CURDATE()) - YEAR(u.dataNascita)) YEAR) BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 1 MONTH))
+    AND u.email != '$emailUtenteLoggato';";
     $result = $cid->query($sql);
 
     // Visualizza dinamicamente le richieste di amicizia

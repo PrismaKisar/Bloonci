@@ -2,7 +2,6 @@
 require "dbConnection.php";
 session_start();
 
-// Ottieni la lista di nomi con l'informazione sull'amicizia
 $loggedUserEmail = $_SESSION['email'];
 $sql = "SELECT u.email, CONCAT(u.nome, ' ', u.cognome) AS nome_completo,
             CASE
@@ -20,18 +19,13 @@ $result = $cid->query($sql);
 
 $names = array();
 while ($row = $result->fetch_assoc()) {
-
     $names[] = array(
         'nome_completo' => $row['nome_completo'],
         'stato_amicizia' => $row['stato_amicizia'],
         'email' => $row['email'],
-        'email_sessione' => $loggedUserEmail // Aggiungi l'email della sessione
-
+        'email_sessione' => $loggedUserEmail
     );
 }
-//var_dump($names);
-// Restituisci la lista come JSON
-echo json_encode($names);
 
-// ... Altri codici ...
+echo json_encode($names);
 ?>

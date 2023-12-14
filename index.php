@@ -4,7 +4,6 @@ session_start();
 
 // Verifica se l'utente è autenticato
 if (!isset($_SESSION['email'])) {
-    // L'utente non è autenticato, gestisci di conseguenza (ad esempio, reindirizzalo alla pagina di login)
     header("Location: frontEnd/login.html");
     exit();
 }
@@ -91,7 +90,7 @@ if (!isset($_SESSION['email'])) {
                             </p>
                             <p> <i class="fa-solid fa-chart-line"></i> Indice di Rispettabilità:
                                 <span>
-                                    <?php echo $_SESSION['rispettabilità'] ?>
+                                    <?php include "backEnd/getRispettabilità.php"; ?>
                                 </span>
                             </p>
                         </div>
