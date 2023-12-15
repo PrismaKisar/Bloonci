@@ -136,6 +136,19 @@ body {
     margin-bottom: 0;
 }
 
+.birthday h4 a {
+    color: #626262;
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 6px;
+    margin-bottom: 0;
+    text-decoration: none;
+}
+
+.birthday h4 a:hover {
+    color: #3a3a3a;
+}
+
 .birthday h3 {
     font-weight:700;
     font-size: 25px;
@@ -190,18 +203,20 @@ body {
 }
 
 
-.request-list h4 {
+.request-list h4, .friend-list h4 {
     font-weight: 500;
     font-size: 16px;
     margin-top: 6px;
     margin-bottom: 6px;
 }
 
-.friend-list h4 {
-    font-weight: 500;
-    font-size: 16px;
-    margin-top: 6px;
-    margin-bottom: 6px;
+.request-list h4 a, .friend-list h4 a {
+    text-decoration: none;
+    color: #626262;
+} 
+
+.request-list h4 a:hover, .friend-list h4 a:hover {
+    color: #000000;
 }
 
 .stats p {
@@ -471,4 +486,13 @@ body {
 
 .logout a:hover {
     color: rgba(255, 36, 36, 0.898); 
+}
+
+.name-post a {
+    text-decoration: none;
+    color: #626262;
+}
+
+.name-post a:hover {
+    color: #333333;
 }

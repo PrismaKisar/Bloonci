@@ -25,7 +25,7 @@ WHERE
             echo "      <span>" . $row['mese_compleanno'] . "</span>";
             echo "  </div>";
             echo "  <div class=\"right-birthday\">";
-            echo "      <h4>" . $row['nome_completo'] . "</h4>";
+            echo "      <h4><a href=\"\">" . $row['nome_completo'] . "</a></h4>";
             echo "      <p> <i class=\"fa-solid fa-cake-candles\"></i> compie " . $row['anni_compie'] . " anni</p>";
             echo "  </div>";
             echo "</div>";

@@ -112,9 +112,9 @@ if (!isset($_SESSION['email'])) {
                         <div class="write-post-container" style="height: 50%;">
                             <div class="user-profile">
                                 <img src="images/unkwownPhoto.jpeg">
-                                <div>
-                                    <p>Alessandro Sarchi</p>
-                                    <small>Public <i class="fa-solid fa-earth-americas"></i></small>
+                                <div class="name-post">
+                                    <p><a href="#">Alessandro Sarchi</a></p>
+                                    <small>Public <i class=" fa-solid fa-earth-americas"></i></small>
                                 </div>
                             </div>
 
@@ -127,8 +127,8 @@ if (!isset($_SESSION['email'])) {
                         <div class="post-container">
                             <div class="user-profile">
                                 <img src="images/unkwownPhoto.jpeg">
-                                <div>
-                                    <p>Marco Abbiati</p>
+                                <div class="name-post">
+                                    <p><a href="#">Marco Abbiati</a></p>
                                     <small>25 Luglio 2017, 13:45</small>
                                 </div>
                             </div>

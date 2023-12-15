@@ -11,7 +11,7 @@ try {
         while ($row = $result->fetch_assoc()) {
             echo "<div class='friend-list'>";
             echo "<img src='images/unkwownPhoto.jpeg'>";
-            echo "<h4>" . $row['nome'] . " " . $row['cognome'] . "</h4>";
+            echo "<h4><a href=\"\">" . $row['nome'] . " " . $row['cognome'] . "</a></h4>";
             echo "</div>";
         }
     } else {
