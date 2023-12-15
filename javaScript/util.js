@@ -45,3 +45,23 @@ function friendshipDenied(emailUtente, emailAmico) {
         }
     });
 }
+
+function friendshipRemoved(emailUtente, emailAmico) {
+    var dataToSend = {
+        emailUtente: emailUtente,
+        emailAmico: emailAmico
+    };
+
+    $.ajax({
+        type: "POST",
+        url: 'backEnd/friendshipRemoved.php',
+        data: dataToSend,
+        success: function(response) {
+            console.log(response);
+            location.reload();
+        },
+        error: function(error) {
+            console.error(error);
+        }
+    });
+}

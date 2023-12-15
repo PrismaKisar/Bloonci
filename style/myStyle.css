@@ -259,6 +259,16 @@ body {
     color: #e20000e2;
 }
 
+.remove-btn {
+    background-color: transparent; 
+    color: #e20000a1;
+    border: none;
+}
+
+.remove-btn:hover {
+    color: #e20000e2;
+}
+
 .buttons-column {
     display: flex;
     flex-direction: column;
