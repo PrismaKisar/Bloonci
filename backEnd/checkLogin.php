@@ -5,9 +5,7 @@ $email = $cid->real_escape_string($_POST["email"]);
 $password = $cid->real_escape_string($_POST["password"]);
 
 try {
-    $email = $_POST["email"];
     $query = "SELECT email, password, nome, cognome FROM utente WHERE email = '$email'";
-
     $result = $cid->query($query);
 
     if ($result) {
@@ -23,11 +21,11 @@ try {
                 header("Location: ../index.php");
                 exit();
             } else {
-                header("Location: ../frontEnd/login.html");
+                header("Location: ../frontEnd/login.html?error=loginerror");
                 exit();
             }
         } else {
-            header("Location: ../frontEnd/login.html");
+            header("Location: ../frontEnd/login.html?error=loginerror");
             exit();
         }
 

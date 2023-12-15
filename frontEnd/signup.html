@@ -11,6 +11,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <script defer src="../javaScript/checkForm.js"></script>
+    <script defer src="../javaScript/checkSignupEmail.js"></script>
+
 </head>
 
 <body>
@@ -29,6 +31,8 @@
                     <div class="card shadow-lg">
                         <div class="card-body p-5">
                             <h1 class="fs-4 card-title fw-bold mb-4">Sign up</h1>
+                            <div id="error-message" class="text-danger" style="color: #be2937db; padding-bottom: 8px;">
+                            </div>
 
                             <!-- Form -->
                             <form method="POST" class="needs-validation" action="../backEnd/checkSignup.php" id="form"
@@ -144,14 +148,26 @@
         </div>
     </section>
 
-
-
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Controlla se ci sono errori nei parametri GET
+            const urlParams = new URLSearchParams(window.location.search);
+            const error = urlParams.get('error');
+            const errorMessageElement = document.getElementById('error-message');
+
+            if (error === 'exists') {
+                errorMessageElement.innerText = "Questa email è già registrata";
+            } else if (error === 'registration_failed') {
+                errorMessageElement.innerText = "Errore durante la registrazione. Riprova più tardi.";
+            }
+        });
+    </script>
 </body>
 
 </html>
