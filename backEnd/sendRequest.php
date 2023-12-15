@@ -10,7 +10,6 @@ try {
 
         $sql = "INSERT INTO amicizia (emailRichiedente, emailRicevitore, dataRichiesta) VALUES ('$emailRichiedente', '$emailRicevente', '$dataRichiesta')";
         $result = $cid->query($sql);
-
     }
 } catch (Exception $error) {
     echo $error;

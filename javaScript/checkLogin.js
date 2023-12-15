@@ -7,5 +7,4 @@ document.addEventListener("DOMContentLoaded", function () {
     if (error === 'loginerror') {
         errorMessageElement.innerText = "Email o Password non corretti";
     } 
-
 });
