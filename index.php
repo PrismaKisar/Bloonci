@@ -149,6 +149,10 @@ if (!isset($_SESSION['email'])) {
                 <div class="col-md-3 d-none d-md-block">
                     <div class="right-sidebar">
 
+                        <div class="logout">
+                            <a href="backEnd/logout.php">Logout</a>
+                        </div>
+
                         <!--   Compleanni    -->
                         <div class="sidebar-title">
                             <h4>Compleanni</h4>

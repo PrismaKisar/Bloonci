@@ -229,9 +229,19 @@ body {
     color: rgba(0, 128, 0, 0.618);
 }
 
+.accept-btn:hover {
+    background-color: #2b800053;
+    color: rgba(0, 128, 0, 0.898);
+}
+
 .reject-btn {
     background-color: #ff2f0036; 
     color: #e20000a1;
+}
+
+.reject-btn:hover {
+    background-color: #ff2f0055; 
+    color: #e20000e2;
 }
 
 .buttons-column {
@@ -273,8 +283,6 @@ body {
     padding-left: 55px;
     padding-top: 20px;    
     padding-right: 55px;
-    
-
 }
 
 .post-input-container textarea {
@@ -381,11 +389,10 @@ body {
 }
 
 .result-box ul li:hover {
-    background-color: rgb(244, 244, 244);
+    background-color: rgba(244, 244, 244, 0.638);
 }
 
 .result-box {
-    
     background: white;
     max-height: 300px;
     overflow-y: scroll;
@@ -401,7 +408,6 @@ body {
     position: absolute;
     width: 100%;
 }
-
 
 .result-box ul li .name {
     flex: 1;
@@ -427,6 +433,11 @@ body {
     border: none;
 }
 
+.request-button:hover {
+    background-color: #004f8040;
+    color: rgba(0, 81, 128, 0.869);
+}
+
 .accept-button {
     background-color: #2b80000c;
     color: rgba(0, 128, 0, 0.618);
@@ -435,9 +446,29 @@ body {
     border: none;
 }
 
+.accept-button:hover {
+    background-color: #2b800028;
+    color: rgba(0, 128, 0, 0.891);
+}
+
 .request-info {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-grow: 1;
+}
+
+.logout {
+    cursor: pointer;
+    padding-bottom: 20px;
+}
+
+.logout a {
+    font-weight: 800;
+    text-decoration: none;
+    color: rgba(255, 3, 3, 0.509);
+}
+
+.logout a:hover {
+    color: rgba(255, 36, 36, 0.898); 
 }
