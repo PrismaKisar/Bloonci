@@ -7,7 +7,7 @@ $email_check_query = $cid->query("SELECT COUNT(*) as count FROM utente WHERE ema
 $email_exists_result = $email_check_query->fetch_assoc();
 
 if ($email_exists_result['count'] > 0) {
-    header("Location: ../frontEnd/signup.html?error=exists");
+    header("Location: ../frontEnd/signup.php?error=exists");
     exit();
 } else {
     $email = $cid->real_escape_string($_POST["email"]);
@@ -35,7 +35,7 @@ if ($email_exists_result['count'] > 0) {
             header("Location: ../index.php");
             exit();
         } else {
-            header("Location: ../frontEnd/signup.html?error=registration_failed");
+            header("Location: ../frontEnd/signup.php?error=registration_failed");
             exit();
         }
     } catch (Exception $error) {
