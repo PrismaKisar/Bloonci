@@ -1,6 +1,5 @@
 <?php
 require "dbConnection.php";
-session_start();
 $emailUtente = $_SESSION['email'];
 $sql = "SELECT COUNT(*) AS numAmici
         FROM amicizia
