@@ -29,7 +29,7 @@ body {
 
 .search-box {
     background-color: #ffffff;
-    width: 350px;
+    width: 100%;
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -46,6 +46,16 @@ body {
     padding: 10px;
     outline: none;
     border: 0;
+}
+
+@media (min-width: 768px) {
+    .search-box {
+        width: auto;
+    }
+    
+    .search-box input {
+        width: 300px; 
+    }
 }
 
 .container {
@@ -426,7 +436,7 @@ body {
 
 .search-container {
     position: relative;
-   
+    width: max-content;
 }
 
 .z-1.position-absolute {

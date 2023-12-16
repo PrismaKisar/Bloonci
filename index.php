@@ -30,18 +30,16 @@ if (!isset($_SESSION['email'])) {
 
 <body style="background: #eeeeee;">
 
-    <div class=" z-0 position-absolute container-fluid p-0">
+    <div class="z-0">
         <!-- Navbar -->
         <div class="container-fluid" style="margin-bottom: 20px;">
             <!-- Navbar -->
             <nav class="navbar row">
-                <div class="col-12 d-flex justify-content-between align-items-center">
-                    <div class="nav-brand">
-                        <img src="images/scritta_bloonci_bianca.png" class="logo">
-                    </div>
+                <div class="container-fluid">
+                    <img src="images/scritta_bloonci_bianca.png" class="logo nav-brand">
 
                     <div class="search-container">
-                        <div class="search-box mx-auto">
+                        <div class="search-box">
                             <img src="images/search.png" alt="Search Icon">
                             <input type="text" id="input-box" placeholder="Search">
                         </div>
@@ -137,11 +135,7 @@ if (!isset($_SESSION['email'])) {
                                 lol
                             </p>
                             <img src="images/feed-image-1.png" class="post-img">
-
-                            <!-- Utilizzo della griglia di Bootstrap per organizzare i like e i commenti -->
-
                         </div>
-
                     </div>
                 </div>
 
