@@ -165,7 +165,9 @@ if (!isset($_SESSION['email'])) {
             </div>
         </div>
     </div>
-
+    <footer class="container-fluid text-center p-3" style="background: transparent; color: #b9b9b9;">
+        <p>&copy; 2023 Bloonci - All rights reserved</p>
+    </footer>
 </body>
 
 </html>
