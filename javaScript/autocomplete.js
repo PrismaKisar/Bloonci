@@ -33,22 +33,26 @@ document.addEventListener("DOMContentLoaded", function() {
         const content = result.map((item) => {
             if (item.stato_amicizia === 'amico') {
                 return `<li>
-                            <div class="name">${item.nome_completo}</div>
+                            <a href="frontEnd/bachecaAmico.php?emailCorrente=${item.email}" id="redirectToPageWithInfo">    
+                            <div class="name">${item.nome_completo}</div></a>
                             <div class="friend-status amico">amico</div>
                         </li>`;
             } else if (item.stato_amicizia === 'non amico') {
                 return `<li>
-                            <div class="name">${item.nome_completo}</div>
+                            <a href="frontEnd/bachecaAmico.php?emailCorrente=${item.email}" id="redirectToPageWithInfo">    
+                            <div class="name">${item.nome_completo}</div></a>
                             <button class="request-button" onclick="sendRequest('${item.email}')">richiedi</button>
                         </li>`;
             } else if (item.stato_amicizia === 'inviata') {
                 return `<li>
-                            <div class="name">${item.nome_completo}</div>
+                            <a href="frontEnd/bachecaAmico.php?emailCorrente=${item.email}" id="redirectToPageWithInfo">    
+                            <div class="name">${item.nome_completo}</div></a>
                             <div class="friend-status inviata">inviata</div>
                         </li>`;
             } else {
                 return `<li>
-                            <div class="name">${item.nome_completo}</div>
+                            <a href="frontEnd/bachecaAmico.php?emailCorrente=${item.email}" id="redirectToPageWithInfo">    
+                            <div class="name">${item.nome_completo}</div></a>
                             <button class="accept-button" onclick="friendshipAccepted('${item.email_sessione}','${item.email}')">accetta</button>
                         </li>`;
             }
