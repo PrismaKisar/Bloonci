@@ -16,6 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($cid->query($sql) === TRUE) {
         echo "Modifiche salvate con successo!";
+        $_SESSION['nome'] = $nuovoNome;
+        $_SESSION['cognome'] = $nuovoCognome;
     } else {
         echo "Errore durante il salvataggio delle modifiche: " . $cid->error;
     }

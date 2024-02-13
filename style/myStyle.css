@@ -202,6 +202,7 @@ body {
     display: flex;
     margin: 3px;
     align-items: center;
+    justify-content: space-between;
 }
 
 .info-list {

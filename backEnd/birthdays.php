@@ -37,4 +37,3 @@ WHERE
 } catch (Exception $error) {
     echo $error;
 }
-?>

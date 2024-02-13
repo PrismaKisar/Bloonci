@@ -15,7 +15,7 @@ try {
             echo "</div>";
         }
     } else {
-        echo "Non hai ancora nessun hobby";
+        echo "Non ha ancora nessun hobby";
     }
 } catch (Exception $error) {
     echo $error;

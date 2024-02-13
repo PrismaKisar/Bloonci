@@ -65,3 +65,22 @@ function friendshipRemoved(emailUtente, emailAmico) {
         }
     });
 }
+
+function hobbyRemoved(hobby) {
+    var dataToSend = {
+        hobby: hobby
+    };
+
+    $.ajax({
+        type: "POST",
+        url: '../backEnd/hobbyRemoved.php',
+        data: dataToSend,
+        success: function(response) {
+            console.log(response);
+            location.reload();
+        },
+        error: function(error) {
+            console.error(error);
+        }
+    });
+}

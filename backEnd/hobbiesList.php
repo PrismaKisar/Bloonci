@@ -11,7 +11,10 @@ try {
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             echo "<div class='hobby-list'>";
-            echo "" . $row['hobby'] . "";
+            echo "<div>" . $row['hobby'] . "</div>";
+            echo "      <div class='buttons-container'>";
+            echo "          <button class='remove-btn' onclick='hobbyRemoved(\"{$row['hobby']}\")'>rimuovi</button>";
+            echo "      </div>";
             echo "</div>";
         }
     } else {
