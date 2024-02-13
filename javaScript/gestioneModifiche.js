@@ -22,16 +22,36 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $('#salvaModificheDataNascitaBtn').on('click', function () {
-        var nuovaDataNascita = $('#birthModal').val();
+        var nuovoOrientamento = $('#birthModal').val();
         $.ajax({
             url: '../backEnd/salvaModificheDataNascita.php',
             method: 'POST',
             data: {
-                dataNascita: nuovaDataNascita
+                orientamento: nuovoOrientamento
             },
             success: function (response) {
                 console.log(response);
                 location.reload();;
+            },
+            error: function (xhr, status, error) {
+                console.error(error);
+            }
+        });
+    });
+});
+
+$(document).ready(function () {
+    $('#salvaModificheOrientBtn').on('click', function () {
+        var nuovoOrientamento = $('#orientamentoModal').val();
+        $.ajax({
+            url: '../backEnd/salvaModificheOrientamento.php',
+            method: 'POST',
+            data: {
+                orientamento: nuovoOrientamento
+            },
+            success: function (response) {
+                console.log(response);
+                location.reload();
             },
             error: function (xhr, status, error) {
                 console.error(error);

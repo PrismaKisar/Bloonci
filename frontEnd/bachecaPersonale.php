@@ -218,7 +218,8 @@ if (!isset($_SESSION['email'])) {
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">Chiudi</button>
-                                        <button id="salvaModificheBtn" class="btn btn-primary">Salva modifiche</button>
+                                        <button id="salvaModificheOrientBtn" class="btn btn-primary">Salva
+                                            modifiche</button>
                                     </div>
                                 </div>
                             </div>
@@ -229,6 +230,11 @@ if (!isset($_SESSION['email'])) {
             <footer class="container-fluid text-center p-3" style="background: transparent; color: #b9b9b9;">
                 <p>&copy; 2023 Bloonci - All rights reserved</p>
             </footer>
+            <script>
+
+            </script>
+        </div>
+    </div>
 </body>
 
 </html>
