@@ -121,6 +121,7 @@ if (!isset($_SESSION['email'])) {
                             <h4>Hobby</h4>
                         </div>
                         <?php include "../backEnd/hobbiesListAmico.php"; ?>
+                        <?php echo $_SESSION['emailBacheca'] ?>
                     </div>
                 </div>
             </div>

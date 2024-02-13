@@ -13,7 +13,7 @@ try {
             echo "<div class='request-list'>";
             echo "  <img class = 'd-none d-lg-block' src='images/unkwownPhoto.jpeg' alt='User Photo'>";
             echo "  <div class='request-info'>";
-            echo "      <h4><a href=\"\">" . $row['nome'] . " " . $row['cognome'] . "</a></h4>";
+            echo "      <h4><a href='frontEnd/bachecaAmico.php?emailCorrente=" . $row['email'] . " ''>" . $row['nome'] . " " . $row['cognome'] . "</a></h4>";
             echo "      <div class='buttons-container'>";
             echo "          <button class='accept-btn' onclick='friendshipAccepted(\"{$emailUtenteLoggato}\", \"{$row['email']}\")'><i class='fas fa-check'></i></button>";
             echo "          <button class='reject-btn' onclick='friendshipDenied(\"{$emailUtenteLoggato}\", \"{$row['email']}\")'><i class='fas fa-times'></i></button>";

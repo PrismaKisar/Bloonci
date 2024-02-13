@@ -5,7 +5,8 @@ try {
     DAY(u.dataNascita) AS giorno_compleanno,
     MONTHNAME(u.dataNascita) AS mese_compleanno,
     CONCAT(u.nome, ' ', u.cognome) AS nome_completo,
-    YEAR(CURDATE()) - YEAR(u.dataNascita) AS anni_compie
+    YEAR(CURDATE()) - YEAR(u.dataNascita) AS anni_compie,
+    u.email
 FROM 
     utente u
 JOIN 
@@ -25,7 +26,7 @@ WHERE
             echo "      <span>" . $row['mese_compleanno'] . "</span>";
             echo "  </div>";
             echo "  <div class=\"right-birthday\">";
-            echo "      <h4><a href=\"\">" . $row['nome_completo'] . "</a></h4>";
+            echo "      <h4><a href='frontEnd/bachecaAmico.php?emailCorrente=" . $row['email'] . " ''>" . $row['nome_completo'] . "</a></h4>";
             echo "      <p> <i class=\"fa-solid fa-cake-candles\"></i> compie " . $row['anni_compie'] . " anni</p>";
             echo "  </div>";
             echo "</div>";
