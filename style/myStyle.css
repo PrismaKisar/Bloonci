@@ -548,4 +548,10 @@ body {
 #redirectToPageWithInfo {
     text-decoration: none;
     color: inherit;
-  }
+}
+
+.modalButton {
+    background-color: transparent;
+    border: none;
+    font-weight: 600;
+}

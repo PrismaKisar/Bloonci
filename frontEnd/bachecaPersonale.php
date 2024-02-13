@@ -25,6 +25,8 @@ if (!isset($_SESSION['email'])) {
     <script src="https://kit.fontawesome.com/797b14a0a3.js" crossorigin="anonymous"></script>
     <script src="../javaScript/util.js"></script>
     <script src="../javaScript/autocompleteBacheca.js"></script>
+    <script src="../javaScript/citiesAndProvinces.js"></script>
+
 
 </head>
 
@@ -61,7 +63,7 @@ if (!isset($_SESSION['email'])) {
                         </div>
 
                         <div class="nav-user-icon d-none d-md-block">
-                            <a href="bacheca.php">
+                            <a href="bachecaPersonale.php">
                                 <img src="../images/unkwownPhoto.jpeg" alt="User Photo">
                             </a>
                         </div>
@@ -123,27 +125,10 @@ if (!isset($_SESSION['email'])) {
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Modifica Nome</h5>
+                                        <h5 class="modal-title">Modifica nome e cognome</h5>
                                     </div>
                                     <div class="modal-body">
                                         <input type="text" id="nomeModal" class="form-control mb-3" placeholder="Nome">
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Chiudi</button>
-                                        <button id="salvaModificheBtn" class="btn btn-primary">Salva modifiche</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="modalCognome" class="modal">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Modifica cognome</h5>
-                                    </div>
-                                    <div class="modal-body">
                                         <input type="text" id="cognomeModal" class="form-control mb-3"
                                             placeholder="Cognome">
                                     </div>
@@ -156,37 +141,117 @@ if (!isset($_SESSION['email'])) {
                             </div>
                         </div>
 
-
-
-
-                        <hr class="separator">
-                        <div class=" sidebar-title">
-                            <h4>Hobby</h4>
+                        <div id="modalDataNascita" class="modal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Modifica data di nascita</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input type="date" id="birthModal" class="form-control" />
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Chiudi</button>
+                                        <button id="salvaModificheBtn" class="btn btn-primary">Salva modifiche</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <?php include "../backEnd/hobbiesList.php"; ?>
+
+                        <div id="modalLuogoNascita" class="modal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Modifica provincia e città</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <select id="province" class="form-select" name="province">
+                                                    <option value=""></option>
+                                                    <?php include "../backEnd/getProvinces.php" ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select id="birth_city" class="form-select" name="birth_city">
+                                                    <?php include "../backEnd/getCities.php" ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Chiudi</button>
+                                        <button id="salvaModificheBtn" class="btn btn-primary">Salva modifiche</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="separator">
+                            <div class=" sidebar-title">
+                                <h4>Hobby</h4>
+                            </div>
+                            <?php include "../backEnd/hobbiesList.php"; ?>
+                        </div>
+
+                        <div id="modalOrientamento" class="modal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Modifica orientamento sessuale</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <select id="orientamentoModal" class="form-select">
+                                            <option selected></option>
+                                            <option value="eterosessuale">eterosessuale</option>
+                                            <option value="omosessuale">omosessuale</option>
+                                            <option value="bisessuale">bisessuale</option>
+                                            <option value="altro">altro</option>
+                                        </select>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Chiudi</button>
+                                        <button id="salvaModificheBtn" class="btn btn-primary">Salva modifiche</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <footer class="container-fluid text-center p-3" style="background: transparent; color: #b9b9b9;">
-            <p>&copy; 2023 Bloonci - All rights reserved</p>
-        </footer>
-        <script>
-            var btnNome = document.getElementById("openModalBtnNome");
-            var btnCognome = document.getElementById("openModalBtnCognome");
+            <footer class="container-fluid text-center p-3" style="background: transparent; color: #b9b9b9;">
+                <p>&copy; 2023 Bloonci - All rights reserved</p>
+            </footer>
+            <script>
+                var btnNome = document.getElementById("openModalBtnNome");
+                var btnCognome = document.getElementById("openModalBtnCognome");
+                var btnDataNascita = document.getElementById("openModalBtnDataNascita");
+                var btnCittà = document.getElementById("openModalBtnCittà");
+                var btnProvincia = document.getElementById("openModalBtnProvincia");
+                var btnOrientamento = document.getElementById("openModalBtnOrientamento");
 
-            var modalNome = document.getElementById("modalNome");
-            var modalCognome = document.getElementById("modalCognome")
 
-            btnNome.onclick = function () { modalNome.style.display = "block"; }
-            btnCognome.onclick = function () { modalCognome.style.display = "block"; }
+                var modalNome = document.getElementById("modalNome");
+                var modalDataNascita = document.getElementById("modalDataNascita")
+                var modalLuogo = document.getElementById("modalLuogoNascita")
+                var modalOrientamento = document.getElementById("modalOrientamento")
 
-            window.onclick = function (event) {
-                if (event.target == modalNome) { modalNome.style.display = "none"; }
-                if (event.target == modalCognome) { modalCognome.style.display = "none"; }
-            }
+                btnNome.onclick = function () { modalNome.style.display = "block"; }
+                btnCognome.onclick = function () { modalNome.style.display = "block"; }
+                btnDataNascita.onclick = function () { modalDataNascita.style.display = "block"; }
+                btnCittà.onclick = function () { modalLuogo.style.display = "block"; }
+                btnProvincia.onclick = function () { modalLuogo.style.display = "block"; }
+                btnOrientamento.onclick = function () { modalOrientamento.style.display = "block"; }
 
-        </script>
+                window.onclick = function (event) {
+                    if (event.target == modalNome) { modalNome.style.display = "none"; }
+                    if (event.target == modalDataNascita) { modalDataNascita.style.display = "none"; }
+                    if (event.target == modalLuogo) { modalLuogo.style.display = "none"; }
+                    if (event.target == modalOrientamento) { modalOrientamento.style.display = "none"; }
+                }
+
+            </script>
 </body>
 
 </html>

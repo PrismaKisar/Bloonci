@@ -62,7 +62,7 @@ if (!isset($_SESSION['email'])) {
                         </div>
 
                         <div class="nav-user-icon d-none d-md-block">
-                            <a href="bacheca.php">
+                            <a href="bachecaPersonale.php">
                                 <img src="../images/unkwownPhoto.jpeg" alt="User Photo">
                             </a>
                         </div>
