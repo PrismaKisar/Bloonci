@@ -10,4 +10,3 @@ $result = $cid->query($sql);
 $row = $result->fetch_assoc();
 
 echo $row['numAmici'];
-?>

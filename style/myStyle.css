@@ -515,6 +515,18 @@ body {
     color: rgba(0, 128, 0, 0.891);
 }
 
+.modalButtonAggiungi {
+    background-color: transparent;
+    color: rgba(0, 128, 0, 0.618);
+    border-radius: 10px;
+    padding: 4px;
+    border: none;
+}
+
+.modalButtonAggiungi:hover {
+    color: rgba(0, 128, 0, 0.891);
+}
+
 .request-info {
     display: flex;
     align-items: center;

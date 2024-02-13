@@ -27,4 +27,3 @@ try {
 } catch (Exception $error) {
     echo $error;
 }
-?>

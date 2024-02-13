@@ -125,8 +125,10 @@ if (!isset($_SESSION['email'])) {
                         </div>
                         <?php include "../backEnd/hobbiesList.php"; ?>
 
+                        <button class="modalButtonAggiungi" id="openModalBtnHobby">Aggiungi</button>
 
-                        <!-- Modals -->
+
+
                         <div id="modalNome" class="modal">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -139,8 +141,6 @@ if (!isset($_SESSION['email'])) {
                                             placeholder="Cognome">
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Chiudi</button>
                                         <button id="salvaModificheNomeBtn" class="btn btn-primary">Salva
                                             modifiche</button>
                                     </div>
@@ -158,8 +158,6 @@ if (!isset($_SESSION['email'])) {
                                         <input type="date" id="birthModal" class="form-control" />
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Chiudi</button>
                                         <button id="salvaModificheDataNascitaBtn" class="btn btn-primary">Salva
                                             modifiche</button>
                                     </div>
@@ -189,8 +187,6 @@ if (!isset($_SESSION['email'])) {
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Chiudi</button>
                                         <button id="salvaModificheLuogoBtn" class="btn btn-primary">Salva
                                             modifiche</button>
                                     </div>
@@ -216,8 +212,6 @@ if (!isset($_SESSION['email'])) {
                                         </select>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Chiudi</button>
                                         <button id="salvaModificheOrientBtn" class="btn btn-primary">Salva
                                             modifiche</button>
                                     </div>
@@ -227,6 +221,26 @@ if (!isset($_SESSION['email'])) {
                     </div>
                 </div>
             </div>
+
+            <div id="modalHobby" class="modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Aggiungi hobby</h5>
+                        </div>
+                        <div class="modal-body">
+                            <select id="hobbyModal" class="form-select">
+                                <?php include "../backEnd/getHobbies.php"; ?>
+                            </select>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button id="aggiungiHobbyBtn" class="btn btn-primary">Aggiungi</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <footer class="container-fluid text-center p-3" style="background: transparent; color: #b9b9b9;">
                 <p>&copy; 2023 Bloonci - All rights reserved</p>
             </footer>

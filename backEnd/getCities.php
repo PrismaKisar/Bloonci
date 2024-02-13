@@ -1,5 +1,4 @@
 <?php
-// getCities.php
 
 require "dbConnection.php";
 
@@ -21,4 +20,3 @@ if ($result->num_rows > 0) {
 } else {
     echo '<option value=""></option>';
 }
-?>

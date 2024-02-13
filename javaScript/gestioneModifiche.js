@@ -66,12 +66,11 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('#salvaModificheDataNascitaBtn').on('click', function () {
         var nuovaData = $('#birthModal').val();
-        console.log("Nuova data di nascita:", nuovaData); // Aggiungi questo console.log per debug
         $.ajax({
             url: '../backEnd/salvaModificheDataNascita.php',
             method: 'POST',
             data: {
-                dataNascita: nuovaData // Assicurati che il nome del campo corrisponda al valore che stai inviando
+                dataNascita: nuovaData
             },
             success: function (response) {
                 console.log(response);
@@ -79,6 +78,27 @@ $(document).ready(function () {
             },
             error: function (xhr, status, error) {
                 console.error(error);
+            }
+        });
+    });
+});
+
+$(document).ready(function () {
+    $('#aggiungiHobbyBtn').on('click', function () {
+        var nuovoHobby = $('#hobbyModal').val();
+        $.ajax({
+            url: '../backEnd/aggiungiHobby.php',
+            method: 'POST',
+            data: {
+                hobby: nuovoHobby
+            },
+            success: function (response) {
+                console.log(response);
+                location.reload();
+            },
+            error: function (xhr, status, error) {
+                console.error(error);
+                location.reload();
             }
         });
     });

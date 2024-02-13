@@ -5,11 +5,15 @@ function init() {
     var btnCittà = document.getElementById("openModalBtnCittà");
     var btnProvincia = document.getElementById("openModalBtnProvincia");
     var btnOrientamento = document.getElementById("openModalBtnOrientamento");
+    var btnHobby = document.getElementById("openModalBtnHobby");
 
     var modalNome = document.getElementById("modalNome");
     var modalDataNascita = document.getElementById("modalDataNascita")
     var modalLuogo = document.getElementById("modalLuogoNascita")
     var modalOrientamento = document.getElementById("modalOrientamento")
+    var modalHobby = document.getElementById("modalHobby")
+
+
 
     btnNome.onclick = function () { modalNome.style.display = "block"; }
     btnCognome.onclick = function () { modalNome.style.display = "block"; }
@@ -17,12 +21,15 @@ function init() {
     btnCittà.onclick = function () { modalLuogo.style.display = "block"; }
     btnProvincia.onclick = function () { modalLuogo.style.display = "block"; }
     btnOrientamento.onclick = function () { modalOrientamento.style.display = "block"; }
+    btnHobby.onclick = function () { modalHobby.style.display = "block"; }
+
 
     window.onclick = function (event) {
         if (event.target == modalNome) { modalNome.style.display = "none"; }
         if (event.target == modalDataNascita) { modalDataNascita.style.display = "none"; }
         if (event.target == modalLuogo) { modalLuogo.style.display = "none"; }
         if (event.target == modalOrientamento) { modalOrientamento.style.display = "none"; }
+        if (event.target == modalHobby) { modalHobby.style.display = "none"; }
     }
 }
 
