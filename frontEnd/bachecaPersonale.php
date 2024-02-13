@@ -116,6 +116,49 @@ if (!isset($_SESSION['email'])) {
                             <h4 style="margin-bottom: 0px;">Informazioni</h4>
                         </div>
                         <?php include "../backEnd/infoList.php"; ?>
+
+
+                        <!-- Modals -->
+                        <div id="modalNome" class="modal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Modifica Nome</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input type="text" id="nomeModal" class="form-control mb-3" placeholder="Nome">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Chiudi</button>
+                                        <button id="salvaModificheBtn" class="btn btn-primary">Salva modifiche</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="modalCognome" class="modal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Modifica cognome</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input type="text" id="cognomeModal" class="form-control mb-3"
+                                            placeholder="Cognome">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Chiudi</button>
+                                        <button id="salvaModificheBtn" class="btn btn-primary">Salva modifiche</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
                         <hr class="separator">
                         <div class=" sidebar-title">
                             <h4>Hobby</h4>
@@ -128,6 +171,22 @@ if (!isset($_SESSION['email'])) {
         <footer class="container-fluid text-center p-3" style="background: transparent; color: #b9b9b9;">
             <p>&copy; 2023 Bloonci - All rights reserved</p>
         </footer>
+        <script>
+            var btnNome = document.getElementById("openModalBtnNome");
+            var btnCognome = document.getElementById("openModalBtnCognome");
+
+            var modalNome = document.getElementById("modalNome");
+            var modalCognome = document.getElementById("modalCognome")
+
+            btnNome.onclick = function () { modalNome.style.display = "block"; }
+            btnCognome.onclick = function () { modalCognome.style.display = "block"; }
+
+            window.onclick = function (event) {
+                if (event.target == modalNome) { modalNome.style.display = "none"; }
+                if (event.target == modalCognome) { modalCognome.style.display = "none"; }
+            }
+
+        </script>
 </body>
 
 </html>

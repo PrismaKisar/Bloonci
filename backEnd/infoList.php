@@ -8,8 +8,8 @@ try {
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             echo "<div class='user-info'>";
-            echo "<div class='info-list'><div>Nome: </div><span>" . ($row['nome'] ?? "<div class='non-disponibile'>non disponibile</div>") . "</span></div>";
-            echo "<div class='info-list'><div>Cognome: </div><span>" . ($row['cognome'] ?? "<div class='non-disponibile'>non disponibile</div>") . "</span></div>";
+            echo "<div class='info-list'><div>Nome: </div><span><button id='openModalBtnNome'>" . ($row['nome'] ?? "<div class='non-disponibile'>non disponibile</div>") . "</button></span></div>";
+            echo "<div class='info-list'><div>Cognome: </div><span><button id='openModalBtnCognome'>" . ($row['cognome'] ?? "<div class='non-disponibile'>non disponibile</div>") . "</button></span></div>";
             echo "<div class='info-list'><div>Data di nascita: </div><span>" . ($row['dataNascita'] ? date('d-m-Y', strtotime($row['dataNascita'])) : "<div class='non-disponibile'>non disponibile</div>") . "</span></div>";
             echo "<div class='info-list'><div>Luogo di nascita: </div><span>" . ($row['cittàNacita'] ?? "<div class='non-disponibile'>non disponibile</div>") . "</span></div>";
             echo "<div class='info-list'><div>in provincia di: </div><span>" . ($row['provinciaNascita'] ?? "<div class='non-disponibile'>non disponibile</div>") . "</span></div>";
