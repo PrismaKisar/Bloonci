@@ -119,6 +119,12 @@ if (!isset($_SESSION['email'])) {
                         </div>
                         <?php include "../backEnd/infoList.php"; ?>
 
+                        <hr class="separator">
+                        <div class=" sidebar-title">
+                            <h4>Hobby</h4>
+                        </div>
+                        <?php include "../backEnd/hobbiesList.php"; ?>
+
 
                         <!-- Modals -->
                         <div id="modalNome" class="modal">
@@ -135,7 +141,8 @@ if (!isset($_SESSION['email'])) {
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">Chiudi</button>
-                                        <button id="salvaModificheBtn" class="btn btn-primary">Salva modifiche</button>
+                                        <button id="salvaModificheNomeBtn" class="btn btn-primary">Salva
+                                            modifiche</button>
                                     </div>
                                 </div>
                             </div>
@@ -153,7 +160,8 @@ if (!isset($_SESSION['email'])) {
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">Chiudi</button>
-                                        <button id="salvaModificheBtn" class="btn btn-primary">Salva modifiche</button>
+                                        <button id="salvaModificheDataNascitaBtn" class="btn btn-primary">Salva
+                                            modifiche</button>
                                     </div>
                                 </div>
                             </div>
@@ -183,15 +191,13 @@ if (!isset($_SESSION['email'])) {
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">Chiudi</button>
-                                        <button id="salvaModificheBtn" class="btn btn-primary">Salva modifiche</button>
+                                        <button id="salvaModificheLuogoBtn" class="btn btn-primary">Salva
+                                            modifiche</button>
                                     </div>
                                 </div>
                             </div>
-                            <hr class="separator">
-                            <div class=" sidebar-title">
-                                <h4>Hobby</h4>
-                            </div>
-                            <?php include "../backEnd/hobbiesList.php"; ?>
+
+
                         </div>
 
                         <div id="modalOrientamento" class="modal">
@@ -223,7 +229,6 @@ if (!isset($_SESSION['email'])) {
             <footer class="container-fluid text-center p-3" style="background: transparent; color: #b9b9b9;">
                 <p>&copy; 2023 Bloonci - All rights reserved</p>
             </footer>
-
 </body>
 
 </html>

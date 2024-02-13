@@ -8,11 +8,10 @@ if (!isset($_SESSION['email'])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nuovoNome = $_POST['nome'];
-    $nuovoCognome = $_POST['cognome'];
+    $nuovaDataNascita = $_POST['dataNascita'];
 
     $emailUtenteLoggato = $_SESSION['email'];
-    $sql = "UPDATE utente SET nome = '$nuovoNome', cognome = '$nuovoCognome' WHERE email = '$emailUtenteLoggato'";
+    $sql = "UPDATE utente SET dataNascita = '$nuovaDataNascita' WHERE email = '$emailUtenteLoggato'";
 
     if ($cid->query($sql) === TRUE) {
         echo "Modifiche salvate con successo!";
@@ -20,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Errore durante il salvataggio delle modifiche: " . $cid->error;
     }
 } else {
+    // Se i dati non sono stati inviati tramite metodo POST, restituisci un errore
     header("HTTP/1.1 400 Bad Request");
     echo "Richiesta non valida";
 }
