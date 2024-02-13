@@ -553,5 +553,6 @@ body {
 .modalButton {
     background-color: transparent;
     border: none;
+    color: #626262;
     font-weight: 600;
 }
