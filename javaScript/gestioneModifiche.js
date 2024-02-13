@@ -20,6 +20,28 @@ $(document).ready(function () {
     });
 });
 
+$(document).ready(function () {
+    $('#salvaModificheLuogoBtn').on('click', function () {
+        var nuovaProvincia = $('#province').val();
+        var nuovaCittà = $('#birth_city').val();
+        $.ajax({
+            url: '../backEnd/salvaModificheLuogo.php',
+            method: 'POST',
+            data: {
+                provincia: nuovaProvincia,
+                città: nuovaCittà
+            },
+            success: function (response) {
+                console.log(response);
+                location.reload();
+            },
+            error: function (xhr, status, error) {
+                console.error(error);
+            }
+        });
+    });
+});
+
 
 $(document).ready(function () {
     $('#salvaModificheOrientBtn').on('click', function () {
