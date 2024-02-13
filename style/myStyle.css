@@ -102,7 +102,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 18px;
 }
 
 .sidebar-title h4 {
@@ -193,10 +192,33 @@ body {
     margin: 9px;
 }
 
-.friend-list {
+.friend-list  {
     display: flex;
     margin: 9px;
     align-items: center;
+}
+
+.hobby-list {
+    display: flex;
+    margin: 3px;
+    align-items: center;
+}
+
+.info-list {
+    display: flex;
+    margin: 3px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.non-disponibile {
+    font-weight: 400;
+    color: #9c9c9c;
 }
 
 
@@ -234,10 +256,16 @@ body {
     margin: 2px;
 }
 
-.stats span {
+.stats span{
     font-size: 17px;
     font-weight: 600;
 }
+
+.user-info span {
+    font-size: 17px;
+    font-weight: 600;
+}
+
 
 .request-list button {
     margin-left: auto;

@@ -112,16 +112,22 @@ if (!isset($_SESSION['email'])) {
                 <!-- Sidebar destra -->
                 <div class="col-md-3 d-none d-md-block">
                     <div class="right-sidebar">
-
-
+                        <div class="sidebar-title">
+                            <h4 style="margin-bottom: 0px;">Informazioni</h4>
+                        </div>
+                        <?php include "../backEnd/infoList.php"; ?>
+                        <hr class="separator">
+                        <div class=" sidebar-title">
+                            <h4>Hobby</h4>
+                        </div>
+                        <?php include "../backEnd/hobbiesList.php"; ?>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <footer class="container-fluid text-center p-3" style="background: transparent; color: #b9b9b9;">
-        <p>&copy; 2023 Bloonci - All rights reserved</p>
-    </footer>
+        <footer class="container-fluid text-center p-3" style="background: transparent; color: #b9b9b9;">
+            <p>&copy; 2023 Bloonci - All rights reserved</p>
+        </footer>
 </body>
 
 </html>
