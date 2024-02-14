@@ -25,7 +25,7 @@ if (!isset($_SESSION['email'])) {
     <script src="https://kit.fontawesome.com/797b14a0a3.js" crossorigin="anonymous"></script>
     <script src="javaScript/util.js"></script>
     <script src="javaScript/autocomplete.js"></script>
-
+    <script src="javaScript/pubblicaPost.js"></script>
 </head>
 
 <body style="background: #eeeeee;">
@@ -122,6 +122,9 @@ if (!isset($_SESSION['email'])) {
                                 <textarea rows="1" id="autoHeightTextarea" placeholder="Cos'hai in mente?"
                                     oninput="autoResize()"></textarea>
                             </div>
+                            <div>
+                                <button id="pubblicaButton">pubblica</button>
+                            </div>
                         </div>
 
                         <div class="post-container">
@@ -129,15 +132,30 @@ if (!isset($_SESSION['email'])) {
                                 <img src="images/unkwownPhoto.jpeg">
                                 <div class="name-post">
                                     <p><a href="#">Marco Abbiati</a></p>
-                                    <small>25 Luglio 2017, 13:45</small>
+                                    <small>25 Luglio 2017, 13:45 - Pavia (PV)</small>
                                 </div>
                             </div>
-                            <p class="post-text">Ciao a tutti, come va oggi? per me molto bene dato che l'Inter ha
-                                perso
+                            <p class="post-text">Ciao a tutti, come va oggi? per me molto bene dato che l'Inter ha perso
                                 lol
                             </p>
                             <img src="images/feed-image-1.png" class="post-img">
                         </div>
+
+                        <div class="post-container">
+                            <div class="user-profile">
+                                <img src="images/unkwownPhoto.jpeg">
+
+                                <div class="name-post">
+                                    <p><a href="#">Marco Abbiati</a></p>
+                                    <small>25 Luglio 2017, 13:45</small>
+                                </div>
+                            </div>
+                            <p class="post-text">Sono molto contento che Geolier abbia perso Sanremo così imparano a non
+                                barare più sti napoletani di merda
+                            </p>
+                        </div>
+
+                        <?php include "backEnd/allPosts.php" ?>
                     </div>
                 </div>
 
