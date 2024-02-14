@@ -123,7 +123,7 @@ if (!isset($_SESSION['email'])) {
                                     oninput="autoResize()"></textarea>
                             </div>
                             <div>
-                                <button id="pubblicaButton">pubblica</button>
+                                <button class="request-button" id="pubblicaButton">pubblica</button>
                             </div>
                         </div>
 
@@ -139,6 +139,14 @@ if (!isset($_SESSION['email'])) {
                                 lol
                             </p>
                             <img src="images/feed-image-1.png" class="post-img">
+                            <div class="post-footer">
+                                <div>
+                                    <button>valuta</button>
+                                </div>
+                                <div>
+                                    <button>commento</button>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="post-container">

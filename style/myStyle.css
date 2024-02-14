@@ -569,3 +569,15 @@ body {
     color: #626262;
     font-weight: 600;
 }
+
+.post-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+.post-footer button {
+    background: transparent;
+    border: none;
+}
