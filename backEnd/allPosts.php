@@ -30,7 +30,7 @@ if ($result->num_rows > 0) {
             echo "  <div class='user-profile'>";
             echo "      <img src='images/unkwownPhoto.jpeg'>";
             echo "      <div class='name-post'>";
-            echo "          <p><a href='#'>" . $nomeAmico . " " . $cognomeAmico . "</a></p>";
+            echo "          <p><a href='frontEnd/bachecaAmico.php?emailCorrente=" . $email . "''>" . $nomeAmico . " " . $cognomeAmico . "</a></p>";
             echo "          <small>" . $timestamp . "</small>";
             if ($email == $emailUtenteLoggato) {
                 echo "<button>rimuovi</button>";
