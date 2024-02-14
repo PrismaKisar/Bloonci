@@ -33,7 +33,7 @@ if ($result->num_rows > 0) {
             echo "          <p><a href='frontEnd/bachecaAmico.php?emailCorrente=" . $email . "''>" . $nomeAmico . " " . $cognomeAmico . "</a></p>";
             echo "          <small>" . $timestamp . "</small>";
             if ($email == $emailUtenteLoggato) {
-                echo "<button>rimuovi</button>";
+                echo "<button class=remove-btn onclick='postRemoved(\"{$timestamp}\", \"{$email}\")'>rimuovi</button>";
             }
             echo "      </div>";
             echo "  </div>";

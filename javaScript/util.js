@@ -65,3 +65,23 @@ function friendshipRemoved(emailUtente, emailAmico) {
         }
     });
 }
+
+function postRemoved(timestamp, emailUtente) {
+    var dataToSend = {
+        emailUtente: emailUtente,
+        timestamp: timestamp
+    };
+
+    $.ajax({
+        type: "POST",
+        url: 'backEnd/postRemoved.php',
+        data: dataToSend,
+        success: function(response) {
+            console.log(response);
+            location.reload();
+        },
+        error: function(error) {
+            console.error(error);
+        }
+    });
+}
