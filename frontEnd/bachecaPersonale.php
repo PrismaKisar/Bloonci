@@ -108,6 +108,8 @@ if (!isset($_SESSION['email'])) {
                             </p>
                             <img src="../images/feed-image-1.png" class="post-img">
                         </div>
+                        <?php include "../backEnd/allPostsPersonale.php"; ?>
+
                     </div>
                 </div>
 

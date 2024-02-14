@@ -111,6 +111,7 @@ if ($_GET['emailCorrente'] == $_SESSION['email']) {
                             </p>
                             <img src="../images/feed-image-1.png" class="post-img">
                         </div>
+                        <?php include "../backEnd/allPostsAmico.php"; ?>
                     </div>
                 </div>
 
