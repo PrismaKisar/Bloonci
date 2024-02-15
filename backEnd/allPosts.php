@@ -72,7 +72,25 @@ if ($result->num_rows > 0) {
                         </option>
                     </select>
                     <div>
-                        <button>commenta</button>
+                        <button class="commentaButton">commenta</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Commenta questo post</h5>
+                        </div>
+                        <div class="modal-body">
+                            <textarea id="commentoModal" rows="4" cols="50"
+                                placeholder="Commenta..."></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary"
+                                data-email="$email" data-timestamp="$timestamp">Invia
+                                commento</button>
+                        </div>
                     </div>
                 </div>
             </div>
