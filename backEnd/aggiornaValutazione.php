@@ -16,8 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     emailValutazione = '$emailUtenteLoggato' AND 
     emailMessaggio = '$emailMessaggio' AND 
     timestampMessaggio = ' $timestampMessaggio' ";
-    $result = $cid->query($query);
 
+    $result = $cid->query($query);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $oldID = $row['IDValuta'];
