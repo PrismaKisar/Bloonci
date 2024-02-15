@@ -28,6 +28,8 @@ if (!isset($_SESSION['email'])) {
     <script src="../javaScript/citiesAndProvinces.js"></script>
     <script src="../javaScript/modal.js"></script>
     <script src="../javaScript/gestioneModifiche.js"></script>
+    <script src="../javaScript/gestioneValutazioneAmico.js"></script>
+
 </head>
 
 <body style="background: #eeeeee;">
@@ -85,7 +87,6 @@ if (!isset($_SESSION['email'])) {
                         <div class="sidebar-title">
                             <h4>Amici</h4>
                         </div>
-
                         <?php include "../backEnd/friendListBacheca.php"; ?>
                     </div>
                 </div>
@@ -93,23 +94,7 @@ if (!isset($_SESSION['email'])) {
                 <!-- Main Content -->
                 <div class="col-md-6">
                     <div class="main-content">
-
-                        <div class="post-container">
-                            <div class="user-profile">
-                                <img src="../images/unkwownPhoto.jpeg">
-                                <div class="name-post">
-                                    <p><a href="#">Marco Abbiati</a></p>
-                                    <small>25 Luglio 2017, 13:45</small>
-                                </div>
-                            </div>
-                            <p class="post-text">Ciao a tutti, come va oggi? per me molto bene dato che l'Inter ha
-                                perso
-                                lol
-                            </p>
-                            <img src="../images/feed-image-1.png" class="post-img">
-                        </div>
                         <?php include "../backEnd/allPostsPersonale.php"; ?>
-
                     </div>
                 </div>
 

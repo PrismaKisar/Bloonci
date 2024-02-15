@@ -584,7 +584,7 @@ body {
 
 .post-footer button {
     background-color: #fff; 
-    border: 1px solid #ccc;
+    border: none;
     border-radius: 10px;
     padding: 6px;
     width: auto;
@@ -595,10 +595,10 @@ body {
 
 .rating-dropdown {
     background-color: #fff; 
-    border: 1px solid #ccc;
+    border: none;
     border-radius: 10px;
     padding: 6px;
-    width: 80px;
+    width: auto;
     cursor: pointer;
     outline: none;
     transition: border-color 0.3s ease;
