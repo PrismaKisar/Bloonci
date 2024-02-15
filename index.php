@@ -148,63 +148,57 @@ if (!isset($_SESSION['email'])) {
                                     <option value="null">valuta</option>
                                 </select>
                                 <div>
-                                    <button id="openCommentModal">commenta</button>
+                                    <button class="open-comment-modal">commenta</button>
+                                </div>
+                            </div>
+                            <div class="modal comment-modal">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Commenta questo post</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <textarea class="comment-textarea" rows="4" cols="50"
+                                                placeholder="Commenta..."></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="send-comment-btn" type="button" data-email="ale@ciao"
+                                                data-timestamp="23:20">Invia commento</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="modal" id="commentModal">
-                            <div class=" modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Commenta questo post</h5>
-                                    </div>
-                                    <div class="modal-body">
-                                        <textarea id="commentoModal" rows="4" cols="50"
-                                            placeholder="Commenta..."></textarea>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button id="inviaCommento" type="button" class="btn btn-primary"
-                                            data-email="ale@ciao" data-timestamp="23:20">Invia
-                                            commento</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-
-                        <?php include "backEnd/allPosts.php" ?>
                     </div>
+                    <?php include "backEnd/allPosts.php" ?>
                 </div>
+            </div>
 
-                <!-- Sidebar destra -->
-                <div class="col-md-3 d-none d-md-block">
-                    <div class="right-sidebar">
+            <!-- Sidebar destra -->
+            <div class="col-md-3 d-none d-md-block">
+                <div class="right-sidebar">
 
-                        <div class="logout">
-                            <a href="backEnd/logout.php">Logout</a>
-                        </div>
-
-                        <!--   Compleanni    -->
-                        <div class="sidebar-title">
-                            <h4>Compleanni</h4>
-                        </div>
-                        <?php include "backEnd/birthdays.php"; ?>
-
-                        <hr class="separator">
-
-                        <!--  Richieste di Amicizia  -->
-                        <div class="sidebar-title">
-                            <h4>Richieste di Amicizia</h4>
-                        </div>
-                        <?php include "backEnd/friendRequests.php"; ?>
+                    <div class="logout">
+                        <a href="backEnd/logout.php">Logout</a>
                     </div>
+
+                    <!--   Compleanni    -->
+                    <div class="sidebar-title">
+                        <h4>Compleanni</h4>
+                    </div>
+                    <?php include "backEnd/birthdays.php"; ?>
+
+                    <hr class="separator">
+
+                    <!--  Richieste di Amicizia  -->
+                    <div class="sidebar-title">
+                        <h4>Richieste di Amicizia</h4>
+                    </div>
+                    <?php include "backEnd/friendRequests.php"; ?>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <footer class="container-fluid text-center p-3" style="background: transparent; color: #b9b9b9;">
         <p>&copy; 2023 Bloonci - All rights reserved</p>
