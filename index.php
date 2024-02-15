@@ -26,6 +26,8 @@ if (!isset($_SESSION['email'])) {
     <script src="javaScript/util.js"></script>
     <script src="javaScript/autocomplete.js"></script>
     <script src="javaScript/pubblicaPost.js"></script>
+    <script src="javaScript/gestioneValutazioni.js"></script>
+
 </head>
 
 <body style="background: #eeeeee;">
@@ -140,9 +142,23 @@ if (!isset($_SESSION['email'])) {
                             </p>
                             <img src="images/feed-image-1.png" class="post-img">
                             <div class="post-footer">
-                                <div>
-                                    <button>valuta</button>
-                                </div>
+                                <select class="rating-dropdown">
+                                    <option value="null">valuta</option>
+                                    <option value="-3" data-email="email1@example.com" data-timestamp="2023-01-01">-3
+                                    </option>
+                                    <option value="-2" data-email="email1@example.com" data-timestamp="2023-01-01">-2
+                                    </option>
+                                    <option value="-1" data-email="email1@example.com" data-timestamp="2023-01-01">-1
+                                    </option>
+                                    <option value="0" data-email="email1@example.com" data-timestamp="2023-01-01">0
+                                    </option>
+                                    <option value="1" data-email="email1@example.com" data-timestamp="2023-01-01">1
+                                    </option>
+                                    <option value="2" data-email="email1@example.com" data-timestamp="2023-01-01">2
+                                    </option>
+                                    <option value="3" data-email="email1@example.com" data-timestamp="2023-01-01">3
+                                    </option>
+                                </select>
                                 <div>
                                     <button>commento</button>
                                 </div>
