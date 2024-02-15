@@ -72,7 +72,7 @@ if ($result->num_rows > 0) {
                         </option>
                     </select>
                     <div>
-                        <button>commento</button>
+                        <button>commenta</button>
                     </div>
                 </div>
             </div>

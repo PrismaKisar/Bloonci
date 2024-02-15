@@ -160,23 +160,9 @@ if (!isset($_SESSION['email'])) {
                                     </option>
                                 </select>
                                 <div>
-                                    <button>commento</button>
+                                    <button>commenta</button>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="post-container">
-                            <div class="user-profile">
-                                <img src="images/unkwownPhoto.jpeg">
-
-                                <div class="name-post">
-                                    <p><a href="#">Marco Abbiati</a></p>
-                                    <small>25 Luglio 2017, 13:45</small>
-                                </div>
-                            </div>
-                            <p class="post-text">Sono molto contento che Geolier abbia perso Sanremo così imparano a non
-                                barare più sti napoletani di merda
-                            </p>
                         </div>
 
                         <?php include "backEnd/allPosts.php" ?>

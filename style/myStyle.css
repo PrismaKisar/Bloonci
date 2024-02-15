@@ -154,7 +154,8 @@ body {
     text-decoration: none;
 }
 
-.birthday h4 a:hover {
+.birthday h4 a:hover,
+.birthday h4 a:focus {
     color: #3a3a3a;
 }
 
@@ -248,7 +249,8 @@ body {
     color: #626262;
 } 
 
-.request-list h4 a:hover, .friend-list h4 a:hover {
+.request-list h4 a:hover, .friend-list h4 a:hover,
+.request-list h4 a:focus, .friend-list h4 a:focus {
     color: #000000;
 }
 
@@ -283,7 +285,8 @@ body {
     color: rgba(0, 128, 0, 0.618);
 }
 
-.accept-btn:hover {
+.accept-btn:hover,  
+.accept-btn:focus{
     background-color: #2b800053;
     color: rgba(0, 128, 0, 0.898);
 }
@@ -293,7 +296,8 @@ body {
     color: #e20000a1;
 }
 
-.reject-btn:hover {
+.reject-btn:hover,
+.reject-btn:focus {
     background-color: #ff2f0055; 
     color: #e20000e2;
 }
@@ -304,7 +308,8 @@ body {
     border: none;
 }
 
-.remove-btn:hover {
+.remove-btn:hover,
+.remove-btn:focus {
     color: #e20000e2;
 }
 
@@ -580,4 +585,46 @@ body {
 .post-footer button {
     background: transparent;
     border: none;
+}
+
+.rating-dropdown {
+    background-color: #fff; 
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 6px;
+    width: 80px;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.rating-dropdown:hover,
+.rating-dropdown:focus {
+    border-color: #ffffff;
+    background-color: #f1f1f1 ;
+}
+
+.rating-dropdown option {
+    padding: 5px; /* Aggiungi spazio intorno ai testi */
+    background-color: #fff; /* Cambia il colore di sfondo */
+    color: #333; /* Cambia il colore del testo */
+    font-weight: bold; /* Rendi il testo in grassetto */
+    font-size: 14px; /* Imposta una dimensione del testo */
+    outline: none; /* Rimuovi l'outline al focus */
+    cursor: pointer; /* Mostra un cursore di tipo puntatore */
+}
+
+.post-footer .rating-dropdown-container {
+    position: relative; /* Imposta una posizione relativa */
+    margin-left: 20px; /* Aggiungi margine a sinistra */
+}
+
+.post-footer .rating-dropdown-container:before {
+    content: "\25BC"; /* Aggiungi un'icona per indicare la dropdown */
+    position: absolute; /* Imposta una posizione assoluta */
+    top: 50%; /* Posiziona l'icona verticalmente al centro */
+    right: 10px; /* Posiziona l'icona a destra */
+    transform: translateY(-50%); /* Sposta l'icona verticalmente al centro */
+    color: #333; /* Cambia il colore dell'icona */
+    pointer-events: none; /* Impedisce di interagire con l'icona */
 }
