@@ -583,8 +583,14 @@ body {
 }
 
 .post-footer button {
-    background: transparent;
-    border: none;
+    background-color: #fff; 
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 6px;
+    width: auto;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 
 .rating-dropdown {
@@ -596,6 +602,12 @@ body {
     cursor: pointer;
     outline: none;
     transition: border-color 0.3s ease;
+}
+
+.post-footer button:hover,
+.post-footer button:focus {
+    border-color: #ffffff;
+    background-color: #f1f1f1 ;
 }
 
 .rating-dropdown:hover,
@@ -628,3 +640,5 @@ body {
     color: #333; /* Cambia il colore dell'icona */
     pointer-events: none; /* Impedisce di interagire con l'icona */
 }
+
+

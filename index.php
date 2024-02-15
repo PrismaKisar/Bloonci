@@ -27,6 +27,8 @@ if (!isset($_SESSION['email'])) {
     <script src="javaScript/autocomplete.js"></script>
     <script src="javaScript/pubblicaPost.js"></script>
     <script src="javaScript/gestioneValutazioni.js"></script>
+    <script src="javaScript/modalCommento.js"></script>
+
 
 </head>
 
@@ -144,26 +146,33 @@ if (!isset($_SESSION['email'])) {
                             <div class="post-footer">
                                 <select class="rating-dropdown">
                                     <option value="null">valuta</option>
-                                    <option value="-3" data-email="email1@example.com" data-timestamp="2023-01-01">-3
-                                    </option>
-                                    <option value="-2" data-email="email1@example.com" data-timestamp="2023-01-01">-2
-                                    </option>
-                                    <option value="-1" data-email="email1@example.com" data-timestamp="2023-01-01">-1
-                                    </option>
-                                    <option value="0" data-email="email1@example.com" data-timestamp="2023-01-01">0
-                                    </option>
-                                    <option value="1" data-email="email1@example.com" data-timestamp="2023-01-01">1
-                                    </option>
-                                    <option value="2" data-email="email1@example.com" data-timestamp="2023-01-01">2
-                                    </option>
-                                    <option value="3" data-email="email1@example.com" data-timestamp="2023-01-01">3
-                                    </option>
                                 </select>
                                 <div>
-                                    <button>commenta</button>
+                                    <button id="openCommentModal">commenta</button>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Modal -->
+                        <div class="modal" id="commentModal">
+                            <div class=" modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Commenta questo post</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <textarea rows="4" cols="50">Inserisci il tuo commento qui...</textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary">Invia commento</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
 
                         <?php include "backEnd/allPosts.php" ?>
                     </div>
