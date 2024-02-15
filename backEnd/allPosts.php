@@ -86,6 +86,7 @@ if ($result->num_rows > 0) {
                                     placeholder="Commenta..."></textarea>
                             </div>
                             <div class="modal-footer">
+                                <button class="close-btn" type="button">chiudi</button>
                                 <button class="send-comment-btn" type="button" data-email="$email"
                                     data-timestamp="$timestamp">Invia commento</button>
                             </div>

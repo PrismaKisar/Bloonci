@@ -28,6 +28,8 @@ if (!isset($_SESSION['email'])) {
     <script src="javaScript/pubblicaPost.js"></script>
     <script src="javaScript/gestioneValutazioni.js"></script>
     <script src="javaScript/modalCommento.js"></script>
+    <script src="javaScript/modalVisualize.js"></script>
+
 
 
 </head>
@@ -150,7 +152,12 @@ if (!isset($_SESSION['email'])) {
                                 <div>
                                     <button class="open-comment-modal">commenta</button>
                                 </div>
+                                <div>
+                                    <button class="open-visualize-modal">guarda commenti</button>
+                                </div>
                             </div>
+
+                            <!-- Modal -->
                             <div class="modal comment-modal">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -164,6 +171,24 @@ if (!isset($_SESSION['email'])) {
                                         <div class="modal-footer">
                                             <button class="send-comment-btn" type="button" data-email="ale@ciao"
                                                 data-timestamp="23:20">Invia commento</button>
+                                            <button class="close-btn" type="button">chiudi</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal -->
+                            <div class="modal visualize-modal">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Commenta questo post</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            Ciao
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="close-btn" type="button">chiudi</button>
                                         </div>
                                     </div>
                                 </div>
@@ -172,29 +197,29 @@ if (!isset($_SESSION['email'])) {
                     </div>
                     <?php include "backEnd/allPosts.php" ?>
                 </div>
-            </div>
 
-            <!-- Sidebar destra -->
-            <div class="col-md-3 d-none d-md-block">
-                <div class="right-sidebar">
+                <!-- Sidebar destra -->
+                <div class="col-md-3 d-none d-md-block">
+                    <div class="right-sidebar">
 
-                    <div class="logout">
-                        <a href="backEnd/logout.php">Logout</a>
+                        <div class="logout">
+                            <a href="backEnd/logout.php">Logout</a>
+                        </div>
+
+                        <!--   Compleanni    -->
+                        <div class="sidebar-title">
+                            <h4>Compleanni</h4>
+                        </div>
+                        <?php include "backEnd/birthdays.php"; ?>
+
+                        <hr class="separator">
+
+                        <!--  Richieste di Amicizia  -->
+                        <div class="sidebar-title">
+                            <h4>Richieste di Amicizia</h4>
+                        </div>
+                        <?php include "backEnd/friendRequests.php"; ?>
                     </div>
-
-                    <!--   Compleanni    -->
-                    <div class="sidebar-title">
-                        <h4>Compleanni</h4>
-                    </div>
-                    <?php include "backEnd/birthdays.php"; ?>
-
-                    <hr class="separator">
-
-                    <!--  Richieste di Amicizia  -->
-                    <div class="sidebar-title">
-                        <h4>Richieste di Amicizia</h4>
-                    </div>
-                    <?php include "backEnd/friendRequests.php"; ?>
                 </div>
             </div>
         </div>
