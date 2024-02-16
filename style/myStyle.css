@@ -398,7 +398,7 @@ body {
 
 .post-text {
     color: #7c7c7c;
-    margin: 15px 0;
+    margin: 9px 0;
     font-size: 15px;
 }
 
@@ -639,6 +639,10 @@ body {
     transform: translateY(-50%); /* Sposta l'icona verticalmente al centro */
     color: #333; /* Cambia il colore dell'icona */
     pointer-events: none; /* Impedisce di interagire con l'icona */
+}
+
+.modal-body .post-container {
+    background: #f4f4f4;
 }
 
 

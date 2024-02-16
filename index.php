@@ -185,7 +185,34 @@ if (!isset($_SESSION['email'])) {
                                             <h5 class="modal-title">Commenta questo post</h5>
                                         </div>
                                         <div class="modal-body">
-                                            Ciao
+                                            <div class="post-container">
+                                                <div class="user-profile">
+                                                    <div class="name-post">
+                                                        <p><a href="#">Marco Abbiati</a></p>
+                                                    </div>
+                                                </div>
+                                                <p class="post-text">Ciao a tutti, come va oggi? per me molto bene
+                                                    datoche l'Inter ha perso lol
+                                                </p>
+                                            </div>
+
+                                            <div class="post-container">
+                                                <div class="user-profile">
+                                                    <div class="name-post">
+                                                        <p><a href="#">Filippo Mele</a></p>
+                                                    </div>
+                                                </div>
+                                                <p class="post-text">Sono bello</p>
+                                            </div>
+
+                                            <div class="post-container">
+                                                <div class="user-profile">
+                                                    <div class="name-post">
+                                                        <p><a href="#">Ciccio Caputo</a></p>
+                                                    </div>
+                                                </div>
+                                                <p class="post-text">Oggi doppietta</p>
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button class="close-btn" type="button">chiudi</button>
