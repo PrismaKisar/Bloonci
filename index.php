@@ -135,7 +135,14 @@ if ($result) {
                             <div class="user-profile">
                                 <img src="images/misc/unkwownPhoto.jpeg">
                                 <div class="name-post">
-                                    <p><a href="#">Alessandro Sarchi</a></p>
+                                    <p><a href="#">
+                                            <?php
+                                            $query = "SELECT nome, cognome FROM utente WHERE email='$emailUtenteLoggato'";
+                                            $result = $cid->query($query);
+                                            $row = $result->fetch_assoc();
+                                            echo $row['nome'] . " " . $row['cognome'];
+                                            ?>
+                                        </a></p>
                                     <small>Public <i class=" fa-solid fa-earth-americas"></i></small>
                                 </div>
                             </div>
