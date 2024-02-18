@@ -51,7 +51,7 @@ if ($result) {
     <link rel="stylesheet" href="../style/myStyle.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="icon" href="../images/logo_bloonci_380x380.png" type="image/icon type">
+    <link rel="icon" href="../images/misc/logo_bloonci_380x380.png" type="image/icon type">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/797b14a0a3.js" crossorigin="anonymous"></script>
     <script src="../javaScript/util.js"></script>
@@ -70,12 +70,12 @@ if ($result) {
             <nav class="navbar row">
                 <div class="container-fluid">
                     <a href="../index.php">
-                        <img src="../images/scritta_bloonci_bianca.png" class="logo nav-brand">
+                        <img src="../images/misc/scritta_bloonci_bianca.png" class="logo nav-brand">
                     </a>
 
                     <div class="search-container">
                         <div class="search-box">
-                            <img src="../images/search.png" alt="Search Icon">
+                            <img src="../images/misc/search.png" alt="Search Icon">
                             <input type="text" id="input-box" placeholder="Search">
                         </div>
 
@@ -95,7 +95,7 @@ if ($result) {
 
                         <div class="nav-user-icon d-none d-md-block">
                             <a href="bachecaPersonale.php">
-                                <img src="../images/unkwownPhoto.jpeg" alt="User Photo">
+                                <img src="../images/misc/unkwownPhoto.jpeg" alt="User Photo">
                             </a>
                         </div>
                     </div>

@@ -10,7 +10,7 @@ try {
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             echo "<div class='friend-list'>";
-            echo "  <img class='d-none d-lg-block' src='images/unkwownPhoto.jpeg'>";
+            echo "  <img class='d-none d-lg-block' src='images/misc/unkwownPhoto.jpeg'>";
             echo "  <div class='request-info'>";
             echo "      <h4><a href='frontEnd/bachecaAmico.php?emailCorrente=" . $row['email'] . " ''>" . $row['nome'] . " " . $row['cognome'] . "</h4></a>";
             echo "      <div class='buttons-container'>";

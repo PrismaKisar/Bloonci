@@ -36,7 +36,7 @@ if ($result->num_rows > 0) {
             echo <<<END
             <div class='post-container'>
                 <div class='user-profile'>
-                    <img src='../images/unkwownPhoto.jpeg'>
+                    <img src='../images/misc/unkwownPhoto.jpeg'>
                     <div class='name-post'>
                         <p><a href='frontEnd/bachecaAmico.php?emailCorrente=$email''>$nomeAmico $cognomeAmico</a></p>
                         <small>$timestamp</small>

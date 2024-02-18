@@ -11,7 +11,7 @@ try {
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             echo "<div class='request-list'>";
-            echo "  <img class = 'd-none d-lg-block' src='images/unkwownPhoto.jpeg' alt='User Photo'>";
+            echo "  <img class = 'd-none d-lg-block' src='images/misc/unkwownPhoto.jpeg' alt='User Photo'>";
             echo "  <div class='request-info'>";
             echo "      <h4><a href='frontEnd/bachecaAmico.php?emailCorrente=" . $row['email'] . " ''>" . $row['nome'] . " " . $row['cognome'] . "</a></h4>";
             echo "      <div class='buttons-container'>";

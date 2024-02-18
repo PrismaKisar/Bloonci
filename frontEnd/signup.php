@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="This is a login page template based on Bootstrap 5">
     <title>Sign up • Bloonci</title>
-    <link rel="icon" href="../images/logo_bloonci_380x380.png" type="image/icon type">
+    <link rel="icon" href="../images/misc/logo_bloonci_380x380.png" type="image/icon type">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -23,10 +23,10 @@
             <div class="row justify-content-sm-center h-100">
                 <div class="col-xxl-6 col-xl-6 col-lg-7 col-md-8 col-sm-9">
                     <div class="text-center pt-4">
-                        <img src="../images/logo_bloonci.png" alt="logo" width="150">
+                        <img src="../images/misc/logo_bloonci.png" alt="logo" width="150">
                     </div>
                     <div class="text-center pb-2">
-                        <img src="../images/scritta_bloonci.png" alt="logo" width="150">
+                        <img src="../images/misc/scritta_bloonci.png" alt="logo" width="150">
                     </div>
 
                     <!-- Card -->
