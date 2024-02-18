@@ -128,6 +128,7 @@ if ($result) {
                 <!-- Sidebar destra -->
                 <div class="col-md-3 d-none d-md-block">
                     <div class="right-sidebar">
+                        <?php include "../backEnd/stampaBlocca.php"; ?>
                         <div class="sidebar-title">
                             <h4 style="margin-bottom: 0px;">Informazioni</h4>
                         </div>
