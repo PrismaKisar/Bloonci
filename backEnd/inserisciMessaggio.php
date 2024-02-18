@@ -7,23 +7,24 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
-
 $emailUtenteLoggato = $_SESSION['email'];
 
-if (isset($_POST['testo'])) {
-    $testo = $_POST['testo'];
-} else {
-    echo "Errore: Il testo del messaggio non è stato fornito";
-    exit();
-}
+$testo = $_POST['testo'];
+$tipo = $_POST['tipo'];
+
+$emailUtenteLoggato = $cid->real_escape_string($emailUtenteLoggato);
+$testo = $cid->real_escape_string($testo);
+$tipo = $cid->real_escape_string($tipo);
 
 $timestamp = date('Y-m-d H:i:s');
-$query = "INSERT INTO messaggio (email, timestamp, tipo, testo) VALUES (?, ?, 'testo', ?)";
-$stmt = $cid->prepare($query);
-$stmt->bind_param("sss", $emailUtenteLoggato, $timestamp, $testo);
-$stmt->execute();
-$stmt->close();
 
+$query = "INSERT INTO messaggio (email, timestamp, tipo, testo) VALUES ('$emailUtenteLoggato', '$timestamp', '$tipo', '$testo')";
+$result = $cid->query($query);
 
-// Chiudi la connessione al database
+if ($result) {
+    echo "Messaggio inserito con successo.";
+} else {
+    echo "Errore durante l'inserimento del messaggio: " . $cid->error;
+}
+
 $cid->close();

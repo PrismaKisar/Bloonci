@@ -135,7 +135,7 @@ if ($result) {
                             <div class="user-profile">
                                 <img src="images/misc/unkwownPhoto.jpeg">
                                 <div class="name-post">
-                                    <p><a href="#">
+                                    <p><a href="frontEnd/bachecaPersonale.php">
                                             <?php
                                             $query = "SELECT nome, cognome FROM utente WHERE email='$emailUtenteLoggato'";
                                             $result = $cid->query($query);
@@ -150,6 +150,10 @@ if ($result) {
                             <div class="post-input-container">
                                 <textarea rows="1" id="autoHeightTextarea" placeholder="Cos'hai in mente?"
                                     oninput="autoResize()"></textarea>
+                                <select id="postType">
+                                    <option value="testo" selected>Testo</option>
+                                    <option value="foto">Foto</option>
+                                </select>
                             </div>
                             <div>
                                 <button class="request-button" id="pubblicaButton">pubblica</button>
