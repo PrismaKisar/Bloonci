@@ -6,6 +6,15 @@ $email_to_check = $cid->real_escape_string($_POST["email"]);
 $email_check_query = $cid->query("SELECT COUNT(*) as count FROM utente WHERE email = '$email_to_check'");
 $email_exists_result = $email_check_query->fetch_assoc();
 
+if (!empty($_POST['birth_date'])) {
+    $birth_date = new DateTime($_POST['birth_date']);
+    $now = new DateTime();
+    $age = $now->diff($birth_date)->y;
+    if ($age < 18) {
+        header("Location: ../frontEnd/signup.php?error=underage");
+        exit();
+    }
+}
 if ($email_exists_result['count'] > 0) {
     header("Location: ../frontEnd/signup.php?error=exists");
     exit();

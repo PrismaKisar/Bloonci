@@ -33,6 +33,7 @@
                     <div class="card shadow-lg">
                         <div class="card-body p-5">
                             <h1 class="fs-4 card-title fw-bold mb-4">Sign up</h1>
+
                             <div id="error-message" class="text-danger" style="color: #be2937db; padding-bottom: 8px;">
                             </div>
 
