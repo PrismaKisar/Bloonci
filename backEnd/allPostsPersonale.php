@@ -18,6 +18,8 @@ if ($result->num_rows > 0) {
         $email = $row['email'];
         $timestamp = $row['timestamp'];
         $tipo = $row['tipo'];
+        $percorso = $row['percorso'];
+        $nome = $row['nome'];
         $nomeAmico = $row['nome_amico'];
         $cognomeAmico = $row['cognome_amico'];
 
@@ -69,6 +71,89 @@ if ($result->num_rows > 0) {
                 </div>
             </div>
             END;
+        } else {
+            echo <<<END
+            <div class='post-container'>
+                <div class='user-profile'>
+                <img src='../images/misc/unkwownPhoto.jpeg'>
+                    <div class='name-post'>
+                        <p><a href='frontEnd/bachecaAmico.php?emailCorrente=$email'>$nomeAmico $cognomeAmico</a></p>
+                        <small>$timestamp</small>
+            END;
+
+            if ($email == $emailUtenteLoggato) {
+                echo "<button class=remove-btn onclick='postRemoved(\"{$timestamp}\", \"{$email}\")'>rimuovi</button>";
+            }
+
+            echo <<<END
+                    </div>
+                </div>
+                <p class='post-text'>$testo</p>
+                <img src='../$percorso$nome' class="post-img">                
+                <div class="post-footer">
+                    <select class="rating-dropdown">
+                        <option disabled selected hidden>$selezione</option>
+                        <option value="-3" data-email="$email" data-timestamp="$timestamp">-3
+                        </option>
+                        <option value="-2" data-email="$email" data-timestamp="$timestamp">-2
+                        </option>
+                        <option value="-1" data-email="$email" data-timestamp="$timestamp">-1
+                        </option>
+                        <option value="0" data-email="$email" data-timestamp="$timestamp">0
+                        </option>
+                        <option value="1" data-email="$email" data-timestamp="$timestamp">1
+                        </option>
+                        <option value="2" data-email="$email" data-timestamp="$timestamp">2
+                        </option>
+                        <option value="3" data-email="$email" data-timestamp="$timestamp">3
+                        </option>
+                    </select>
+                    <div>
+                        <button class="open-comment-modal">commenta</button>
+                    </div>
+                    <div>
+                        <button class="open-visualize-modal">guarda commenti</button>
+                    </div>
+                </div>
+                <div class="modal comment-modal">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Commenta questo post</h5>
+                            </div>
+                            <div class="modal-body">
+                                <textarea class="comment-textarea" rows="4" cols="50"
+                                    placeholder="Commenta..."></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="close-btn" type="button">chiudi</button>
+                                <button class="send-comment-btn" type="button" data-email="$email"
+                                    data-timestamp="$timestamp">Invia commento</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal visualize-modal">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Tutti i commenti</h5>
+                            </div>
+                            <div class="modal-body">
+                            </div>
+                            <div class="modal-footer">
+                                <button class="close-btn" type="button">chiudi</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+            END;
+
+
+
         }
     }
 } else {
