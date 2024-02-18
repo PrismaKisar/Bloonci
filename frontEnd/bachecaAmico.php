@@ -57,6 +57,8 @@ if ($result) {
     <script src="../javaScript/util.js"></script>
     <script src="../javaScript/autocompleteBacheca.js"></script>
     <script src="../javaScript/gestioneValutazioneAmico.js"></script>
+    <script src="../javaScript/bloccaUtente.js"></script>
+
 </head>
 
 <body style="background: #eeeeee;">
@@ -145,6 +147,9 @@ if ($result) {
         <footer class="container-fluid text-center p-3" style="background: transparent; color: #b9b9b9;">
             <p>&copy; 2023 Bloonci - All rights reserved</p>
         </footer>
+        <script>
+
+        </script>
 </body>
 
 </html>
