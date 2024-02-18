@@ -3,8 +3,6 @@ require "../backEnd/dbConnection.php";
 session_start();
 
 $_SESSION['emailBacheca'] = $_GET['emailCorrente'];
-$emailAmico = $_GET['emailCorrente'];
-$emailUtenteLoggato = $_SESSION['email'];
 
 
 if (!isset($_SESSION['email'])) {
@@ -14,29 +12,6 @@ if (!isset($_SESSION['email'])) {
 
 if ($_GET['emailCorrente'] == $_SESSION['email']) {
     header("Location: bachecaPersonale.php");
-} else {
-    $query = "SELECT * FROM amicizia 
-    WHERE (emailRichiedente = '$emailUtenteLoggato' AND emailRicevitore = '$emailAmico') OR 
-    (emailRichiedente = '$emailAmico' AND emailRicevitore = '$emailUtenteLoggato')";
-    $result = $cid->query($query);
-    if ($result->num_rows <= 0) {
-        header("Location: bachecaAmicoNonVisibile.php?emailCorrente=arnaprdo@gmail.com.php");
-    }
-}
-
-$emailUtenteLoggato = $_SESSION['email'];
-$query = "SELECT bloccante FROM utente WHERE email = '$emailUtenteLoggato'";
-$result = $cid->query($query);
-
-if ($result) {
-    $row = $result->fetch_assoc();
-    $bloccante = $row['bloccante'];
-    if ($bloccante === null) {
-    } else {
-        header("Location: homeBloccata.php");
-    }
-} else {
-    echo "Errore nella query: " . $cid->error;
 }
 ?>
 
@@ -70,20 +45,6 @@ if ($result) {
                     <a href="../index.php">
                         <img src="../images/scritta_bloonci_bianca.png" class="logo nav-brand">
                     </a>
-
-                    <div class="search-container">
-                        <div class="search-box">
-                            <img src="../images/search.png" alt="Search Icon">
-                            <input type="text" id="input-box" placeholder="Search">
-                        </div>
-
-                        <div class="z-1 position-absolute">
-                            <div class="result-box" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); margin-top: 2px;">
-                            </div>
-                        </div>
-                    </div>
-
-
                     <div style="display: flex; align-items: center;">
                         <div class="nav-user-icon d-none d-lg-block">
                             <span>
@@ -109,35 +70,18 @@ if ($result) {
                 <!-- Sidebar sinistra -->
                 <div class="col-md-3 d-none d-md-block">
 
-                    <div class="left-sidebar">
-                        <!--  Amici  -->
-                        <div class="sidebar-title">
-                            <h4>Amici</h4>
-                        </div>
-                        <?php include "../backEnd/friendListAmico.php"; ?>
-                    </div>
                 </div>
 
                 <!-- Main Content -->
                 <div class="col-md-6">
                     <div class="main-content">
-                        <?php include "../backEnd/allPostsAmico.php"; ?>
+                        <div class="post-container">Sei stato bloccato</div>
                     </div>
                 </div>
 
                 <!-- Sidebar destra -->
                 <div class="col-md-3 d-none d-md-block">
-                    <div class="right-sidebar">
-                        <div class="sidebar-title">
-                            <h4 style="margin-bottom: 0px;">Informazioni</h4>
-                        </div>
-                        <?php include "../backEnd/infoListAmico.php"; ?>
-                        <hr class="separator">
-                        <div class=" sidebar-title">
-                            <h4>Hobby</h4>
-                        </div>
-                        <?php include "../backEnd/hobbiesListAmico.php"; ?>
-                    </div>
+
                 </div>
             </div>
         </div>

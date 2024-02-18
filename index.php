@@ -7,6 +7,21 @@ if (!isset($_SESSION['email'])) {
     header("Location: login.html");
     exit();
 }
+
+$emailUtenteLoggato = $_SESSION['email'];
+$query = "SELECT bloccante FROM utente WHERE email = '$emailUtenteLoggato'";
+$result = $cid->query($query);
+
+if ($result) {
+    $row = $result->fetch_assoc();
+    $bloccante = $row['bloccante'];
+    if ($bloccante === null) {
+    } else {
+        header("Location: frontEnd/homeBloccata.php");
+    }
+} else {
+    echo "Errore nella query: " . $cid->error;
+}
 ?>
 
 
