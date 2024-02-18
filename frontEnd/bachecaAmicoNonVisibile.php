@@ -3,8 +3,6 @@ require "../backEnd/dbConnection.php";
 session_start();
 
 $_SESSION['emailBacheca'] = $_GET['emailCorrente'];
-$emailAmico = $_GET['emailCorrente'];
-$emailUtenteLoggato = $_SESSION['email'];
 
 
 if (!isset($_SESSION['email'])) {
@@ -14,14 +12,6 @@ if (!isset($_SESSION['email'])) {
 
 if ($_GET['emailCorrente'] == $_SESSION['email']) {
     header("Location: bachecaPersonale.php");
-}
-
-$query = "SELECT * FROM amicizia 
-WHERE (emailRichiedente = '$emailUtenteLoggato' AND emailRicevitore = '$emailAmico') OR 
-(emailRichiedente = '$emailAmico' AND emailRicevitore = '$emailUtenteLoggato')";
-$result = $cid->query($query);
-if ($result->num_rows <= 0) {
-    header("Location: bachecaAmicoNonVisibile.php?emailCorrente=arnaprdo@gmail.com.php");
 }
 ?>
 
@@ -94,35 +84,19 @@ if ($result->num_rows <= 0) {
                 <!-- Sidebar sinistra -->
                 <div class="col-md-3 d-none d-md-block">
 
-                    <div class="left-sidebar">
-                        <!--  Amici  -->
-                        <div class="sidebar-title">
-                            <h4>Amici</h4>
-                        </div>
-                        <?php include "../backEnd/friendListAmico.php"; ?>
-                    </div>
                 </div>
 
                 <!-- Main Content -->
                 <div class="col-md-6">
                     <div class="main-content">
-                        <?php include "../backEnd/allPostsAmico.php"; ?>
+                        <div class="post-container">Non puoi visualizzare la bacheca perchè non sei amico di questo
+                            utente</div>
                     </div>
                 </div>
 
                 <!-- Sidebar destra -->
                 <div class="col-md-3 d-none d-md-block">
-                    <div class="right-sidebar">
-                        <div class="sidebar-title">
-                            <h4 style="margin-bottom: 0px;">Informazioni</h4>
-                        </div>
-                        <?php include "../backEnd/infoListAmico.php"; ?>
-                        <hr class="separator">
-                        <div class=" sidebar-title">
-                            <h4>Hobby</h4>
-                        </div>
-                        <?php include "../backEnd/hobbiesListAmico.php"; ?>
-                    </div>
+
                 </div>
             </div>
         </div>
