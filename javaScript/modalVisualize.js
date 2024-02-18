@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
-    var commentButtons = document.querySelectorAll('.open-visualize-modal');
-    commentButtons.forEach(function (button) {
+    var visualizeButton = document.querySelectorAll('.open-visualize-modal');
+    visualizeButton.forEach(function (button) {
         button.addEventListener('click', function () {
             var postContainer = this.closest('.post-container');
             var modal = postContainer.querySelector('.visualize-modal');

@@ -74,6 +74,9 @@ if ($result->num_rows > 0) {
                     <div>
                         <button class="open-comment-modal">commenta</button>
                     </div>
+                    <div>
+                        <button class="open-visualize-modal">guarda commenti</button>
+                    </div>
                 </div>
                 <div class="modal comment-modal">
                     <div class="modal-dialog" role="document">
@@ -89,6 +92,21 @@ if ($result->num_rows > 0) {
                                 <button class="close-btn" type="button">chiudi</button>
                                 <button class="send-comment-btn" type="button" data-email="$email"
                                     data-timestamp="$timestamp">Invia commento</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal visualize-modal">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Tutti i commenti</h5>
+                            </div>
+                            <div class="modal-body">
+                            </div>
+                            <div class="modal-footer">
+                                <button class="close-btn" type="button">chiudi</button>
                             </div>
                         </div>
                     </div>
