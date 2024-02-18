@@ -12,7 +12,7 @@ try {
             echo "<div class='friend-list'>";
             echo "  <img class='d-none d-lg-block' src='../images/unkwownPhoto.jpeg'>";
             echo "  <div class='request-info'>";
-            echo "      <h4><a href=\"\">" . $row['nome'] . " " . $row['cognome'] . "</a></h4>";
+            echo "      <h4><a href='../frontEnd/bachecaAmico.php?emailCorrente=" . $row['email'] . " ''>" . $row['nome'] . " " . $row['cognome'] . "</a></h4>";
             echo "  </div>";
             echo "</div>";
         }

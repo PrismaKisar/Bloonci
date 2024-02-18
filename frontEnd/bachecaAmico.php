@@ -14,14 +14,14 @@ if (!isset($_SESSION['email'])) {
 
 if ($_GET['emailCorrente'] == $_SESSION['email']) {
     header("Location: bachecaPersonale.php");
-}
-
-$query = "SELECT * FROM amicizia 
-WHERE (emailRichiedente = '$emailUtenteLoggato' AND emailRicevitore = '$emailAmico') OR 
-(emailRichiedente = '$emailAmico' AND emailRicevitore = '$emailUtenteLoggato')";
-$result = $cid->query($query);
-if ($result->num_rows <= 0) {
-    header("Location: bachecaAmicoNonVisibile.php?emailCorrente=arnaprdo@gmail.com.php");
+} else {
+    $query = "SELECT * FROM amicizia 
+    WHERE (emailRichiedente = '$emailUtenteLoggato' AND emailRicevitore = '$emailAmico') OR 
+    (emailRichiedente = '$emailAmico' AND emailRicevitore = '$emailUtenteLoggato')";
+    $result = $cid->query($query);
+    if ($result->num_rows <= 0) {
+        header("Location: bachecaAmicoNonVisibile.php?emailCorrente=arnaprdo@gmail.com.php");
+    }
 }
 ?>
 

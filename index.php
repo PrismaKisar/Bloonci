@@ -42,8 +42,9 @@ if (!isset($_SESSION['email'])) {
             <!-- Navbar -->
             <nav class="navbar row">
                 <div class="container-fluid">
-                    <img src="images/scritta_bloonci_bianca.png" class="logo nav-brand">
-
+                    <a href="index.php">
+                        <img src="images/scritta_bloonci_bianca.png" class="logo nav-brand">
+                    </a>
                     <div class="search-container">
                         <div class="search-box">
                             <img src="images/search.png" alt="Search Icon">
