@@ -33,7 +33,7 @@ $(document).ready(function () {
             },
             success: function (response) {
                 console.log(response);
-                location.reload();
+                //location.reload();
             },
             error: function (xhr, status, error) {
                 console.error(error);
