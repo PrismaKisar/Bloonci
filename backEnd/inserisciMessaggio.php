@@ -21,9 +21,10 @@ if (!is_null($_FILES["file"]["name"])) {
     }
 
     $nome = basename($_FILES["file"]["name"]);
-    $targetFile = $targetDirectory . $nome;
+    $imageFileType = strtolower(pathinfo($nome, PATHINFO_EXTENSION));
+    $nuovoNome = uniqid() . "." . $imageFileType;
+    $targetFile = $targetDirectory . $nuovoNome;
     $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
     // Controlli sull'immagine
     if (!getimagesize($_FILES["file"]["tmp_name"])) {
@@ -82,11 +83,11 @@ if ($tipo == "testo") {
 } else {
     $targetDirectory = substr($targetDirectory, 3);
     if ($città == "" && $provincia == "") {
-        $query = "INSERT INTO messaggio (email, timestamp, tipo, testo, nome, percorso) VALUES ('$emailUtenteLoggato', '$timestamp', '$tipo', '$testo', '$nome', '$targetDirectory')";
+        $query = "INSERT INTO messaggio (email, timestamp, tipo, testo, nome, percorso) VALUES ('$emailUtenteLoggato', '$timestamp', '$tipo', '$testo', '$nuovoNome', '$targetDirectory')";
         var_dump($query);
         $result = $cid->query($query);
     } else {
-        $query = "INSERT INTO messaggio (email, timestamp, tipo, testo, nome, percorso, provincia, città) VALUES ('$emailUtenteLoggato', '$timestamp', '$tipo', '$testo', '$nome', '$targetDirectory', '$provincia', '$città')";
+        $query = "INSERT INTO messaggio (email, timestamp, tipo, testo, nome, percorso, provincia, città) VALUES ('$emailUtenteLoggato', '$timestamp', '$tipo', '$testo', '$nuovoNome', '$targetDirectory', '$provincia', '$città')";
         var_dump($query);
         $result = $cid->query($query);
     }
