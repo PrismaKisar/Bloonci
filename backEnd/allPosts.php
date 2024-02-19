@@ -26,6 +26,7 @@ if ($result->num_rows > 0) {
         $percorso = $row['percorso'];
         $nomeAmico = $row['nome_amico'];
         $cognomeAmico = $row['cognome_amico'];
+
         $query = "SELECT valutazione FROM valuta
         WHERE emailMessaggio = '$email' AND emailValutazione = '$emailUtenteLoggato' AND timestampMessaggio = '$timestamp'";
         $resultValutazione = $cid->query($query);
@@ -36,6 +37,16 @@ if ($result->num_rows > 0) {
         } else {
             $selezione = "valuta";
         }
+
+        $queryCommenti = "SELECT * 
+        FROM commento 
+        WHERE emailCommento = '$email' 
+        AND timestampMessaggio = '$timestamp';";
+        $resultCommenti = $cid->query($queryCommenti);
+
+
+
+
 
         if ($tipo == "testo") {
             echo <<<END
@@ -106,6 +117,33 @@ if ($result->num_rows > 0) {
                                 <h5 class="modal-title">Tutti i commenti</h5>
                             </div>
                             <div class="modal-body">
+            END;
+            if ($resultCommenti->num_rows > 0) {
+
+                while ($row = $resultCommenti->fetch_assoc()) {
+                    $testo = $row['testo'];
+                    $emailTemp = $row['emailMessaggio'];
+                    $res = $cid->query("SELECT nome, cognome FROM utente WHERE email = '$emailTemp'");
+                    $row3 = $res->fetch_assoc();
+                    $nome = $row3['nome'];
+                    $cognome = $row3['cognome'];
+
+                    echo <<<END
+                    <div class="post-container">
+                        <div class="user-profile">
+                          <div class="name-post">
+                            <p><a href=>$nome $cognome</a></p>
+                          </div>
+                        </div>
+                        <p class="post-text">$testo</p>
+                    </div>
+
+                    END;
+                    "IDCommento: " . $row["IDCommento"] . " - Progressivo: " . $row["progressivo"] . " - Testo: " . $row["testo"] . "<br>";
+
+                }
+            }
+            echo <<<END
                             </div>
                             <div class="modal-footer">
                                 <button class="close-btn" type="button">chiudi</button>
@@ -187,6 +225,33 @@ if ($result->num_rows > 0) {
                                 <h5 class="modal-title">Tutti i commenti</h5>
                             </div>
                             <div class="modal-body">
+                END;
+            if ($resultCommenti->num_rows > 0) {
+
+                while ($row = $resultCommenti->fetch_assoc()) {
+                    $testo = $row['testo'];
+                    $emailTemp = $row['emailMessaggio'];
+                    $res = $cid->query("SELECT nome, cognome FROM utente WHERE email = '$emailTemp'");
+                    $row3 = $res->fetch_assoc();
+                    $nome = $row3['nome'];
+                    $cognome = $row3['cognome'];
+
+                    echo <<<END
+                    <div class="post-container">
+                        <div class="user-profile">
+                          <div class="name-post">
+                            <p><a href=>$nome $cognome</a></p>
+                          </div>
+                        </div>
+                        <p class="post-text">$testo</p>
+                    </div>
+
+                    END;
+                    "IDCommento: " . $row["IDCommento"] . " - Progressivo: " . $row["progressivo"] . " - Testo: " . $row["testo"] . "<br>";
+
+                }
+            }
+            echo <<<END
                             </div>
                             <div class="modal-footer">
                                 <button class="close-btn" type="button">chiudi</button>
