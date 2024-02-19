@@ -131,6 +131,7 @@ if ($result) {
                 <div class="col-md-3 d-none d-md-block">
                     <div class="right-sidebar">
                         <?php include "../backEnd/stampaBlocca.php"; ?>
+                        <?php include "../backEnd/stampaSblocca.php"; ?>
                         <div class="sidebar-title">
                             <h4 style="margin-bottom: 0px;">Informazioni</h4>
                         </div>

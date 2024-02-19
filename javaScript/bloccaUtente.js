@@ -16,3 +16,22 @@ function bloccaUtente(emailUtenteLoggato, emailAmico) {
         }
     });
 }
+
+function sbloccaUtente(emailUtenteLoggato, emailAmico) {
+    console.log(emailUtenteLoggato);
+
+    $.ajax({
+        type: "POST",
+        url: '../backEnd/sbloccaUtente.php',
+        data: {
+            emailUtenteLoggato: emailUtenteLoggato,
+            emailAmico, emailAmico
+        },
+        success: function (response) {
+            console.log(response);
+        },
+        error: function (error) {
+            console.error(error);
+        }
+    });
+}
