@@ -44,8 +44,7 @@ if ($result) {
   <script src="javaScript/gestioneValutazioni.js"></script>
   <script src="javaScript/modalCommento.js"></script>
   <script src="javaScript/modalVisualize.js"></script>
-
-
+  <script src="javaScript/citiesAndProvincesIndex.js"></script>
 
 </head>
 
@@ -151,16 +150,27 @@ if ($result) {
                 <textarea rows="1" id="autoHeightTextarea" placeholder="Cos'hai in mente?"
                   oninput="autoResize()"></textarea>
               </div>
-              <input type="file" id="imageFile" hidden><!-- hidden by default -->
+              <input type="file" id="imageFile" hidden>
               <div id="message"></div>
               <div class="post-footer">
                 <div>
                   <button class="request-button" id="pubblicaButton">pubblica</button>
                 </div>
-                <select id="postType" onchange="toggleFileInput()">
-                  <option value="testo" selected>Testo</option>
-                  <option value="foto">Foto</option>
-                </select>
+                <div>
+                  <select id="postType" onchange="toggleFileInput()">
+                    <option value="testo" selected>Testo</option>
+                    <option value="foto">Foto</option>
+                  </select>
+                </div>
+                <div style="display: flex">
+                  <select id="province" class="form-select" name="province">
+                    <option value=""></option>
+                    <?php include "backEnd/getProvinces.php" ?>
+                  </select>
+                  <select id="birth_city" class="form-select" name="birth_city">
+                    <?php include "backEnd/getCities.php" ?>
+                  </select>
+                </div>
               </div>
             </div>
 
