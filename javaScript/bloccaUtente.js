@@ -1,6 +1,4 @@
 function bloccaUtente(emailUtenteLoggato, emailAmico) {
-    console.log(emailUtenteLoggato);
-
     $.ajax({
         type: "POST",
         url: '../backEnd/bloccaUtente.php',
@@ -19,8 +17,6 @@ function bloccaUtente(emailUtenteLoggato, emailAmico) {
 }
 
 function sbloccaUtente(emailUtenteLoggato, emailAmico) {
-    console.log(emailUtenteLoggato);
-
     $.ajax({
         type: "POST",
         url: '../backEnd/sbloccaUtente.php',
