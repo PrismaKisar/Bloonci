@@ -1,5 +1,4 @@
 .DS_Store
-images/misc/ext
-images/misc/ext
+images/*
 bloonci.sql
 newFeature.txt

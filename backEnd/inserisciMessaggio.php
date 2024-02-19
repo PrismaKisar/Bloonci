@@ -8,27 +8,36 @@ if (!isset($_SESSION['email'])) {
 }
 
 $emailUtenteLoggato = $_SESSION['email'];
-$targetDirectory = "../images/";
-$targetFile = $targetDirectory . basename($_FILES["file"]["name"]);
+
+// Directory di destinazione per l'utente loggato
+$targetDirectory = "../images/$emailUtenteLoggato/";
+
+// Crea la directory se non esiste
+if (!is_dir($targetDirectory)) {
+    if (!mkdir($targetDirectory, 0755, true)) { // Imposta i permessi della nuova directory
+        echo "Errore: Impossibile creare la directory.";
+        exit();
+    }
+}
+
+$nome = basename($_FILES["file"]["name"]);
+$targetFile = $targetDirectory . $nome;
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
-// Controlla se il file è un'immagine reale o un falso
-$check = getimagesize($_FILES["file"]["tmp_name"]);
-if ($check === false) {
+// Controlli sull'immagine
+if (!getimagesize($_FILES["file"]["tmp_name"])) {
     echo "Il file non è un'immagine.";
     $uploadOk = 0;
     exit();
 }
 
-// Controlla se il file esiste già
 if (file_exists($targetFile)) {
     echo "Il file esiste già.";
     $uploadOk = 0;
     exit();
 }
 
-// Consentire solo alcuni formati di file
 $allowedFormats = array("jpg", "png", "jpeg", "gif");
 if (!in_array($imageFileType, $allowedFormats)) {
     echo "Sono consentiti solo file JPG, JPEG, PNG e GIF.";
@@ -38,6 +47,7 @@ if (!in_array($imageFileType, $allowedFormats)) {
 
 if ($uploadOk == 0) {
     echo "Il file non è stato caricato.";
+    exit();
 } else {
     if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) {
         echo "Il file " . htmlspecialchars(basename($_FILES["file"]["name"])) . " è stato caricato.";
@@ -47,17 +57,28 @@ if ($uploadOk == 0) {
     }
 }
 
+// Gestione del testo e del tipo
 $testo = $_POST['testo'];
 $tipo = $_POST['tipo'];
 
+// Escape dei dati
 $emailUtenteLoggato = $cid->real_escape_string($emailUtenteLoggato);
 $testo = $cid->real_escape_string($testo);
 $tipo = $cid->real_escape_string($tipo);
 
+// Timestamp
 $timestamp = date('Y-m-d H:i:s');
 
-$query = "INSERT INTO messaggio (email, timestamp, tipo, testo) VALUES ('$emailUtenteLoggato', '$timestamp', '$tipo', '$testo')";
-$result = $cid->query($query);
+if ($tipo == "testo") {
+    $query = "INSERT INTO messaggio (email, timestamp, tipo, testo) VALUES ('$emailUtenteLoggato', '$timestamp', '$tipo', '$testo')";
+    $result = $cid->query($query);
+} else {
+    $targetDirectory = substr($targetDirectory, 3);
+    $query = "INSERT INTO messaggio (email, timestamp, tipo, testo, nome, percorso) VALUES ('$emailUtenteLoggato', '$timestamp', '$tipo', '$testo', '$nome', '$targetDirectory')";
+    var_dump($query);
+    $result = $cid->query($query);
+}
+
 
 if ($result) {
     echo "Messaggio inserito con successo.";

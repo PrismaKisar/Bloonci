@@ -19,7 +19,7 @@ $(document).ready(function () {
             type: 'POST',
             success: function (response) {
                 console.log(response);
-                //location.reload();
+                location.reload();
             },
             error: function (xhr, status, exception) {
                 console.error(xhr.responseText);
