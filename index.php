@@ -150,7 +150,10 @@ if ($result) {
               <div class="post-input-container">
                 <textarea rows="1" id="autoHeightTextarea" placeholder="Cos'hai in mente?"
                   oninput="autoResize()"></textarea>
+
               </div>
+              <input type="file" id="imageFile">
+              <div id="message"></div>
               <div class="post-footer">
                 <div>
                   <button class="request-button" id="pubblicaButton">pubblica</button>
