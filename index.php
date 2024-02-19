@@ -150,15 +150,14 @@ if ($result) {
               <div class="post-input-container">
                 <textarea rows="1" id="autoHeightTextarea" placeholder="Cos'hai in mente?"
                   oninput="autoResize()"></textarea>
-
               </div>
-              <input type="file" id="imageFile">
+              <input type="file" id="imageFile" hidden><!-- hidden by default -->
               <div id="message"></div>
               <div class="post-footer">
                 <div>
                   <button class="request-button" id="pubblicaButton">pubblica</button>
                 </div>
-                <select id="postType">
+                <select id="postType" onchange="toggleFileInput()">
                   <option value="testo" selected>Testo</option>
                   <option value="foto">Foto</option>
                 </select>

@@ -85,3 +85,14 @@ function postRemoved(timestamp, emailUtente) {
         }
     });
 }
+
+function toggleFileInput() {
+    var postType = document.getElementById("postType");
+    var imageFileInput = document.getElementById("imageFile");
+
+    if (postType.value === "foto") {
+      imageFileInput.removeAttribute("hidden");
+    } else {
+      imageFileInput.setAttribute("hidden", "hidden");
+    }
+  }
