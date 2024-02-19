@@ -10,6 +10,7 @@ function bloccaUtente(emailUtenteLoggato, emailAmico) {
         },
         success: function (response) {
             console.log(response);
+            location.reload();
         },
         error: function (error) {
             console.error(error);
@@ -29,6 +30,7 @@ function sbloccaUtente(emailUtenteLoggato, emailAmico) {
         },
         success: function (response) {
             console.log(response);
+            location.reload();
         },
         error: function (error) {
             console.error(error);
