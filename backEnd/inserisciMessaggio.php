@@ -6,7 +6,7 @@ if (!isset($_SESSION['email'])) {
     echo "Errore: Utente non autenticato";
     exit();
 }
-
+var_dump($_POST);
 $emailUtenteLoggato = $_SESSION['email'];
 
 // Directory di destinazione per l'utente loggato
@@ -19,7 +19,7 @@ if (!is_dir($targetDirectory)) {
         exit();
     }
 }
-
+var_dump($_FILES["file"]);
 $nome = basename($_FILES["file"]["name"]);
 $targetFile = $targetDirectory . $nome;
 $uploadOk = 1;
@@ -57,11 +57,13 @@ if ($uploadOk == 0) {
     }
 }
 
-// Gestione del testo e del tipo
+
 $testo = $_POST['testo'];
 $tipo = $_POST['tipo'];
+$provincia = $_POST['provincia'];
+$città = $_POST['città'];
 
-// Escape dei dati
+
 $emailUtenteLoggato = $cid->real_escape_string($emailUtenteLoggato);
 $testo = $cid->real_escape_string($testo);
 $tipo = $cid->real_escape_string($tipo);
@@ -70,13 +72,24 @@ $tipo = $cid->real_escape_string($tipo);
 $timestamp = date('Y-m-d H:i:s');
 
 if ($tipo == "testo") {
-    $query = "INSERT INTO messaggio (email, timestamp, tipo, testo) VALUES ('$emailUtenteLoggato', '$timestamp', '$tipo', '$testo')";
-    $result = $cid->query($query);
+    if ($città == "" && $provincia == "") {
+        $query = "INSERT INTO messaggio (email, timestamp, tipo, testo) VALUES ('$emailUtenteLoggato', '$timestamp', '$tipo', '$testo')";
+        $result = $cid->query($query);
+    } else {
+        $query = "INSERT INTO messaggio (email, timestamp, tipo, testo, provincia, città) VALUES ('$emailUtenteLoggato', '$timestamp', '$tipo', '$testo', '$provincia', '$città')";
+        $result = $cid->query($query);
+    }
 } else {
     $targetDirectory = substr($targetDirectory, 3);
-    $query = "INSERT INTO messaggio (email, timestamp, tipo, testo, nome, percorso) VALUES ('$emailUtenteLoggato', '$timestamp', '$tipo', '$testo', '$nome', '$targetDirectory')";
-    var_dump($query);
-    $result = $cid->query($query);
+    if ($città == "" && $provincia == "") {
+        $query = "INSERT INTO messaggio (email, timestamp, tipo, testo, nome, percorso) VALUES ('$emailUtenteLoggato', '$timestamp', '$tipo', '$testo', '$nome', '$targetDirectory')";
+        var_dump($query);
+        $result = $cid->query($query);
+    } else {
+        $query = "INSERT INTO messaggio (email, timestamp, tipo, testo, nome, percorso, provincia, città) VALUES ('$emailUtenteLoggato', '$timestamp', '$tipo', '$testo', '$nome', '$targetDirectory', '$provincia', '$città')";
+        var_dump($query);
+        $result = $cid->query($query);
+    }
 }
 
 
