@@ -171,7 +171,7 @@ if ($result) {
                         <div id="message"></div>
                         <div class="post-footer">
                           <div>
-                            <button class="request-button" id="pubblicaButton">pubblica</button>
+                            <button class="request-button" id="pubblicaButton">Pubblica</button>
                           </div>
                           <div>
                             <select id="postType" onchange="toggleFileInput()">
@@ -181,7 +181,7 @@ if ($result) {
                           </div>
                           <div style="display: flex">
                             <select id="province" class="form-select" name="province">
-                              <option value=""></option>';
+                              <option value="">_______</option>';
                 include "backEnd/getProvinces.php";
                 echo '</select>
                             <select id="birth_city" class="form-select" name="birth_city">';

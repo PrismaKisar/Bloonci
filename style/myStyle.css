@@ -608,6 +608,15 @@ body {
     transition: border-color 0.3s ease;
 }
 
+
+.post-footer .form-select:hover,
+.post-footer .form-select:hover {
+    border-color: #ffffff;
+    background-color: #f1f1f1 ;
+}
+
+
+
 .post-footer button:hover,
 .post-footer button:focus {
     border-color: #ffffff;
@@ -649,7 +658,7 @@ body {
     background: #f4f4f4;
 }
 
-#postType {
+#postType, .post-footer .form-select{
     background-color: transparent;
     color: rgba(0, 81, 128, 0.618);
     border: none;
@@ -662,7 +671,10 @@ body {
 }
 
 #postType:hover,
-#postType:focus {
+#postType:focus,
+.post-footer .form-select:focus,
+.post-footer .form-select:hover
+ {
     background-color: #004f8012;
     color: rgba(0, 81, 128, 0.869);
 }
