@@ -50,6 +50,13 @@ function printCommenti($resultCommenti, $cid)
                   <div class="name-post">
                     <p><a href=>$nome $cognome</a></p>
                   </div>
+            END;
+            if ($emailTemp == $emailUtenteLoggato) {
+                echo "<button class=remove-btn onclick='commentRemoved(\"{$IDCommento}\")'>rimuovi</button>";
+            }
+
+            echo <<<END
+                  
                 </div>
                 <p class="post-text">$testo</p>
                 <div class="post-footer">

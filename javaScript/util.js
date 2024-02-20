@@ -95,4 +95,24 @@ function toggleFileInput() {
     } else {
       imageFileInput.setAttribute("hidden", "hidden");
     }
-  }
+}
+
+
+function commentRemoved(IDCommento) {
+    var dataToSend = {
+        IDCommento: IDCommento
+    };
+
+    $.ajax({
+        type: "POST",
+        url: 'backEnd/commentRemoved.php',
+        data: dataToSend,
+        success: function(response) {
+            console.log(response);
+            location.reload();
+        },
+        error: function(error) {
+            console.error(error);
+        }
+    });
+}
