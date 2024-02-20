@@ -138,6 +138,8 @@ if ($result) {
         <!-- Main Content -->
         <div class="col-md-6">
           <div class="main-content">
+            <div id="error-message" class="text-danger" style="color: #be2937db; padding-bottom: 8px;">
+            </div>
             <div class="write-post-container" style="height: 50%;">
               <div class="user-profile">
                 <div style="display: flex">
