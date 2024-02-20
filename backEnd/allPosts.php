@@ -22,7 +22,7 @@ function printCommenti($resultCommenti, $cid)
         // Loop attraverso ogni commento e stampalo
         while ($row = $resultCommenti->fetch_assoc()) {
             $testo = $row['testo'];
-            $emailTemp = $row['emailMessaggio'];
+            $emailTemp = $row['emailCommento'];
             $IDCommento = $row['IDCommento'];
             $emailUtenteLoggato = $_SESSION['email'];
             $res = $cid->query("SELECT indiceGradimento FROM gradimento WHERE emailGradimento='$emailUtenteLoggato' AND idcommento='$IDCommento'");

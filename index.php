@@ -116,13 +116,21 @@ if ($result) {
               </p>
             </div>
 
+            <?php
+            $res = $cid->query("SELECT amministratore FROM utente WHERE email='$emailUtenteLoggato'");
+            $row = $res->fetch_assoc();
+            if ($row['amministratore'] == 1) {
+              include "backEnd/stampaClassificaAmici.php";
+            }
+            ?>
+
             <hr class="separator">
+
 
             <!--  Amici  -->
             <div class="sidebar-title">
               <h4>Amici</h4>
             </div>
-
             <?php include "backEnd/friendList.php"; ?>
           </div>
         </div>
