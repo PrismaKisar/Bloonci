@@ -25,11 +25,21 @@ function printCommenti($resultCommenti, $cid)
             $emailTemp = $row['emailMessaggio'];
             $IDCommento = $row['IDCommento'];
             $emailUtenteLoggato = $_SESSION['email'];
+            $res = $cid->query("SELECT indiceGradimento FROM gradimento WHERE emailGradimento='$emailUtenteLoggato' AND idcommento='$IDCommento'");
+            if ($res->num_rows > 0) {
+                $row3 = $res->fetch_assoc();
+                $selezione = $row3['indiceGradimento'];
+            } else {
+                $selezione = "gradimento";
+            }
+
+
             // Ottieni il nome e il cognome dell'utente che ha commentato
             $res = $cid->query("SELECT nome, cognome FROM utente WHERE email = '$emailTemp'");
             $row3 = $res->fetch_assoc();
             $nome = $row3['nome'];
             $cognome = $row3['cognome'];
+
 
 
 
@@ -44,7 +54,7 @@ function printCommenti($resultCommenti, $cid)
                 <p class="post-text">$testo</p>
                 <div class="post-footer">
                 <select class="rating-comment-dropdown">
-                    <option disabled selected hidden>si</option>
+                    <option disabled selected hidden>$selezione</option>
                     <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="-3">-3</option>
                     <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="-2">-2</option>
                     <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="-1">-1</option>
