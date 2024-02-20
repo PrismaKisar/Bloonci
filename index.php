@@ -154,32 +154,39 @@ if ($result) {
                 </div>
               </div>
 
-              <div class="post-input-container">
-                <textarea rows="1" id="autoHeightTextarea" placeholder="Cos'hai in mente?"
-                  oninput="autoResize()"></textarea>
-              </div>
-              <input type="file" id="imageFile" hidden>
-              <div id="message"></div>
-              <div class="post-footer">
-                <div>
-                  <button class="request-button" id="pubblicaButton">pubblica</button>
-                </div>
-                <div>
-                  <select id="postType" onchange="toggleFileInput()">
-                    <option value="testo" selected>Testo</option>
-                    <option value="foto">Foto</option>
-                  </select>
-                </div>
-                <div style="display: flex">
-                  <select id="province" class="form-select" name="province">
-                    <option value=""></option>
-                    <?php include "backEnd/getProvinces.php" ?>
-                  </select>
-                  <select id="birth_city" class="form-select" name="birth_city">
-                    <?php include "backEnd/getCities.php" ?>
-                  </select>
-                </div>
-              </div>
+              <?php
+              $res = $cid->query("SELECT rispettabilità FROM utente WHERE email='$emailUtenteLoggato'");
+              $row = $res->fetch_assoc();
+              $rispettabilità = $row['rispettabilità'];
+
+              if ($rispettabilità >= 2) {
+                echo '<div class="post-input-container" id="postContainer">
+                          <textarea rows="1" id="autoHeightTextarea" placeholder="Cos\'hai in mente?" oninput="autoResize()"></textarea>
+                        </div>
+                        <input type="file" id="imageFile" hidden>
+                        <div id="message"></div>
+                        <div class="post-footer">
+                          <div>
+                            <button class="request-button" id="pubblicaButton">pubblica</button>
+                          </div>
+                          <div>
+                            <select id="postType" onchange="toggleFileInput()">
+                              <option value="testo" selected>Testo</option>
+                              <option value="foto">Foto</option>
+                            </select>
+                          </div>
+                          <div style="display: flex">
+                            <select id="province" class="form-select" name="province">
+                              <option value=""></option>';
+                include "backEnd/getProvinces.php";
+                echo '</select>
+                            <select id="birth_city" class="form-select" name="birth_city">';
+                include "backEnd/getCities.php";
+                echo '</select>
+                          </div>
+                        </div>';
+              }
+              ?>
             </div>
 
             <div class="post-container">
