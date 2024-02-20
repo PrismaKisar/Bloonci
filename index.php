@@ -140,17 +140,19 @@ if ($result) {
           <div class="main-content">
             <div class="write-post-container" style="height: 50%;">
               <div class="user-profile">
-                <img src="images/misc/unkwownPhoto.jpeg">
-                <div class="name-post">
-                  <p><a href="frontEnd/bachecaPersonale.php">
-                      <?php
-                      $query = "SELECT nome, cognome FROM utente WHERE email='$emailUtenteLoggato'";
-                      $result = $cid->query($query);
-                      $row = $result->fetch_assoc();
-                      echo $row['nome'] . " " . $row['cognome'];
-                      ?>
-                    </a></p>
-                  <small>Public <i class=" fa-solid fa-earth-americas"></i></small>
+                <div style="display: flex">
+                  <img src="images/misc/unkwownPhoto.jpeg">
+                  <div class="name-post">
+                    <p><a href="frontEnd/bachecaPersonale.php">
+                        <?php
+                        $query = "SELECT nome, cognome FROM utente WHERE email='$emailUtenteLoggato'";
+                        $result = $cid->query($query);
+                        $row = $result->fetch_assoc();
+                        echo $row['nome'] . " " . $row['cognome'];
+                        ?>
+                      </a></p>
+                    <small>Public <i class=" fa-solid fa-earth-americas"></i></small>
+                  </div>
                 </div>
               </div>
 

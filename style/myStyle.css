@@ -595,7 +595,8 @@ body {
     transition: border-color 0.3s ease;
 }
 
-.rating-dropdown {
+.rating-dropdown, .rating-comment-dropdown,
+.send-comment-btn, .close-btn {
     background-color: #fff; 
     color: rgba(0, 81, 128, 0.618);
     border: none;
@@ -682,4 +683,18 @@ body {
     background-color: #f1f1f1;
 }
 
+.comment-textarea {
+    width: 100%;
+    border: 1px solid #ccc; /* Aggiungi un bordo grigio */
+    border-radius: 5px; /* Aggiungi bordi arrotondati */
+    padding: 10px; /* Aggiungi spazio interno */
+    resize: vertical; /* Permetti di ridimensionare verticalmente */
+    font-family: 'poppins', sans-serif; /* Usa lo stesso font degli altri elementi */
+    font-size: 14px; /* Imposta la dimensione del testo */
+    outline: none; /* Rimuovi il bordo attorno alla textarea quando è selezionata */
+}
+
+.comment-textarea::placeholder {
+    color: #9f9f9f; /* Colore del testo del placeholder */
+}
 
