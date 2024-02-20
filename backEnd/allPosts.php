@@ -38,6 +38,18 @@ function printCommenti($resultCommenti, $cid)
                   </div>
                 </div>
                 <p class="post-text">$testo</p>
+                <div class="post-footer">
+                <select class="rating-dropdown">
+                    <option disabled selected hidden>si</option>
+                    <option value="-3">-3</option>
+                    <option value="-2">-2</option>
+                    <option value="-1">-1</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
             </div>
             END;
         }

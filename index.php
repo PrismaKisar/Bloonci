@@ -182,9 +182,7 @@ if ($result) {
                   <small>25 Luglio 2017, 13:45 - Pavia (PV)</small>
                 </div>
               </div>
-              <p class="post-text">Ciao a tutti, come va oggi? per me molto bene dato che l'Inter ha perso
-                lol
-              </p>
+              <p class="post-text">Ciao a tutti, come va oggi? pe</p>
               <img src="images/misc/feed-image-1.png" class="post-img">
               <div class="post-footer">
                 <select class="rating-dropdown">
@@ -234,6 +232,11 @@ if ($result) {
                         <p class="post-text">Ciao a tutti, come va oggi? per me molto bene
                           datoche l'Inter ha perso lol
                         </p>
+                        <div class="post-footer">
+                          <select class="rating-dropdown">
+                            <option value="null">valuta</option>
+                          </select>
+                        </div>
                       </div>
 
                       <div class="post-container">
