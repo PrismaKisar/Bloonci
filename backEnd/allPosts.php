@@ -23,11 +23,15 @@ function printCommenti($resultCommenti, $cid)
         while ($row = $resultCommenti->fetch_assoc()) {
             $testo = $row['testo'];
             $emailTemp = $row['emailMessaggio'];
+            $IDCommento = $row['IDCommento'];
+            $emailUtenteLoggato = $_SESSION['email'];
             // Ottieni il nome e il cognome dell'utente che ha commentato
             $res = $cid->query("SELECT nome, cognome FROM utente WHERE email = '$emailTemp'");
             $row3 = $res->fetch_assoc();
             $nome = $row3['nome'];
             $cognome = $row3['cognome'];
+
+
 
             // Stampare il commento
             echo <<<END
@@ -39,15 +43,15 @@ function printCommenti($resultCommenti, $cid)
                 </div>
                 <p class="post-text">$testo</p>
                 <div class="post-footer">
-                <select class="rating-dropdown">
+                <select class="rating-comment-dropdown">
                     <option disabled selected hidden>si</option>
-                    <option value="-3">-3</option>
-                    <option value="-2">-2</option>
-                    <option value="-1">-1</option>
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="-3">-3</option>
+                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="-2">-2</option>
+                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="-1">-1</option>
+                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="0">0</option>
+                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="1">1</option>
+                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="2">2</option>
+                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="3">3</option>
                 </select>
             </div>
             </div>
