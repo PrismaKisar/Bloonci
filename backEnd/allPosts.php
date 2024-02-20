@@ -33,15 +33,11 @@ function printCommenti($resultCommenti, $cid)
                 $selezione = "gradimento";
             }
 
-
             // Ottieni il nome e il cognome dell'utente che ha commentato
             $res = $cid->query("SELECT nome, cognome FROM utente WHERE email = '$emailTemp'");
             $row3 = $res->fetch_assoc();
             $nome = $row3['nome'];
             $cognome = $row3['cognome'];
-
-
-
 
             // Stampare il commento
             echo <<<END
@@ -103,6 +99,8 @@ if ($result->num_rows > 0) {
         $tipo = $row['tipo'];
         $nomeAmico = $row['nome_amico'];
         $cognomeAmico = $row['cognome_amico'];
+        $città = $row['città'];
+        $provincia = $row['provincia'];
 
         // Ottieni i commenti per il messaggio corrente
         $resultCommenti = getCommenti($email, $timestamp, $cid);
@@ -123,9 +121,19 @@ if ($result->num_rows > 0) {
                 <img src='images/misc/unkwownPhoto.jpeg'>
                 <div class='name-post'>
                     <p><a href='frontEnd/bachecaAmico.php?emailCorrente=$email'>$nomeAmico $cognomeAmico</a></p>
-                    <small>$timestamp</small>
+                    <small>$timestamp
 
             END;
+
+
+        if (!is_null($città) && !is_null($provincia)) {
+            echo <<<END
+                - $città ($provincia)</small>
+            END;
+        } else {
+            echo "</small>";
+        }
+
         if ($email == $emailUtenteLoggato) {
             echo "<button class=remove-btn onclick='postRemoved(\"{$timestamp}\", \"{$email}\")'>rimuovi</button>";
         }
