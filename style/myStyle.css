@@ -329,6 +329,7 @@ body {
 .user-profile {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .user-profile img {

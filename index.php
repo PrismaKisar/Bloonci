@@ -191,12 +191,18 @@ if ($result) {
 
             <div class="post-container">
               <div class="user-profile">
-                <img src="images/misc/unkwownPhoto.jpeg">
-                <div class="name-post">
-                  <p><a href="#">Marco Abbiati</a></p>
-                  <small>25 Luglio 2017, 13:45 - Pavia (PV)</small>
+                <div style="display: flex">
+                  <img src="images/misc/unkwownPhoto.jpeg">
+                  <div class="name-post">
+                    <p><a href="#">Marco Abbiati</a></p>
+                    <small>25 Luglio 2017, 13:45 - Pavia (PV)</small>
+                  </div>
+                </div>
+                <div>
+                  <button class=remove-btn>rimuovi</button>
                 </div>
               </div>
+
               <p class="post-text">Ciao a tutti, come va oggi? pe</p>
               <img src="images/misc/feed-image-1.png" class="post-img">
               <div class="post-footer">

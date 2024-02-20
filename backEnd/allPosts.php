@@ -118,6 +118,7 @@ if ($result->num_rows > 0) {
         echo <<<END
             <div class='post-container'>
             <div class='user-profile'>
+                <div style="display: flex">
                 <img src='images/misc/unkwownPhoto.jpeg'>
                 <div class='name-post'>
                     <p><a href='frontEnd/bachecaAmico.php?emailCorrente=$email'>$nomeAmico $cognomeAmico</a></p>
@@ -128,18 +129,18 @@ if ($result->num_rows > 0) {
 
         if (!is_null($città) && !is_null($provincia)) {
             echo <<<END
-                - $città ($provincia)</small>
+                - $città ($provincia)</small></div>
+                </div>
             END;
         } else {
-            echo "</small>";
+            echo "</small></div></div>";
         }
 
         if ($email == $emailUtenteLoggato) {
-            echo "<button class=remove-btn onclick='postRemoved(\"{$timestamp}\", \"{$email}\")'>rimuovi</button>";
+            echo "<div><button class=remove-btn onclick='postRemoved(\"{$timestamp}\", \"{$email}\")'>rimuovi</button></div>";
         }
 
         echo <<<END
-                </div>
             </div>
             <p class='post-text'>$testo</p>
             END;
