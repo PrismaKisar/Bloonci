@@ -13,10 +13,12 @@ $query = "SELECT * FROM gradimento WHERE
     emailGradimento = '$emailUtenteLoggato'";
 $result = $cid->query($query);
 
+
+
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $IDgradimento = $row['IDGradimento'];
-    $query = "DELETE FROM gradimento WHERE IDCommento = $IDgradimento";
+    $query = "DELETE FROM gradimento WHERE gradimento.IDGradimento = '$IDgradimento'";
     $result = $cid->query($query);
     $query = "INSERT INTO gradimento (IDGradimento, IDCommento, indiceGradimento, emailGradimento) 
         VALUES ('$IDgradimento', '$IDCommento', '$gradimento', '$emailUtenteLoggato')";
