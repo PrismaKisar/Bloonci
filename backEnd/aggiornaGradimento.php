@@ -34,3 +34,60 @@ if ($result->num_rows > 0) {
 }
 
 
+// Calcola il valore medio delle valutazioni per il messaggio corrente
+$query = "SELECT AVG(g.indiceGradimento) AS media_totale_gradimenti
+FROM gradimento g
+JOIN commento c ON g.IDCommento = c.IDCommento
+WHERE c.emailCommento = '$emailUtenteLoggato';";
+$result = $cid->query($query);
+
+// Se ci sono valutazioni per il messaggio, calcola il valore medio
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $valoreMedio = (int) $row["media_totale_gradimenti"] - 4;
+}
+
+
+
+// Calcola la nuova rispettabilità in base al valore medio
+$nuovaRispettabilità = calcolaNuovaRispettabilità($valoreMedio);
+
+// Aggiorna il valore di rispettabilità dell'utente nel database
+$query = "UPDATE utente SET rispettabilità = '$nuovaRispettabilità' WHERE email = '$emailUtenteLoggato'";
+
+// Esegui la query di aggiornamento
+if ($cid->query($query) === TRUE) {
+    echo "Il valore di rispettabilità dell'utente con email $emailUtenteLoggato è stato aggiornato con successo.";
+} else {
+    echo "Errore durante l'aggiornamento del valore di rispettabilità dell'utente: " . $cid->error;
+}
+
+// Funzione per calcolare la nuova rispettabilità in base al valore medio
+function calcolaNuovaRispettabilità($valoreMedio)
+{
+    if ($valoreMedio == 3) {
+        return 10;
+    } elseif ($valoreMedio >= 2.4) {
+        return 9;
+    } elseif ($valoreMedio >= 1.8) {
+        return 8;
+    } elseif ($valoreMedio >= 1.2) {
+        return 7;
+    } elseif ($valoreMedio >= 0.6) {
+        return 6;
+    } elseif ($valoreMedio >= 0) {
+        return 5;
+    } elseif ($valoreMedio >= -0.6) {
+        return 4;
+    } elseif ($valoreMedio >= -1.2) {
+        return 3;
+    } elseif ($valoreMedio >= -1.8) {
+        return 2;
+    } elseif ($valoreMedio >= -2.4) {
+        return 1;
+    } elseif ($valoreMedio >= -3) {
+        return 0;
+    }
+}
+
+
