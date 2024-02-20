@@ -117,6 +117,13 @@ if ($result->num_rows > 0) {
                 <div class='name-post'>
                     <p><a href='frontEnd/bachecaAmico.php?emailCorrente=$email'>$nomeAmico $cognomeAmico</a></p>
                     <small>$timestamp</small>
+
+            END;
+        if ($email == $emailUtenteLoggato) {
+            echo "<button class=remove-btn onclick='postRemoved(\"{$timestamp}\", \"{$email}\")'>rimuovi</button>";
+        }
+
+        echo <<<END
                 </div>
             </div>
             <p class='post-text'>$testo</p>
