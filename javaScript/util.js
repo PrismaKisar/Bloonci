@@ -72,9 +72,15 @@ function postRemoved(timestamp, emailUtente) {
         timestamp: timestamp
     };
 
+    if (window.location.pathname.includes("frontEnd")) {
+        url = '../backEnd/postRemoved.php';
+    } else {
+        url = 'backEnd/postRemoved.php';
+    }
+
     $.ajax({
         type: "POST",
-        url: 'backEnd/postRemoved.php',
+        url: url,
         data: dataToSend,
         success: function(response) {
             console.log(response);
@@ -103,9 +109,15 @@ function commentRemoved(IDCommento) {
         IDCommento: IDCommento
     };
 
+    if (window.location.pathname.includes("frontEnd")) {
+        url = '../backEnd/commentRemoved.php';
+    } else {
+        url = 'backEnd/commentRemoved.php';
+    }
+
     $.ajax({
         type: "POST",
-        url: 'backEnd/commentRemoved.php',
+        url: url,
         data: dataToSend,
         success: function(response) {
             console.log(response);

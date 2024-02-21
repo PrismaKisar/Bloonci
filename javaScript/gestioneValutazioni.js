@@ -4,8 +4,15 @@ $(document).ready(function() {
         var valutazione = selectedOption.val();
         var emailMessaggio = selectedOption.data('email');
         var timestampMessaggio = selectedOption.data('timestamp');
+        if (window.location.pathname.includes("frontEnd")) {
+            url = '../backEnd/aggiornaValutazione.php';
+        } else {
+            url = 'backEnd/aggiornaValutazione.php';
+        }
+
+        
         $.ajax({
-            url: 'backEnd/aggiornaValutazione.php',
+            url: url,
             method: 'POST',
             data: { 
                 valutazione: valutazione, 
@@ -29,8 +36,13 @@ $(document).ready(function() {
         var gradimento = selectedOption.val();
         var emailGradimento = selectedOption.data('email');
         var IDCommento = selectedOption.data('idcommento');
+        if (window.location.pathname.includes("frontEnd")) {
+            url = '../backEnd/aggiornaGradimento.php';
+        } else {
+            url = 'backEnd/aggiornaGradimento.php';
+        }
         $.ajax({
-            url: 'backEnd/aggiornaGradimento.php',
+            url: url,
             method: 'POST',
             data: { 
                 gradimento: gradimento, 

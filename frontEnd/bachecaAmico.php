@@ -56,8 +56,12 @@ if ($result) {
     <script src="https://kit.fontawesome.com/797b14a0a3.js" crossorigin="anonymous"></script>
     <script src="../javaScript/util.js"></script>
     <script src="../javaScript/autocompleteBacheca.js"></script>
-    <script src="../javaScript/gestioneValutazioneAmico.js"></script>
+    <script src="../javaScript/gestioneValutazioni.js"></script>
     <script src="../javaScript/bloccaUtente.js"></script>
+    <script src="../javaScript/modalCommento.js"></script>
+    <script src="../javaScript/modalVisualize.js"></script>
+
+
 
 </head>
 
