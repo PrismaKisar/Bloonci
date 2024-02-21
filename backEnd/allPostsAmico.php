@@ -107,6 +107,9 @@ if ($result->num_rows > 0) {
         $nomeAmico = $row['nome_amico'];
         $cognomeAmico = $row['cognome_amico'];
 
+        $resultCommenti = getCommenti($email, $timestamp, $cid);
+
+
         // Query per verificare se l'utente ha già valutato il messaggio
         $query = "SELECT valutazione FROM valuta
                   WHERE emailMessaggio = '$email' AND emailValutazione = '$emailUtenteLoggato' AND timestampMessaggio = '$timestamp'";
