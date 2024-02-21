@@ -27,6 +27,7 @@ $numeroProgressivo = $row["total_comments"] + 1;
 $timestamp = date('Y-m-d H:i:s');
 $query = "INSERT INTO commento (IDCommento, progressivo, emailCommento, emailMessaggio, timestampMessaggio, testo, indiceGradimento) 
 VALUES ('$IDCommento', '$numeroProgressivo', '$emailUtenteLoggato', '$emailMessaggio', '$timestampMessaggio', '$testoCommento', NULL)";
+var_dump($query);
 $result = $cid->query($query);
 
 
