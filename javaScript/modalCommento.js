@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Ottieni l'email e il timestamp del messaggio a cui è associato il commento
             var emailMessaggio = this.getAttribute('data-email');
             var timestampMessaggio = this.getAttribute('data-timestamp');
+            var IDMessaggio = this.closest('.modal').querySelector('.reference-dropdown').value;
             // Effettua una richiesta AJAX per inviare il commento al backend
             $.ajax({
                 url: 'backEnd/inserisciCommento.php',
@@ -29,12 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 data: {
                     testoCommento: testoCommento,
                     emailMessaggio: emailMessaggio,
-                    timestampMessaggio: timestampMessaggio
+                    timestampMessaggio: timestampMessaggio,
+                    IDMessaggio: IDMessaggio
                 },
                 // Gestisci la risposta dal backend
                 success: function (response) {
                     console.log(response); // Log della risposta per debug
-                    location.reload(); // Ricarica la pagina dopo l'inserimento del commento
+                    //location.reload(); // Ricarica la pagina dopo l'inserimento del commento
                 },
                 // Gestisci eventuali errori nella richiesta AJAX
                 error: function (xhr, status, error) {

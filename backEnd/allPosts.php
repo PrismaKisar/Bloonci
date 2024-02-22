@@ -19,7 +19,8 @@ function everyFriendPost($cid)
     SELECT '$emailUtenteLoggato' AS email)";
     $result = $cid->query($sql);
 
-    echo "<select>";
+    echo "<select class='reference-dropdown'>";
+    echo "<option value='' selected>Referisciti</option>";
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $idMessaggio = $row["IDMessaggio"];

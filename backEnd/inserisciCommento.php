@@ -10,6 +10,8 @@ $emailUtenteLoggato = $_SESSION['email'];
 $testoCommento = $_POST['testoCommento'];
 $emailMessaggio = $_POST['emailMessaggio'];
 $timestampMessaggio = $_POST['timestampMessaggio'];
+$IDMessaggio = $_POST['IDMessaggio'];
+
 
 $query = "SELECT MAX(IDCommento) AS massimo FROM commento";
 $result = $cid->query($query);
@@ -25,8 +27,15 @@ $row = $result->fetch_assoc();
 $numeroProgressivo = $row["total_comments"] + 1;
 
 $timestamp = date('Y-m-d H:i:s');
-$query = "INSERT INTO commento (IDCommento, progressivo, emailCommento, emailMessaggio, timestampMessaggio, testo, indiceGradimento) 
-VALUES ('$IDCommento', '$numeroProgressivo', '$emailUtenteLoggato', '$emailMessaggio', '$timestampMessaggio', '$testoCommento', NULL)";
+if ($IDMessaggio != '') {
+    $query = "INSERT INTO commento (IDCommento, progressivo, emailCommento, emailMessaggio, timestampMessaggio, testo, IDMessaggio) 
+        VALUES ('$IDCommento', '$numeroProgressivo', '$emailUtenteLoggato', '$emailMessaggio', '$timestampMessaggio', '$testoCommento', '$IDMessaggio')";
+} else {
+    $query = "INSERT INTO commento (IDCommento, progressivo, emailCommento, emailMessaggio, timestampMessaggio, testo) 
+    VALUES ('$IDCommento', '$numeroProgressivo', '$emailUtenteLoggato', '$emailMessaggio', '$timestampMessaggio', '$testoCommento')";
+
+}
+
 var_dump($query);
 $result = $cid->query($query);
 
