@@ -248,3 +248,4 @@ if ($result->num_rows > 0) {
     // Messaggio di avviso se non ci sono post trovati
     echo "Nessun post trovato.";
 }
+

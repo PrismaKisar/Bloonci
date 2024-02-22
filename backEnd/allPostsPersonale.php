@@ -2,6 +2,31 @@
 // Includi il file per la connessione al database
 require "dbConnection.php";
 
+function everyFriendPost($cid)
+{
+    $emailUtenteLoggato = $_SESSION['email'];
+    $sql = "SELECT IDMessaggio 
+    FROM messaggio 
+    WHERE email IN (
+    SELECT utente.email
+    FROM amicizia
+    INNER JOIN utente ON (amicizia.emailRichiedente = utente.email AND amicizia.emailRicevitore = '$emailUtenteLoggato' AND amicizia.dataAccettazione IS NOT NULL)
+    OR (amicizia.emailRicevitore = utente.email AND amicizia.emailRichiedente = '$emailUtenteLoggato' AND amicizia.dataAccettazione IS NOT NULL)
+    UNION
+    SELECT '$emailUtenteLoggato' AS email)";
+    $result = $cid->query($sql);
+
+    echo "<select class='reference-dropdown'>";
+    echo "<option value='' selected>Referisciti</option>";
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $idMessaggio = $row["IDMessaggio"];
+            echo "<option value='$idMessaggio'>$idMessaggio</option>";
+        }
+    }
+    echo "</select>";
+}
+
 // Funzione per ottenere i commenti relativi a un determinato messaggio
 function getCommenti($emailMessaggio, $timestampMessaggio, $cid)
 {
@@ -18,13 +43,11 @@ function printCommenti($resultCommenti, $cid)
     if ($resultCommenti->num_rows > 0) {
         // Loop attraverso ogni commento e stampalo
         while ($row = $resultCommenti->fetch_assoc()) {
-            // Recupera i dati del commento
             $testo = $row['testo'];
             $emailTemp = $row['emailCommento'];
             $IDCommento = $row['IDCommento'];
+            $IDMessaggio = $row['IDMessaggio'];
             $emailUtenteLoggato = $_SESSION['email'];
-
-            // Verifica se l'utente ha già valutato il commento
             $res = $cid->query("SELECT indiceGradimento FROM gradimento WHERE emailGradimento='$emailUtenteLoggato' AND idcommento='$IDCommento'");
             if ($res->num_rows > 0) {
                 $row3 = $res->fetch_assoc();
@@ -39,35 +62,37 @@ function printCommenti($resultCommenti, $cid)
             $nome = $row3['nome'];
             $cognome = $row3['cognome'];
 
+
             // Stampare il commento
             echo <<<END
             <div class="post-container">
                 <div class="user-profile">
-                    <div class="name-post">
-                        <p><a href=>$nome $cognome</a></p>
-                    </div>
+                  <div class="name-post" style="display: flex;">
+                    <p style="padding-right: 10px;"><a href=>$nome $cognome </a></p>
+                    <p style="font-weight: 300;"> si riferisce al messaggio</p>
+                    <p style="padding-left: 10px;"><button class="gradisce-btn" onclick='referenceMessage({$IDMessaggio})'>$IDMessaggio</button>
+                  </div>
             END;
-
-            // Se l'utente loggato è l'autore del commento, mostra il pulsante per rimuoverlo
             if ($emailTemp == $emailUtenteLoggato) {
                 echo "<button class=remove-btn onclick='commentRemoved(\"{$IDCommento}\")'>rimuovi</button>";
             }
 
             echo <<<END
+                  
                 </div>
                 <p class="post-text">$testo</p>
                 <div class="post-footer">
-                    <select class="rating-comment-dropdown">
-                        <option disabled selected hidden>$selezione</option>
-                        <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="-3">-3</option>
-                        <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="-2">-2</option>
-                        <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="-1">-1</option>
-                        <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="0">0</option>
-                        <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="1">1</option>
-                        <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="2">2</option>
-                        <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="3">3</option>
-                    </select>
-                </div>
+                <select class="rating-comment-dropdown">
+                    <option disabled selected hidden>$selezione</option>
+                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="-3">-3</option>
+                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="-2">-2</option>
+                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="-1">-1</option>
+                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="0">0</option>
+                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="1">1</option>
+                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="2">2</option>
+                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="3">3</option>
+                </select>
+            </div>
             </div>
             END;
         }
@@ -78,7 +103,7 @@ function printCommenti($resultCommenti, $cid)
 $emailUtenteLoggato = $_SESSION['email'];
 
 // Query per selezionare i messaggi dell'utente corrente
-$query = "SELECT m.*, u.nome AS nome_amico, u.cognome AS cognome_amico
+$query = "SELECT m.*, u.nome AS nome_amico, u.cognome AS cognome_amico, IDMessaggio
           FROM messaggio AS m
           JOIN utente AS u ON m.email = u.email
           WHERE m.email = '$emailUtenteLoggato' 
@@ -91,33 +116,28 @@ $result = $cid->query($query);
 if ($result->num_rows > 0) {
     // Loop attraverso ogni messaggio e stampalo
     while ($row = $result->fetch_assoc()) {
-        // Recupera i dati del messaggio
         $testo = $row['testo'];
         $email = $row['email'];
         $timestamp = $row['timestamp'];
         $tipo = $row['tipo'];
-        $percorso = $row['percorso'];
-        $nome = $row['nome'];
         $nomeAmico = $row['nome_amico'];
         $cognomeAmico = $row['cognome_amico'];
         $città = $row['città'];
         $provincia = $row['provincia'];
+        $IDMessaggio = $row['IDMessaggio'];
 
+        // Ottieni i commenti per il messaggio corrente
         $resultCommenti = getCommenti($email, $timestamp, $cid);
 
-
-        // Query per verificare se l'utente ha già valutato il messaggio
-        $query = "SELECT valutazione FROM valuta
-                  WHERE emailMessaggio = '$email' AND emailValutazione = '$emailUtenteLoggato' AND timestampMessaggio = '$timestamp'";
-        $resultValutazione = $cid->query($query);
-
-        // Se l'utente ha già valutato il messaggio, imposta la selezione sulla sua valutazione
+        // Verifica se l'utente ha già valutato il post
+        $queryValutazione = "SELECT valutazione FROM valuta WHERE emailMessaggio = '$email' AND emailValutazione = '$emailUtenteLoggato' AND timestampMessaggio = '$timestamp'";
+        $resultValutazione = $cid->query($queryValutazione);
+        $selezione = "Valuta";
         if ($resultValutazione->num_rows > 0) {
-            $row = $resultValutazione->fetch_assoc();
-            $selezione = $row['valutazione'];
-        } else {
-            $selezione = "valuta";
+            $rowValutazione = $resultValutazione->fetch_assoc();
+            $selezione = $rowValutazione['valutazione'];
         }
+
         // Stampa il post
         echo <<<END
             <div class='post-container'>
@@ -126,14 +146,14 @@ if ($result->num_rows > 0) {
                 <img src='../images/misc/unkwownPhoto.jpeg'>
                 <div class='name-post'>
                     <p><a href='frontEnd/bachecaAmico.php?emailCorrente=$email'>$nomeAmico $cognomeAmico</a></p>
-                    <small>$timestamp
+                    <small>id del messaggio: $IDMessaggio - data: $timestamp
 
             END;
 
 
         if (!is_null($città) && !is_null($provincia)) {
             echo <<<END
-                - $città ($provincia)</small></div>
+                - luogo: $città ($provincia)</small></div>
                 </div>
             END;
         } else {
@@ -184,6 +204,12 @@ if ($result->num_rows > 0) {
                             <textarea class="comment-textarea" rows="4" cols="50" placeholder="Commenta..."></textarea>
                         </div>
                         <div class="modal-footer">
+
+
+            END;
+        everyFriendPost($cid);
+        echo <<<END
+                            
                             <button class="close-btn" type="button">Chiudi</button>
                             <button class="send-comment-btn" type="button" data-email="$email" data-timestamp="$timestamp">Invia commento</button>
                         </div>
@@ -218,4 +244,3 @@ if ($result->num_rows > 0) {
 } else {
     echo "Nessun post trovato per l'email specificata.";
 }
-?>
