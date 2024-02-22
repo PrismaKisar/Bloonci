@@ -20,9 +20,10 @@ if ($_GET['emailCorrente'] == $_SESSION['email']) {
     if ($result->num_rows <= 0) {
         header("Location: bachecaAmicoEliminato.php?emailCorrente=arnaprdo@gmail.com.php");
     } else {
-        $query = "SELECT * FROM amicizia 
-    WHERE (emailRichiedente = '$emailUtenteLoggato' AND emailRicevitore = '$emailAmico') OR 
-    (emailRichiedente = '$emailAmico' AND emailRicevitore = '$emailUtenteLoggato')";
+        $query = "SELECT utente.nome, utente.cognome, utente.email
+        FROM amicizia
+        INNER JOIN utente ON (amicizia.emailRichiedente = '$emailAmico' AND amicizia.emailRicevitore = '$emailUtenteLoggato' AND amicizia.dataAccettazione IS NOT NULL)
+        OR (amicizia.emailRicevitore = '$emailAmico' AND amicizia.emailRichiedente = '$emailUtenteLoggato' AND amicizia.dataAccettazione IS NOT NULL);";
         $result = $cid->query($query);
         if ($result->num_rows <= 0) {
             header("Location: bachecaAmicoNonVisibile.php?emailCorrente=arnaprdo@gmail.com.php");
