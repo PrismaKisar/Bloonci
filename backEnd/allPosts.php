@@ -62,6 +62,7 @@ function printCommenti($resultCommenti, $cid)
             $nome = $row3['nome'];
             $cognome = $row3['cognome'];
 
+
             // Stampare il commento
             echo <<<END
             <div class="post-container">
@@ -69,7 +70,7 @@ function printCommenti($resultCommenti, $cid)
                   <div class="name-post" style="display: flex;">
                     <p style="padding-right: 10px;"><a href=>$nome $cognome </a></p>
                     <p style="font-weight: 300;"> si riferisce al messaggio</p>
-                    <p style="padding-left: 10px;"><button onclick='referenceMessage({$IDMessaggio})'>$IDMessaggio</button>
+                    <p style="padding-left: 10px;"><button class="gradisce-btn" onclick='referenceMessage({$IDMessaggio})'>$IDMessaggio</button>
                   </div>
             END;
             if ($emailTemp == $emailUtenteLoggato) {

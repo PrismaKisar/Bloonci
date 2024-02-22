@@ -596,7 +596,7 @@ body {
 }
 
 .rating-dropdown, .rating-comment-dropdown,
-.send-comment-btn, .close-btn {
+.send-comment-btn, .close-btn, .reference-dropdown {
     background-color: #fff; 
     color: rgba(0, 81, 128, 0.618);
     border: none;
@@ -673,10 +673,25 @@ body {
 #postType:hover,
 #postType:focus,
 .post-footer .form-select:focus,
-.post-footer .form-select:hover
+.post-footer .form-select:hover,
+.gradisce-btn:hover,
+.gradisce-btn:focus
  {
     background-color: #004f8012;
     color: rgba(0, 81, 128, 0.869);
+}
+
+.gradisce-btn{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background-color: transparent;
+    color: rgba(0, 81, 128, 0.618);
+    border: none;
+    border-radius: 10px;
+    width: auto;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 #imageFile {
     background-color: #004f8012;
