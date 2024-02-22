@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 22, 2024 at 04:06 PM
+-- Generation Time: Feb 22, 2024 at 09:40 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -39,7 +39,7 @@ CREATE TABLE `amicizia` (
 --
 
 INSERT INTO `amicizia` (`emailRichiedente`, `emailRicevitore`, `dataRichiesta`, `dataAccettazione`) VALUES
-('ale.sarchi@gmail.com', 'alebilo@gmail.com', '2024-02-19', '2024-02-19'),
+('ale.sarchi@gmail.com', 'alebilo@gmail.com', '2024-02-22', NULL),
 ('ale.sarchi@gmail.com', 'carmi@gmail.com', '2024-02-22', '2023-10-03'),
 ('ale.sarchi@gmail.com', 'filo@gmail.com', '2024-02-22', '2024-02-07'),
 ('ale.sarchi@gmail.com', 'giorgiapolli11@libero.it', '2024-02-22', '2024-02-07'),
@@ -82,7 +82,6 @@ CREATE TABLE `commento` (
   `emailMessaggio` varchar(50) NOT NULL,
   `timestampMessaggio` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `testo` varchar(500) NOT NULL,
-  `indiceGradimento` enum('-3','-2','-1','0','1','2','3') DEFAULT NULL,
   `IDMessaggio` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -90,11 +89,17 @@ CREATE TABLE `commento` (
 -- Dumping data for table `commento`
 --
 
-INSERT INTO `commento` (`IDCommento`, `progressivo`, `emailCommento`, `emailMessaggio`, `timestampMessaggio`, `testo`, `indiceGradimento`, `IDMessaggio`) VALUES
-(1, '1', 'ale.sarchi@gmail.com', 'luke.giuss@gmail.com', '2024-02-22 08:46:05', 'Vamoosss', NULL, NULL),
-(2, '1', 'ale.sarchi@gmail.com', 'ale.sarchi@gmail.com', '2024-02-22 08:22:36', 'jadhkadjka', NULL, 12),
-(3, '2', 'ale.sarchi@gmail.com', 'ale.sarchi@gmail.com', '2024-02-22 08:22:36', '88888', NULL, 8),
-(4, '3', 'ale.sarchi@gmail.com', 'ale.sarchi@gmail.com', '2024-02-22 08:22:36', 'acaf', NULL, NULL);
+INSERT INTO `commento` (`IDCommento`, `progressivo`, `emailCommento`, `emailMessaggio`, `timestampMessaggio`, `testo`, `IDMessaggio`) VALUES
+(1, '1', 'ale.sarchi@gmail.com', 'luke.giuss@gmail.com', '2024-02-22 08:46:05', 'Vamoosss', NULL),
+(2, '1', 'ale.sarchi@gmail.com', 'ale.sarchi@gmail.com', '2024-02-22 08:22:36', 'jadhkadjka', 12),
+(3, '2', 'ale.sarchi@gmail.com', 'ale.sarchi@gmail.com', '2024-02-22 08:22:36', '88888', 8),
+(4, '3', 'ale.sarchi@gmail.com', 'ale.sarchi@gmail.com', '2024-02-22 08:22:36', 'acaf', NULL),
+(5, '1', 'ale.sarchi@gmail.com', 'ale.sarchi@gmail.com', '2024-02-22 08:21:41', 'NOOOOOOO', NULL),
+(6, '1', 'ale.sarchi@gmail.com', 'ale.sarchi@gmail.com', '2024-02-22 08:21:53', 'siiii', NULL),
+(7, '2', 'ale.sarchi@gmail.com', 'luke.giuss@gmail.com', '2024-02-22 08:46:05', 'Riferisco', 17),
+(8, '3', 'ale.sarchi@gmail.com', 'luke.giuss@gmail.com', '2024-02-22 08:46:05', 'Commento referenziante', NULL),
+(9, '1', 'ale.sarchi@gmail.com', 'ale.sarchi@gmail.com', '2024-02-22 20:08:54', 'Senza referenza', NULL),
+(10, '1', 'ale.sarchi@gmail.com', 'ale.sarchi@gmail.com', '2024-02-22 20:06:06', 'zafsf', 15);
 
 -- --------------------------------------------------------
 
@@ -108,6 +113,14 @@ CREATE TABLE `gradimento` (
   `indiceGradimento` enum('-3','-2','-1','0','1','2','3') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `emailGradimento` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `gradimento`
+--
+
+INSERT INTO `gradimento` (`IDGradimento`, `IDCommento`, `indiceGradimento`, `emailGradimento`) VALUES
+(1, 1, '1', 'ale.sarchi@gmail.com'),
+(2, 9, '2', 'ale.sarchi@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -158,7 +171,11 @@ INSERT INTO `messaggio` (`IDMessaggio`, `email`, `timestamp`, `tipo`, `nome`, `p
 (12, 'ale.sarchi@gmail.com', '2024-02-22 08:18:29', 'testo', NULL, NULL, 'SIIIIII', 'Milano', 'MI'),
 (13, 'ale.sarchi@gmail.com', '2024-02-22 08:21:41', 'testo', NULL, NULL, 'vediamo', NULL, NULL),
 (14, 'ale.sarchi@gmail.com', '2024-02-22 08:21:53', 'testo', NULL, NULL, 'vediamo 2', 'Milano', 'MI'),
-(15, 'ale.sarchi@gmail.com', '2024-02-22 08:22:36', 'foto', '65d7044c03aa7.jpeg', 'images/ale.sarchi@gmail.com/', 'Boh', NULL, NULL);
+(15, 'ale.sarchi@gmail.com', '2024-02-22 08:22:36', 'foto', '65d7044c03aa7.jpeg', 'images/ale.sarchi@gmail.com/', 'Boh', NULL, NULL),
+(16, 'ale.sarchi@gmail.com', '2024-02-22 20:06:06', 'testo', NULL, NULL, 'Testo senza luogo', NULL, NULL),
+(17, 'ale.sarchi@gmail.com', '2024-02-22 20:06:18', 'testo', NULL, NULL, 'Testo con luogo', 'Segrate', 'MI'),
+(18, 'ale.sarchi@gmail.com', '2024-02-22 20:07:55', 'foto', '65d7a99b96802.jpeg', 'images/ale.sarchi@gmail.com/', 'Foto senza luogo', NULL, NULL),
+(19, 'ale.sarchi@gmail.com', '2024-02-22 20:08:54', 'foto', '65d7a9d65a4a3.jpg', 'images/ale.sarchi@gmail.com/', 'Foto con luogo', 'Pavia', 'PV');
 
 -- --------------------------------------------------------
 
@@ -178,7 +195,7 @@ CREATE TABLE `possiede` (
 INSERT INTO `possiede` (`hobby`, `email`) VALUES
 ('Basket', 'ale.sarchi@gmail.com'),
 ('Calcio', 'ale.sarchi@gmail.com'),
-('Pallavolo', 'ale.sarchi@gmail.com');
+('Scherma', 'ale.sarchi@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -205,7 +222,7 @@ CREATE TABLE `utente` (
 --
 
 INSERT INTO `utente` (`email`, `password`, `nome`, `cognome`, `dataNascita`, `cittàNacita`, `provinciaNascita`, `orientamentoSessuale`, `rispettabilità`, `bloccante`, `amministratore`) VALUES
-('ale.sarchi@gmail.com', 'cr7', 'j', 'f', '2024-02-02', 'Pavia', 'PV', 'omosessuale', '8', NULL, 1),
+('ale.sarchi@gmail.com', 'cr7', 'Alessandro', 'Sarchi', '2024-02-02', 'Pavia', 'PV', 'omosessuale', '6', NULL, 1),
 ('alebilo@gmail.com', 'bilo', 'Alessandro', 'Bilotta', NULL, NULL, NULL, NULL, '6', NULL, 0),
 ('carmi@gmail.com', 'carmi', 'Carmilla', 'Galasso', NULL, NULL, NULL, NULL, '6', NULL, 0),
 ('filo@gmail.com', '123', 'Filippo', 'Di Marco', NULL, NULL, NULL, NULL, '6', NULL, 0),
@@ -231,6 +248,17 @@ CREATE TABLE `valuta` (
   `timestampMessaggio` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `valutazione` enum('-3','-2','-1','0','1','2','3') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `valuta`
+--
+
+INSERT INTO `valuta` (`IDValuta`, `emailValutazione`, `emailMessaggio`, `timestampMessaggio`, `valutazione`) VALUES
+(1, 'ale.sarchi@gmail.com', 'ale.sarchi@gmail.com', '2024-02-22 08:22:36', '-2'),
+(2, 'ale.sarchi@gmail.com', 'ale.sarchi@gmail.com', '2024-02-22 08:21:53', '0'),
+(3, 'ale.sarchi@gmail.com', 'ale.sarchi@gmail.com', '2024-02-22 08:21:41', '1'),
+(4, 'ale.sarchi@gmail.com', 'ale.sarchi@gmail.com', '2024-02-22 20:08:54', '1'),
+(5, 'ale.sarchi@gmail.com', 'luke.giuss@gmail.com', '2024-02-22 08:46:05', '1');
 
 --
 -- Indexes for dumped tables

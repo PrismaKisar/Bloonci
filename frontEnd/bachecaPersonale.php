@@ -43,7 +43,7 @@ if ($result) {
     <script src="../javaScript/citiesAndProvinces.js"></script>
     <script src="../javaScript/modal.js"></script>
     <script src="../javaScript/gestioneModifiche.js"></script>
-    <script src="../javaScript/gestioneValutazioneAmico.js"></script>
+    <script src="../javaScript/gestioneValutazioni.js"></script>
     <script src="../javaScript/bloccaUtente.js"></script>
     <script src="../javaScript/modalCommentoAmico.js"></script>
     <script src="../javaScript/modalVisualize.js"></script>

@@ -24,8 +24,15 @@ document.addEventListener("DOMContentLoaded", function () {
             var timestampMessaggio = this.getAttribute('data-timestamp');
             var IDMessaggio = this.closest('.modal').querySelector('.reference-dropdown').value;
             // Effettua una richiesta AJAX per inviare il commento al backend
+
+
+            if (window.location.pathname.includes("frontEnd")) {
+                url = '../backEnd/inserisciCommento.php';
+            } else {
+                url = 'backEnd/inserisciCommento.php';
+            }
             $.ajax({
-                url: 'backEnd/inserisciCommento.php',
+                url: url,
                 method: 'POST',
                 data: {
                     testoCommento: testoCommento,
