@@ -131,5 +131,5 @@ function commentRemoved(IDCommento) {
 
 
 function referenceMessage(IDMessaggio) {
-    window.location.href = 'messaggioRiferito.php?IDMessaggio=' + IDMessaggio;
+    window.location.href = 'frontEnd/messaggioRiferito.php?IDMessaggio=' + IDMessaggio;
 }

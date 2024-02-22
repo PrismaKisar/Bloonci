@@ -100,7 +100,7 @@ function printCommenti($resultCommenti, $cid)
 }
 
 // Query per selezionare i messaggi dell'utente corrente e dei suoi amici
-$query = "SELECT m.*, u.nome AS nome_amico, u.cognome AS cognome_amico
+$query = "SELECT m.*, u.nome AS nome_amico, u.cognome AS cognome_amico, IDMessaggio
           FROM messaggio AS m
           JOIN utente AS u ON m.email = u.email
           WHERE m.email IN (
@@ -127,6 +127,7 @@ if ($result->num_rows > 0) {
         $cognomeAmico = $row['cognome_amico'];
         $città = $row['città'];
         $provincia = $row['provincia'];
+        $IDMessaggio = $row['IDMessaggio'];
 
         // Ottieni i commenti per il messaggio corrente
         $resultCommenti = getCommenti($email, $timestamp, $cid);
@@ -148,14 +149,14 @@ if ($result->num_rows > 0) {
                 <img src='images/misc/unkwownPhoto.jpeg'>
                 <div class='name-post'>
                     <p><a href='frontEnd/bachecaAmico.php?emailCorrente=$email'>$nomeAmico $cognomeAmico</a></p>
-                    <small>$timestamp
+                    <small>id del messaggio: $IDMessaggio - data: $timestamp
 
             END;
 
 
         if (!is_null($città) && !is_null($provincia)) {
             echo <<<END
-                - $città ($provincia)</small></div>
+                - luogo: $città ($provincia)</small></div>
                 </div>
             END;
         } else {
