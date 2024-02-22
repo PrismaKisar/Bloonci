@@ -128,3 +128,27 @@ function commentRemoved(IDCommento) {
         }
     });
 }
+
+
+function referenceMessage(IDMessaggio) {
+    var dataToSend = {
+        IDMessaggio: IDMessaggio
+    };
+
+    if (window.location.pathname.includes("frontEnd")) {
+        url = '../backEnd/referenceMessage.php';
+    } else {
+        url = 'backEnd/referenceMessage.php';
+    }
+
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: dataToSend,
+        success: function(response) {
+        },
+        error: function(error) {
+            console.error(error);
+        }
+    });
+}

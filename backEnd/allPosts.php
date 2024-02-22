@@ -49,6 +49,7 @@ function printCommenti($resultCommenti, $cid)
             $testo = $row['testo'];
             $emailTemp = $row['emailCommento'];
             $IDCommento = $row['IDCommento'];
+            $IDMessaggio = $row['IDMessaggio'];
             $emailUtenteLoggato = $_SESSION['email'];
             $res = $cid->query("SELECT indiceGradimento FROM gradimento WHERE emailGradimento='$emailUtenteLoggato' AND idcommento='$IDCommento'");
             if ($res->num_rows > 0) {
@@ -68,8 +69,10 @@ function printCommenti($resultCommenti, $cid)
             echo <<<END
             <div class="post-container">
                 <div class="user-profile">
-                  <div class="name-post">
-                    <p><a href=>$nome $cognome</a></p>
+                  <div class="name-post" style="display: flex;">
+                    <p style="padding-right: 10px;"><a href=>$nome $cognome </a></p>
+                    <p style="font-weight: 300;"> si riferisce al messaggio</p>
+                    <p style="padding-left: 10px;"><button onclick='referenceMessage({$IDMessaggio})'>$IDMessaggio</button>
                   </div>
             END;
             if ($emailTemp == $emailUtenteLoggato) {
