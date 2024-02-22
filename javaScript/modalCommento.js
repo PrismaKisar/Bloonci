@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 url = 'backEnd/inserisciCommento.php';
             }
+            console.log(url);
             $.ajax({
                 url: url,
                 method: 'POST',

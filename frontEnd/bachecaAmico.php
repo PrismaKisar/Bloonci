@@ -65,7 +65,7 @@ if ($result) {
     <script src="../javaScript/autocompleteBacheca.js"></script>
     <script src="../javaScript/gestioneValutazioni.js"></script>
     <script src="../javaScript/bloccaUtente.js"></script>
-    <script src="../javaScript/modalCommentoAmico.js"></script>
+    <script src="../javaScript/modalCommento.js"></script>
     <script src="../javaScript/modalVisualize.js"></script>
 
 
