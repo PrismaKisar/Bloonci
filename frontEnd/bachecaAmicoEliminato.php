@@ -3,8 +3,6 @@ require "../backEnd/dbConnection.php";
 session_start();
 
 $_SESSION['emailBacheca'] = $_GET['emailCorrente'];
-$emailAmico = $_GET['emailCorrente'];
-$emailUtenteLoggato = $_SESSION['email'];
 
 
 if (!isset($_SESSION['email'])) {
@@ -14,35 +12,6 @@ if (!isset($_SESSION['email'])) {
 
 if ($_GET['emailCorrente'] == $_SESSION['email']) {
     header("Location: bachecaPersonale.php");
-} else {
-    $query = "SELECT * FROM utente WHERE email = '$emailAmico'";
-    $result = $cid->query($query);
-    if ($result->num_rows <= 0) {
-        header("Location: bachecaAmicoEliminato.php?emailCorrente=arnaprdo@gmail.com.php");
-    } else {
-        $query = "SELECT * FROM amicizia 
-    WHERE (emailRichiedente = '$emailUtenteLoggato' AND emailRicevitore = '$emailAmico') OR 
-    (emailRichiedente = '$emailAmico' AND emailRicevitore = '$emailUtenteLoggato')";
-        $result = $cid->query($query);
-        if ($result->num_rows <= 0) {
-            header("Location: bachecaAmicoNonVisibile.php?emailCorrente=arnaprdo@gmail.com.php");
-        }
-    }
-}
-
-$emailUtenteLoggato = $_SESSION['email'];
-$query = "SELECT bloccante FROM utente WHERE email = '$emailUtenteLoggato'";
-$result = $cid->query($query);
-
-if ($result) {
-    $row = $result->fetch_assoc();
-    $bloccante = $row['bloccante'];
-    if ($bloccante === null) {
-    } else {
-        header("Location: homeBloccata.php");
-    }
-} else {
-    echo "Errore nella query: " . $cid->error;
 }
 ?>
 
@@ -61,15 +30,8 @@ if ($result) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/797b14a0a3.js" crossorigin="anonymous"></script>
     <script src="../javaScript/util.js"></script>
-    <script src="../javaScript/utilBacheca.js"></script>
     <script src="../javaScript/autocompleteBacheca.js"></script>
-    <script src="../javaScript/gestioneValutazioni.js"></script>
-    <script src="../javaScript/bloccaUtente.js"></script>
-    <script src="../javaScript/modalCommentoAmico.js"></script>
-    <script src="../javaScript/modalVisualize.js"></script>
-
-
-
+    <script src="../javaScript/gestioneValutazioneAmico.js"></script>
 </head>
 
 <body style="background: #eeeeee;">
@@ -122,49 +84,24 @@ if ($result) {
                 <!-- Sidebar sinistra -->
                 <div class="col-md-3 d-none d-md-block">
 
-                    <div class="left-sidebar">
-                        <!--  Amici  -->
-                        <div class="sidebar-title">
-                            <h4>Amici</h4>
-                        </div>
-                        <?php include "../backEnd/friendListAmico.php"; ?>
-                    </div>
                 </div>
 
                 <!-- Main Content -->
                 <div class="col-md-6">
                     <div class="main-content">
-                        <?php include "../backEnd/allPostsAmico.php"; ?>
+                        <div class="post-container">Hai appena eliminato il tuo amico, torna alla home</div>
                     </div>
                 </div>
 
                 <!-- Sidebar destra -->
                 <div class="col-md-3 d-none d-md-block">
-                    <div class="right-sidebar">
-                        <?php include "../backEnd/stampaElimina.php"; ?>
-                        <?php include "../backEnd/stampaBlocca.php"; ?>
-                        <?php include "../backEnd/stampaSblocca.php"; ?>
-                        <?php include "../backEnd/stampaStatisticheMessaggi.php"; ?>
 
-                        <div class="sidebar-title">
-                            <h4 style="margin-bottom: 0px;">Informazioni</h4>
-                        </div>
-                        <?php include "../backEnd/infoListAmico.php"; ?>
-                        <hr class="separator">
-                        <div class=" sidebar-title">
-                            <h4>Hobby</h4>
-                        </div>
-                        <?php include "../backEnd/hobbiesListAmico.php"; ?>
-                    </div>
                 </div>
             </div>
         </div>
         <footer class="container-fluid text-center p-3" style="background: transparent; color: #b9b9b9;">
             <p>&copy; 2023 Bloonci - All rights reserved</p>
         </footer>
-        <script>
-
-        </script>
 </body>
 
 </html>

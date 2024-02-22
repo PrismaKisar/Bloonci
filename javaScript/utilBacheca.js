@@ -84,3 +84,22 @@ function hobbyRemoved(hobby) {
         }
     });
 }
+
+function eliminaUtente(emailAmico) {
+    var dataToSend = {
+        emailAmico
+    };
+
+    $.ajax({
+        type: "POST",
+        url: "../backEnd/eliminaUtente.php",
+        data: dataToSend,
+        success: function(response) {
+            console.log(response);
+            location.reload();
+        },
+        error: function(error) {
+            console.error(error);
+        }
+    });
+}
