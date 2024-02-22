@@ -2,17 +2,12 @@
 require "../backEnd/dbConnection.php";
 session_start();
 
-$_SESSION['emailBacheca'] = $_GET['emailCorrente'];
-
 
 if (!isset($_SESSION['email'])) {
     header("Location: ../frontEnd/login.html");
     exit();
 }
 
-if ($_GET['emailCorrente'] == $_SESSION['email']) {
-    header("Location: bachecaPersonale.php");
-}
 ?>
 
 
