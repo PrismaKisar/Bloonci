@@ -69,10 +69,17 @@ function printCommenti($resultCommenti, $cid)
                 <div class="user-profile">
                   <div class="name-post" style="display: flex;">
                     <p style="padding-right: 10px;"><a href=>$nome $cognome </a></p>
-                    <p style="font-weight: 300;"> si riferisce al messaggio</p>
-                    <p style="padding-left: 10px;"><button class="gradisce-btn" onclick='referenceMessage({$IDMessaggio})'>$IDMessaggio</button>
-                  </div>
             END;
+
+            if (!is_null($IDMessaggio)) {
+                echo <<<END
+                <p style="font-weight: 300;"> si riferisce al messaggio</p>
+                <p style="padding-left: 10px;"><button class="gradisce-btn" onclick='referenceMessage({$IDMessaggio})'>$IDMessaggio</button>
+                END;
+            }
+            echo "</div>";
+
+
             if ($emailTemp == $emailUtenteLoggato) {
                 echo "<button class=remove-btn onclick='commentRemoved(\"{$IDCommento}\")'>rimuovi</button>";
             }
@@ -84,13 +91,13 @@ function printCommenti($resultCommenti, $cid)
                 <div class="post-footer">
                 <select class="rating-comment-dropdown">
                     <option disabled selected hidden>$selezione</option>
-                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="-3">-3</option>
-                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="-2">-2</option>
-                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="-1">-1</option>
-                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="0">0</option>
-                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="1">1</option>
-                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="2">2</option>
                     <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="3">3</option>
+                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="2">2</option>
+                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="1">1</option>
+                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="0">0</option>
+                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="-1">-1</option>
+                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="-2">-2</option>
+                    <option data-IDCommento="$IDCommento" data-email="$emailUtenteLoggato" value="-3">-3</option>
                 </select>
             </div>
             </div>
@@ -184,13 +191,13 @@ if ($result->num_rows > 0) {
             <div class="post-footer">
                 <select class="rating-dropdown">
                     <option disabled selected hidden>$selezione</option>
-                    <option value="-3" data-email="$email" data-timestamp="$timestamp">-3</option>
-                    <option value="-2" data-email="$email" data-timestamp="$timestamp">-2</option>
-                    <option value="-1" data-email="$email" data-timestamp="$timestamp">-1</option>
-                    <option value="0" data-email="$email" data-timestamp="$timestamp">0</option>
-                    <option value="1" data-email="$email" data-timestamp="$timestamp">1</option>
-                    <option value="2" data-email="$email" data-timestamp="$timestamp">2</option>
                     <option value="3" data-email="$email" data-timestamp="$timestamp">3</option>
+                    <option value="2" data-email="$email" data-timestamp="$timestamp">2</option>
+                    <option value="1" data-email="$email" data-timestamp="$timestamp">1</option>
+                    <option value="0" data-email="$email" data-timestamp="$timestamp">0</option>
+                    <option value="-1" data-email="$email" data-timestamp="$timestamp">-1</option>
+                    <option value="-2" data-email="$email" data-timestamp="$timestamp">-2</option>
+                    <option value="-3" data-email="$email" data-timestamp="$timestamp">-3</option>
                 </select>
                 <button class="open-comment-modal">Commenta</button>
                 <button class="open-visualize-modal">Guarda commenti</button>
