@@ -181,7 +181,7 @@ if ($result) {
                           </div>
                           <div style="display: flex">
                             <select id="province" class="form-select" name="province">
-                              <option value="">_______</option>';
+                              <option value=""></option>';
                 include "backEnd/getProvinces.php";
                 echo '</select>
                             <select id="birth_city" class="form-select" name="birth_city">';

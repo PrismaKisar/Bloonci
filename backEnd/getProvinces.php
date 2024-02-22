@@ -13,10 +13,8 @@ if (isset($_POST['city']) && $_POST['city'] !== "") {
 $result = $cid->query($sql);
 
 if ($result->num_rows > 0) {
-    echo '<option value="" selected hidden disabled>Provincia . . .</option>';
-
     if ($_POST['city'] === "") {
-        echo '<option value="">Provincia</option>';
+        echo '<option value=""></option>';
     }
     while ($row = $result->fetch_assoc()) {
         echo '<option value="' . $row['provincia'] . '">' . $row['provincia'] . '</option>';

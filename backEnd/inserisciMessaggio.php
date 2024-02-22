@@ -74,7 +74,6 @@ $timestamp = date('Y-m-d H:i:s');
 
 
 $sql = "SELECT MAX(IDMessaggio) AS MaxIDMessaggio FROM messaggio";
-var_dump($sql);
 $result = $cid->query($sql);
 
 $row = $result->fetch_assoc();
@@ -84,7 +83,7 @@ $IDMessaggio = $row["MaxIDMessaggio"] + 1;
 
 if ($tipo == "testo") {
     if ($città == "" && $provincia == "") {
-        $query = "INSERT INTO messaggio (IDMessaggio, email, timestamp, tipo, testo) VALUES ('$IDMessaggio', '$emailUtenteLoggato', '$timestamp', '$tipo', '$testo')";
+        $query = "INSERT INTO messaggio (IDMessaggio, email, timestamp, tipo, testo, provincia, città) VALUES ('$IDMessaggio', '$emailUtenteLoggato', '$timestamp', '$tipo', '$testo', NULL, NULL)";
         $result = $cid->query($query);
     } else {
         $query = "INSERT INTO messaggio (IDMessaggio, email, timestamp, tipo, testo, provincia, città) VALUES ('$IDMessaggio', '$emailUtenteLoggato', '$timestamp', '$tipo', '$testo', '$provincia', '$città')";
@@ -93,7 +92,7 @@ if ($tipo == "testo") {
 } else {
     $targetDirectory = substr($targetDirectory, 3);
     if ($città == "" && $provincia == "") {
-        $query = "INSERT INTO messaggio (IDMessaggio, email, timestamp, tipo, testo, nome, percorso) VALUES ('$IDMessaggio', '$emailUtenteLoggato', '$timestamp', '$tipo', '$testo', '$nuovoNome', '$targetDirectory')";
+        $query = "INSERT INTO messaggio (IDMessaggio, email, timestamp, tipo, testo, nome, percorso, provincia, città) VALUES ('$IDMessaggio', '$emailUtenteLoggato', '$timestamp', '$tipo', '$testo', '$nuovoNome', '$targetDirectory', NULL, NULL)";
         var_dump($query);
         $result = $cid->query($query);
     } else {
