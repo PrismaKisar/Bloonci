@@ -1,5 +1,5 @@
 <?php
-// Includi il file di connessione al database
+
 require "dbConnection.php";
 
 function everyFriendPost($cid)

@@ -1,7 +1,11 @@
 <?php
+
 require "../backEnd/dbConnection.php";
 
+
 session_start();
+
+// Recupera l'email dell'utente loggato dalla sessione
 $emailUtenteLoggato = $_SESSION['email'];
 
 // Ottieni i dati inviati tramite POST dal form

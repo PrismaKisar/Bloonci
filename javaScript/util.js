@@ -32,9 +32,15 @@ function friendshipDenied(emailUtente, emailAmico) {
         emailAmico: emailAmico
     };
 
+    if (window.location.pathname.includes("frontEnd")) {
+        url = '../backEnd/friendshipDenied.php';
+    } else {
+        url = 'backEnd/friendshipDenied.php';
+    }
+
     $.ajax({
         type: "POST",
-        url: 'backEnd/friendshipDenied.php',
+        url: url,
         data: dataToSend,
         success: function(response) {
             console.log(response);
@@ -52,9 +58,15 @@ function friendshipRemoved(emailUtente, emailAmico) {
         emailAmico: emailAmico
     };
 
+
+    if (window.location.pathname.includes("frontEnd")) {
+        url = '../backEnd/friendshipRemoved.php';
+    } else {
+        url = 'backEnd/friendshipRemoved.php';
+    }
     $.ajax({
         type: "POST",
-        url: 'backEnd/friendshipRemoved.php',
+        url: url,
         data: dataToSend,
         success: function(response) {
             console.log(response);

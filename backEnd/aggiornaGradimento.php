@@ -1,20 +1,23 @@
 <?php
+
 require "../backEnd/dbConnection.php";
+
 session_start();
 
+// Recupera l'email dell'utente loggato dalla sessione
 $emailUtenteLoggato = $_SESSION['email'];
+
 $gradimento = $_POST['gradimento'];
 $emailGradimento = $_POST['emailGradimento'];
 $IDCommento = $_POST['IDCommento'];
 
-
+// Query per verificare se l'utente ha già valutato il commento
 $query = "SELECT * FROM gradimento WHERE 
     IDCommento = '$IDCommento' AND 
     emailGradimento = '$emailUtenteLoggato'";
 $result = $cid->query($query);
 
-
-
+// Se l'utente ha già valutato il commento, aggiorna la valutazione esistente
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $IDgradimento = $row['IDGradimento'];
@@ -24,6 +27,7 @@ if ($result->num_rows > 0) {
         VALUES ('$IDgradimento', '$IDCommento', '$gradimento', '$emailUtenteLoggato')";
     $result = $cid->query($query);
 } else {
+    // Se l'utente non ha ancora valutato il commento, inserisce una nuova valutazione
     $query = "SELECT MAX(IDGradimento) AS maxID FROM gradimento";
     $result = $cid->query($query);
     $row = $result->fetch_assoc();
@@ -32,7 +36,6 @@ if ($result->num_rows > 0) {
         VALUES ('$IDgradimento', '$IDCommento', '$gradimento', '$emailUtenteLoggato')";
     $result = $cid->query($query);
 }
-
 
 // Calcola il valore medio delle valutazioni per il messaggio corrente
 $query = "SELECT AVG(g.indiceGradimento) AS media_totale_gradimenti
@@ -46,8 +49,6 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $valoreMedio = (int) $row["media_totale_gradimenti"] - 4;
 }
-
-
 
 // Calcola la nuova rispettabilità in base al valore medio
 $nuovaRispettabilità = calcolaNuovaRispettabilità($valoreMedio);
@@ -89,5 +90,3 @@ function calcolaNuovaRispettabilità($valoreMedio)
         return 0;
     }
 }
-
-
