@@ -77,9 +77,6 @@ function printCommenti($resultCommenti, $cid)
 // Ottieni l'email dell'utente loggato
 $emailUtenteLoggato = $_SESSION['email'];
 
-// Ottieni l'email del profilo corrente dalla query string
-$emailCorrente = mysqli_real_escape_string($cid, $_GET['emailCorrente']);
-
 // Query per selezionare i messaggi dell'utente corrente
 $query = "SELECT m.*, u.nome AS nome_amico, u.cognome AS cognome_amico
           FROM messaggio AS m
@@ -103,6 +100,8 @@ if ($result->num_rows > 0) {
         $nome = $row['nome'];
         $nomeAmico = $row['nome_amico'];
         $cognomeAmico = $row['cognome_amico'];
+        $città = $row['città'];
+        $provincia = $row['provincia'];
 
         $resultCommenti = getCommenti($email, $timestamp, $cid);
 
@@ -154,7 +153,7 @@ if ($result->num_rows > 0) {
         if ($tipo == "foto") {
             $nome = $row['nome'];
             $percorso = $row['percorso'];
-            echo "<img src='$percorso$nome' class='post-img'>";
+            echo "<img src='../$percorso$nome' class='post-img'>";
         }
 
         // Stampa il footer del post
