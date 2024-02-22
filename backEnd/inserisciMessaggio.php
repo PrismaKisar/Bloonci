@@ -72,22 +72,32 @@ $tipo = $cid->real_escape_string($tipo);
 // Timestamp
 $timestamp = date('Y-m-d H:i:s');
 
+
+$sql = "SELECT MAX(IDMessaggio) AS MaxIDMessaggio FROM messaggio";
+var_dump($sql);
+$result = $cid->query($sql);
+
+$row = $result->fetch_assoc();
+$IDMessaggio = $row["MaxIDMessaggio"] + 1;
+
+
+
 if ($tipo == "testo") {
     if ($città == "" && $provincia == "") {
-        $query = "INSERT INTO messaggio (email, timestamp, tipo, testo) VALUES ('$emailUtenteLoggato', '$timestamp', '$tipo', '$testo')";
+        $query = "INSERT INTO messaggio (IDMessaggio, email, timestamp, tipo, testo) VALUES ('$IDMessaggio', '$emailUtenteLoggato', '$timestamp', '$tipo', '$testo')";
         $result = $cid->query($query);
     } else {
-        $query = "INSERT INTO messaggio (email, timestamp, tipo, testo, provincia, città) VALUES ('$emailUtenteLoggato', '$timestamp', '$tipo', '$testo', '$provincia', '$città')";
+        $query = "INSERT INTO messaggio (IDMessaggio, email, timestamp, tipo, testo, provincia, città) VALUES ('$IDMessaggio', '$emailUtenteLoggato', '$timestamp', '$tipo', '$testo', '$provincia', '$città')";
         $result = $cid->query($query);
     }
 } else {
     $targetDirectory = substr($targetDirectory, 3);
     if ($città == "" && $provincia == "") {
-        $query = "INSERT INTO messaggio (email, timestamp, tipo, testo, nome, percorso) VALUES ('$emailUtenteLoggato', '$timestamp', '$tipo', '$testo', '$nuovoNome', '$targetDirectory')";
+        $query = "INSERT INTO messaggio (IDMessaggio, email, timestamp, tipo, testo, nome, percorso) VALUES ('$IDMessaggio', '$emailUtenteLoggato', '$timestamp', '$tipo', '$testo', '$nuovoNome', '$targetDirectory')";
         var_dump($query);
         $result = $cid->query($query);
     } else {
-        $query = "INSERT INTO messaggio (email, timestamp, tipo, testo, nome, percorso, provincia, città) VALUES ('$emailUtenteLoggato', '$timestamp', '$tipo', '$testo', '$nuovoNome', '$targetDirectory', '$provincia', '$città')";
+        $query = "INSERT INTO messaggio (IDMessaggio, email, timestamp, tipo, testo, nome, percorso, provincia, città) VALUES ('$IDMessaggio', '$emailUtenteLoggato', '$timestamp', '$tipo', '$testo', '$nuovoNome', '$targetDirectory', '$provincia', '$città')";
         var_dump($query);
         $result = $cid->query($query);
     }
