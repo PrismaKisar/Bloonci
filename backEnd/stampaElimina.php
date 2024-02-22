@@ -1,6 +1,5 @@
 <?php
 require "dbConnection.php";
-session_start();
 
 $emailUtenteLoggato = $_SESSION['email'];
 $emailAmico = $_SESSION['emailBacheca'];

@@ -1,6 +1,5 @@
 <?php
 require "../backEnd/dbConnection.php";
-session_start();
 
 // Funzione per ottenere le statistiche dei messaggi dell'utente nell'ultima settimana
 function getMessagesStatistics($cid, $emailUtente)
