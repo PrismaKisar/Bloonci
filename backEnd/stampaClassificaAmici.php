@@ -1,6 +1,5 @@
 <?php
 require "dbConnection.php";
-session_start();
 
 $emailUtenteLoggato = $_SESSION['email'];
 $query = "SELECT u.email, u.nome, u.cognome, COUNT(DISTINCT c.IDCommento) AS num_commenti_positivi

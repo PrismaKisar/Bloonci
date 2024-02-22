@@ -2,9 +2,6 @@
 // Includi il file per la connessione al database
 require "dbConnection.php";
 
-// Avvia la sessione
-session_start();
-
 // Funzione per ottenere i commenti relativi a un determinato messaggio
 function getCommenti($emailMessaggio, $timestampMessaggio, $cid)
 {

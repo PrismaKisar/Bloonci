@@ -2,9 +2,6 @@
 // Includi il file di connessione al database
 require "dbConnection.php";
 
-// Inizia la sessione
-session_start();
-
 function everyFriendPost($cid)
 {
     $emailUtenteLoggato = $_SESSION['email'];
